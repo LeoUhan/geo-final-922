@@ -7450,6 +7450,13 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .ob157-add-actions .secondary-button,.ob157-add-actions .primary-button{min-height:34px;padding:0 13px;font-size:11px;border-radius:8px}
 </style>
 
+<style id="prototype-monitoring-options-v1">
+.ob57-platform.is-unavailable{background:#f8fafc;border-color:#e8ebf0;cursor:not-allowed;}
+.ob57-platform.is-unavailable .ob58-platform-name{color:#98a2b3;}
+.ob57-platform.is-unavailable .ob58-platform-logo{opacity:.55;background:#f8fafc;}
+.ob58-unavailable-tag{margin-left:auto;color:#98a2b3;font-size:10px;white-space:nowrap;}
+.ob57-platform.is-unavailable input{display:none;}
+</style>
 </head>
   <body>
 
@@ -7492,7 +7499,6 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
                     <div><h4>品牌信息</h4><p>APW · 工业水刀切割系统与解决方案品牌</p></div>
                     <button class="ob58-edit" type="button" data-action="open-config-editor" data-config-section="brand" data-config-item="品牌信息">编辑</button>
                   </div>
-                  <div class="meta">品牌名称* · 主营行业* · 品牌定位* · 品牌别名</div>
                 </div>
                 <div class="ob58-summary-card">
                   <div class="num">02</div>
@@ -7500,7 +7506,6 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
                     <div><h4>核心产品</h4><p>五轴水刀切割系统 · CFRP / 航空复材切割</p></div>
                     <button class="ob58-edit" type="button" data-action="open-config-editor" data-config-section="brand" data-config-item="核心产品">编辑</button>
                   </div>
-                  <div class="meta">至少 1 条产品线 · 核心产品* · 使用场景* · 是否是主推产品</div>
                 </div>
                 <div class="ob58-summary-card">
                   <div class="num">03</div>
@@ -7508,7 +7513,6 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
                     <div><h4>市场与语言</h4><p><span id="ob129-market-summary">德国</span> · <span id="ob133-language-summary">德语</span></p></div>
                     <button class="ob58-edit" type="button" data-action="open-config-editor" data-config-section="brand" data-config-item="市场与语言">编辑</button>
                   </div>
-                  <div class="meta">目标市场* · 语言*</div>
                 </div>
                 <div class="ob58-summary-card">
                   <div class="num">04</div>
@@ -7516,7 +7520,6 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
                     <div><h4>竞争对手</h4><p id="ob134-competitor-summary">待确认 · 至少加入 1 个竞品</p></div>
                     <button class="ob58-edit" type="button" data-action="open-config-editor" data-config-section="brand" data-config-item="竞争对手">编辑</button>
                   </div>
-                  <div class="meta">竞品名称* · 竞品域名* · 竞品别名 · 竞争说明</div>
                 </div>
               </div>
               <div class="ob58-brand-detail" id="ob58-brand-detail" hidden>
@@ -7609,16 +7612,15 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
             <div class="ob58-guide-step" data-ob57-step-indicator="4"><i>4</i><span>开始监测</span></div>
           </div>
         </div>
-            <div class="ob57-section"><div class="ob57-section-head"><div><div class="ob75-section-title"><h3>采集频率</h3><span class="ob73-help-wrap"><button class="ob73-help-btn ob75-mini-help" type="button" aria-label="查看采集频率说明">i</button><span class="ob73-help-pop">只需选择频率，具体采集日期与执行时间由系统固定</span></span></div></div><span class="ob57-pill">可调整</span></div><div class="ob57-grid"><div class="ob57-field full"><label>采集频率</label><div class="ob57-frequency"><label><input type="radio" name="ob57freq" value="daily" checked><span>每日</span></label><label><input type="radio" name="ob57freq" value="weekly"><span>每周</span></label><label><input type="radio" name="ob57freq" value="monthly"><span>每月</span></label></div></div></div><div class="ob58-fixed-schedule"><span>系统执行规则</span><strong id="ob58-fixed-rule">每日按系统固定时间自动采集</strong></div></div>
-            <div class="ob57-section"><div class="ob57-section-head"><div><div class="ob75-section-title"><h3>AI 平台</h3><span class="ob73-help-wrap"><button class="ob73-help-btn ob75-mini-help" type="button" aria-label="查看 AI 平台说明">i</button><span class="ob73-help-pop">选择首次监测需要采集的平台</span></span></div></div><span class="ob57-pill">6 个平台</span></div><div class="ob57-grid"><div class="ob57-field full"><div class="ob57-platforms">
-              <label class="ob57-platform"><span class="ob58-platform-logo"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="#111827" stroke-width="2"/><path d="M8 12h8M12 8v8" stroke="#111827" stroke-width="2"/></svg></span><span class="ob58-platform-name">ChatGPT</span><input class="ob57-check" type="checkbox" checked></label><label class="ob57-platform"><span class="ob58-platform-logo"><svg viewBox="0 0 24 24"><path d="M6 5l6 5 6-5v14l-6-5-6 5z" fill="none" stroke="#111827" stroke-width="1.8"/></svg></span><span class="ob58-platform-name">Perplexity</span><input class="ob57-check" type="checkbox" checked></label><label class="ob57-platform"><span class="ob58-platform-logo"><svg viewBox="0 0 24 24"><path d="M12 3c1.1 4.6 3.4 6.9 8 8-4.6 1.1-6.9 3.4-8 8-1.1-4.6-3.4-6.9-8-8 4.6-1.1 6.9-3.4 8-8z" fill="#4285f4"/></svg></span><span class="ob58-platform-name">Google AI</span><input class="ob57-check" type="checkbox" checked></label><label class="ob57-platform"><span class="ob58-platform-logo"><svg viewBox="0 0 24 24"><path d="M12 2c1.3 5.8 4.2 8.7 10 10-5.8 1.3-8.7 4.2-10 10C10.7 16.2 7.8 13.3 2 12 7.8 10.7 10.7 7.8 12 2z" fill="#6b6ff5"/></svg></span><span class="ob58-platform-name">Gemini</span><input class="ob57-check" type="checkbox" checked></label><label class="ob57-platform"><span class="ob58-platform-logo"><svg viewBox="0 0 24 24"><path d="M12 4v16M4 12h16M6.3 6.3l11.4 11.4M17.7 6.3L6.3 17.7" stroke="#d97757" stroke-width="2.2" stroke-linecap="round"/></svg></span><span class="ob58-platform-name">Claude</span><input class="ob57-check" type="checkbox" checked></label><label class="ob57-platform"><span class="ob58-platform-logo"><svg viewBox="0 0 24 24"><path d="M12 3l2.2 5.1L20 10l-5.1 2.2L13 18l-2.2-5.1L5 11l5.1-2.2z" fill="#4285f4"/><circle cx="18" cy="5" r="2" fill="#ea4335"/></svg></span><span class="ob58-platform-name">AI Mode</span><input class="ob57-check" type="checkbox" checked></label>
+            <div class="ob57-section"><div class="ob57-section-head"><div><div class="ob75-section-title"><h3>采集频率</h3><span class="ob73-help-wrap"><button class="ob73-help-btn ob75-mini-help" type="button" aria-label="查看采集频率说明">i</button><span class="ob73-help-pop">只需选择频率，具体采集日期与执行时间由系统固定</span></span></div></div><span class="ob57-pill">可调整</span></div><div class="ob57-grid"><div class="ob57-field full"><label>采集频率</label><div class="ob57-frequency"><label><input type="radio" name="ob57freq" value="weekly" checked><span>每周</span></label><label><input type="radio" name="ob57freq" value="monthly"><span>每月</span></label><label><input type="radio" name="ob57freq" value="quarterly"><span>每季度</span></label></div></div></div><div class="ob58-fixed-schedule"><span>系统执行规则</span><strong id="ob58-fixed-rule">每周按系统固定采集日与时间自动采集</strong></div></div>
+            <div class="ob57-section"><div class="ob57-section-head"><div><div class="ob75-section-title"><h3>AI 平台</h3><span class="ob73-help-wrap"><button class="ob73-help-btn ob75-mini-help" type="button" aria-label="查看 AI 平台说明">i</button><span class="ob73-help-pop">选择首次监测需要采集的平台</span></span></div></div><span class="ob57-pill">5 个可选</span></div><div class="ob57-grid"><div class="ob57-field full"><div class="ob57-platforms">
+              <label class="ob57-platform"><span class="ob58-platform-logo"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="#111827" stroke-width="2"/><path d="M8 12h8M12 8v8" stroke="#111827" stroke-width="2"/></svg></span><span class="ob58-platform-name">ChatGPT</span><input class="ob57-check" type="checkbox" value="ChatGPT" checked></label><label class="ob57-platform"><span class="ob58-platform-logo"><svg viewBox="0 0 24 24"><path d="M6 5l6 5 6-5v14l-6-5-6 5z" fill="none" stroke="#111827" stroke-width="1.8"/></svg></span><span class="ob58-platform-name">Perplexity</span><input class="ob57-check" type="checkbox" value="Perplexity" checked></label><label class="ob57-platform"><span class="ob58-platform-logo"><svg viewBox="0 0 24 24"><path d="M12 3c1.1 4.6 3.4 6.9 8 8-4.6 1.1-6.9 3.4-8 8-1.1-4.6-3.4-6.9-8-8 4.6-1.1 6.9-3.4 8-8z" fill="#4285f4"/></svg></span><span class="ob58-platform-name">Google AI</span><input class="ob57-check" type="checkbox" value="Google AI" checked></label><label class="ob57-platform"><span class="ob58-platform-logo"><svg viewBox="0 0 24 24"><path d="M12 2c1.3 5.8 4.2 8.7 10 10-5.8 1.3-8.7 4.2-10 10C10.7 16.2 7.8 13.3 2 12 7.8 10.7 10.7 7.8 12 2z" fill="#6b6ff5"/></svg></span><span class="ob58-platform-name">Gemini</span><input class="ob57-check" type="checkbox" value="Gemini" checked></label><label class="ob57-platform"><span class="ob58-platform-logo"><svg viewBox="0 0 24 24"><path d="M12 3l2.2 5.1L20 10l-5.1 2.2L13 18l-2.2-5.1L5 11l5.1-2.2z" fill="#4285f4"/><circle cx="18" cy="5" r="2" fill="#ea4335"/></svg></span><span class="ob58-platform-name">AI Mode</span><input class="ob57-check" type="checkbox" value="AI Mode" checked></label><label class="ob57-platform is-unavailable" aria-disabled="true" title="本期暂未开放"><span class="ob58-platform-logo"><svg viewBox="0 0 24 24"><path d="M12 4v16M4 12h16M6.3 6.3l11.4 11.4M17.7 6.3L6.3 17.7" stroke="#d97757" stroke-width="2.2" stroke-linecap="round"/></svg></span><span class="ob58-platform-name">Claude</span><span class="ob58-unavailable-tag">本期暂不开放</span><input class="ob57-check" type="checkbox" value="Claude" disabled></label>
             </div></div></div></div>
-            <div class="ob57-section"><div class="ob57-section-head"><div><div class="ob75-section-title"><h3>首次监测已准备完成</h3><span class="ob73-help-wrap"><button class="ob73-help-btn ob75-mini-help" type="button" aria-label="查看首次监测说明">i</button><span class="ob73-help-pop">以下配置将直接作为正式监测口径</span></span></div></div><span class="ob57-pill">准备就绪</span></div><div class="ob57-ready"><div><span>目标市场</span><strong data-ob129-current-market>德国</strong></div><div><span>回答语言</span><strong data-ob133-current-language>德语</strong></div><div><span>品牌知识</span><strong>8 个维度</strong></div><div><span>买家人设</span><strong>6 类</strong></div><div><span>监测问题</span><strong>67 条</strong></div><div><span>AI 平台</span><strong>6 个</strong></div><div><span>采集频率</span><strong id="ob57-ready-frequency">每日</strong></div></div></div>
           </section>
         </div>
       </main>
     </div>
-    <footer class="ob57-footer"><div class="ob57-footer-inner"><span class="ob57-progress" id="ob57-progress">1 / 4 · 品牌知识</span><div class="ob57-actions"><button class="ob57-btn secondary ob72-skip-footer" type="button" data-ob57-action="skip">暂时跳过，查看结果态</button><button class="ob57-btn secondary" id="ob57-back" type="button" data-ob57-action="back" hidden>上一步</button><button class="ob57-btn primary" id="ob57-next" type="button" data-ob57-action="next">确认品牌知识，下一步</button></div></div></footer>
+    <footer class="ob57-footer"><div class="ob57-footer-inner"><span class="ob57-progress" id="ob57-progress">1 / 4 · 品牌知识</span><div class="ob57-actions"><button class="ob57-btn secondary" id="ob57-back" type="button" data-ob57-action="back" hidden>上一步</button><button class="ob57-btn primary" id="ob57-next" type="button" data-ob57-action="next">确认品牌知识，下一步</button></div></div></footer>
   </div>
 
     <div class="prototype-ribbon" aria-hidden="true">原型演示数据</div>
@@ -8051,13 +8053,12 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
           <section class="workbench-section v23-work-queue-section v51-work-queue">
             <div class="section-heading">
               <div>
-                <h2 id="queue-section-title">③ Agent 工作队列 <button type="button" class="info-badge" id="queue-section-desc" data-info="聚合「诊断与策略」和「优化中心」中 Agent 正在执行或需要你确认的事项" aria-label="查看工作队列说明">ⓘ</button></h2>
+                <h2 id="queue-section-title">③ Agent 工作队列 <button type="button" class="info-badge" id="queue-section-desc" data-info="聚合需要客户确认或运营处理的事项；不同角色看到相同事项及对应的责任状态" aria-label="查看工作队列说明">ⓘ</button></h2>
               </div>
             </div>
             <div class="v51-queue-shell">
               <div class="v51-queue-tabs" role="tablist" aria-label="工作队列类型">
-                <button type="button" class="v51-queue-tab is-active" data-v51-queue-tab="pending" role="tab" aria-selected="true">待确认事项 <span>2</span></button>
-                <button type="button" class="v51-queue-tab" data-v51-queue-tab="running" role="tab" aria-selected="false">运行中事项 <span>3</span></button>
+                <button type="button" class="v51-queue-tab is-active" data-v51-queue-tab="pending" role="tab" aria-selected="true">待确认事项 <span>4</span></button>
                 <span class="v51-data-source v52-tabs-source">数据源：诊断与策略 + 优化中心</span>
               </div>
 
@@ -8093,39 +8094,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
                 <div class="v51-queue-footer"><span>客户当前有 2 项需要处理</span><span>排序：逾期 → P0 → 今日到期 → P1 → P2</span></div>
               </div>
 
-              <div class="v51-queue-panel" data-v51-queue-panel="running" id="queue-running-panel" hidden>
-                <article class="v51-queue-row v51-running-row">
-                  <div class="v51-queue-main">
-                    <div class="v51-tag-row"><span class="v51-tag p1">P1</span><span class="v51-tag agent">Agent</span><span class="v51-tag source">优化中心</span></div>
-                    <strong class="v51-item-title">德国 Tier-1 采购问答内容</strong>
-                    <p>Agent 正在生成正文并补充权威来源。</p>
-                    <div class="v51-link-row"><span>Agent 执行中</span></div>
-                  </div>
-                  <div class="v51-next-card"><span>当前动作</span><strong>内容生成</strong><small>下一步：自动质检</small></div>
-                  <div class="v51-row-actions"><button type="button" class="secondary-button">查看来源</button></div>
-                </article>
-                <article class="v51-queue-row v51-running-row">
-                  <div class="v51-queue-main">
-                    <div class="v51-tag-row"><span class="v51-tag p0">P0</span><span class="v51-tag agent">Agent</span><span class="v51-tag source">优化中心</span></div>
-                    <strong class="v51-item-title">官网结构化数据修复</strong>
-                    <p>AI 官网协同正在执行 Product / FAQ Schema 修复。</p>
-                    <div class="v51-link-row"><span>AI 官网协同</span></div>
-                  </div>
-                  <div class="v51-next-card"><span>当前动作</span><strong>Schema 修复</strong><small>下一步：自动验证</small></div>
-                  <div class="v51-row-actions"><button type="button" class="secondary-button">查看来源</button></div>
-                </article>
-                <article class="v51-queue-row v51-running-row">
-                  <div class="v51-queue-main">
-                    <div class="v51-tag-row"><span class="v51-tag p2">P2</span><span class="v51-tag agent">Agent</span><span class="v51-tag source">优化中心</span></div>
-                    <strong class="v51-item-title">碳纤维方案页 Re-check</strong>
-                    <p>已发布，Agent 正在重新采样并计算品牌可见率变化。</p>
-                    <div class="v51-link-row"><span>Re-check</span></div>
-                  </div>
-                  <div class="v51-next-card"><span>当前动作</span><strong>效果重采样</strong><small>下一步：生成效果对比</small></div>
-                  <div class="v51-row-actions"><button type="button" class="secondary-button">查看来源</button></div>
-                </article>
-                <div class="v51-queue-footer"><span>当前有 3 项正在执行</span><span>排序：逾期 → P0 → 今日到期 → P1 → P2</span></div>
-              </div>
+
             </div>
           </section>
 
@@ -8434,7 +8403,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
                 <div class="sampling-cadence-grid">
                   <div class="sampling-cadence-item">
                     <span class="sampling-cadence-label">监测节奏</span>
-                    <strong data-settings-time>每日 05:00</strong>
+                    <strong data-settings-time>每周一 05:00</strong>
                     <small>按当前监测配置执行</small>
                   </div>
                   <div class="sampling-cadence-item">
@@ -8473,7 +8442,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
                   <div class="iab-benchmark-item"><span id="sampling-criteria-sample-check" class="iab-benchmark-check">✓</span><span class="iab-benchmark-label">单个问题的重复采集</span><span id="sampling-criteria-sample-value" class="iab-benchmark-value">累计 1,200 次观测；有效返回 1,169 次</span></div>
                   <div class="iab-benchmark-item"><span id="sampling-criteria-intent-check" class="iab-benchmark-check">✓</span><span class="iab-benchmark-label">问题集规模与多样性</span><span id="sampling-criteria-intent-value" class="iab-benchmark-value">67 个问题；覆盖 4 类意图</span></div>
                   <div class="iab-benchmark-item"><span id="sampling-criteria-cadence-check" class="iab-benchmark-check">✓</span><span class="iab-benchmark-label">意图类型覆盖</span><span id="sampling-criteria-cadence-value" class="iab-benchmark-value">4 类意图已纳入当前口径；结果可按意图拆分</span></div>
-                  <div class="iab-benchmark-item"><span id="sampling-criteria-stability-check" class="iab-benchmark-check">✓</span><span class="iab-benchmark-label">监测节奏</span><span id="sampling-criteria-stability-value" class="iab-benchmark-value">每日监测；按当前监测配置执行</span></div>
+                  <div class="iab-benchmark-item"><span id="sampling-criteria-stability-check" class="iab-benchmark-check">✓</span><span class="iab-benchmark-label">监测节奏</span><span id="sampling-criteria-stability-value" class="iab-benchmark-value">按周、月或季度计划执行；按当前监测配置执行</span></div>
                   <div class="iab-benchmark-item"><span id="sampling-criteria-engines-check" class="iab-benchmark-check">✓</span><span class="iab-benchmark-label">可复现性</span><span id="sampling-criteria-engines-value" class="iab-benchmark-value">7 日复现波动 ±3.1pp；当前周期可复现</span></div>
                   <div class="iab-benchmark-item"><span id="sampling-criteria-collection-check" class="iab-benchmark-check">✓</span><span class="iab-benchmark-label">平台与基线</span><span id="sampling-criteria-collection-value" class="iab-benchmark-value">5 个平台分别展示；按当前口径建立基线</span></div>
                 </div>
@@ -8496,7 +8465,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
                   <div><strong>会话：</strong>每次采样使用全新会话，不带登录态与个性化历史。</div>
                   <div><strong>地区与语言：</strong>按本轮监测市场与语言执行统一采样。</div>
                   <div><strong>采集方式：</strong>真实模拟用户方式采集，记录用户实际看到的回答。</div>
-                  <div><strong>频率：</strong>按当前监测配置执行，本期为每日监测。</div>
+                  <div><strong>频率：</strong>按当前监测配置执行，本期按每周或每月计划监测。</div>
                   <div><strong>判定：</strong>统一判定品牌提及、推荐、引用与情感，周期内口径保持一致。</div>
                   <div><strong>失败处理：</strong>无有效回答不计入分母；有效返回不足时标记样本不足。</div>
                 </div>
@@ -8683,25 +8652,25 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
               <section class="report-section" aria-labelledby="report-cadence-title">
                 <div class="report-section-heading">
                   <div>
-                    <h2 id="report-cadence-title">周期监测与报告 <button type="button" class="info-badge" data-info="周期监测频率与报告周期分开：系统可按日、周或月自动采集，但正式周期报告仅生成周报、月报与季报。" aria-label="查看报告生成规则说明">ⓘ</button></h2>
+                    <h2 id="report-cadence-title">周期监测与报告 <button type="button" class="info-badge" data-info="周期监测频率与报告周期分开：系统可按周、月或季度采集，对应形成周报、月报或季报。" aria-label="查看报告生成规则说明">ⓘ</button></h2>
                   </div>
-                  <span class="report-section-note">当前配置：每日</span>
+                  <span class="report-section-note">当前配置：每周</span>
                 </div>
                 <div class="report-cadence-grid">
                   <article class="report-cadence-item is-current">
-                    <div class="report-cadence-head"><span>每日监测</span><span class="report-cadence-current">当前</span></div>
+                    <div class="report-cadence-head"><span>每周监测</span><span class="report-cadence-current">当前</span></div>
                     <strong>周报 + 月报 + 季报</strong>
-                    <p>每日持续采集，但正式报告从周度开始生成；当前快照在概览与可见性监测中查看。</p>
-                  </article>
-                  <article class="report-cadence-item">
-                    <div class="report-cadence-head"><span>每周监测</span></div>
-                    <strong>周报 + 月报 + 季报</strong>
-                    <p>周报用于阶段汇报，月报与季报用于更长周期复盘。</p>
+                    <p>按周计划采集，正式报告从周度开始生成；当前快照在概览与可见性监测中查看。</p>
                   </article>
                   <article class="report-cadence-item">
                     <div class="report-cadence-head"><span>每月监测</span></div>
                     <strong>月报 + 季报</strong>
-                    <p>以月度结果为主，并在季度周期形成汇总报告。</p>
+                    <p>按月采集形成月报，并在季度周期汇总；不补造周报。</p>
+                  </article>
+                  <article class="report-cadence-item">
+                    <div class="report-cadence-head"><span>每季度监测</span></div>
+                    <strong>季报</strong>
+                    <p>每季度按计划采集，生成季度汇总报告。</p>
                   </article>
                 </div>
               </section>
@@ -9299,11 +9268,12 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
         let activeMonitorMode = 'results';
         let activeMonitorConfigTab = 'brand';
         const pendingMonitorChanges = { brand: true, persona: true, questions: true };
-        let samplingFrequency = 'daily';
+        let samplingFrequency = 'weekly';
         let samplingTime = '05:00';
         let samplingWeekday = '1';
         let samplingMonthday = '1';
-        let selectedSamplingPlatforms = ['ChatGPT', 'Perplexity', 'Google AI', 'Gemini', 'Claude', 'AI Mode'];
+        let samplingQuarterday = '1';
+        let selectedSamplingPlatforms = ['ChatGPT', 'Perplexity', 'Google AI', 'Gemini', 'AI Mode'];
 
         function escapeHtml(value) {
           return String(value).replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
@@ -10034,7 +10004,7 @@ updateMonitorPendingUI();
                 <label class="config-editor-field"><span>竞品名称<span class="v134-required">*</span></span><input type="text" aria-label="竞品 ${index} · 竞品名称"></label>
                 <label class="config-editor-field"><span>竞品域名<span class="v134-required">*</span></span><input type="text" aria-label="竞品 ${index} · 竞品域名"></label>
                 <label class="config-editor-field config-editor-field-full"><span>竞品别名</span><input type="text" aria-label="竞品 ${index} · 竞品别名"></label>
-                <label class="config-editor-field config-editor-field-full"><span>竞争说明</span><textarea rows="2" aria-label="竞品 ${index} · 竞争说明"></textarea></label>
+                <label class="config-editor-field config-editor-field-full"><span>竞品介绍</span><textarea rows="2" aria-label="竞品 ${index} · 竞品介绍"></textarea></label>
               </div>`;
           }
           list.appendChild(card);
@@ -10386,13 +10356,11 @@ updateMonitorPendingUI();
                       <div class="step1-market-card-head"><strong>目标市场 <span class="v134-required">*</span></strong><span class="step1-sync-pill">已同步</span></div>
                       <div class="step1-select-wrap"><select id="ob129-market-select" aria-label="目标市场"><option value="de">德国（主市场）</option><option value="us">美国</option><option value="jp">日本</option></select></div>
                       <div class="step1-card-desc">选择品牌主要面向的国家或地区，将影响内容的市场视角。</div>
-                      <div class="step1-source">来源：独立站超级智能体</div>
                     </article>
                     <article class="step1-market-card">
                       <div class="step1-market-card-head"><strong>语言 <span class="v134-required">*</span></strong><span class="step1-sync-pill">已同步</span></div>
                       <div class="step1-select-wrap"><select id="ob133-language-select" aria-label="语言"><option value="de">德语</option><option value="en">英语</option><option value="ja">日语</option></select></div>
                       <div class="step1-card-desc">选择内容生成语言，将用于后续内容生成、监测与优化。</div>
-                      <div class="step1-source">来源：独立站超级智能体</div>
                     </article>
                   </div>
                 </section>
@@ -10415,13 +10383,13 @@ updateMonitorPendingUI();
                         <div class="label">竞品名称 <span class="v134-required">*</span></div><div class="value">Flow International</div>
                         <div class="label">竞品域名 <span class="v134-required">*</span></div><div class="value">flowwaterjet.com</div>
                         <div class="label">竞品别名</div><div class="value">Flow · Flow Waterjet</div>
-                        <div class="label">竞争说明</div><div class="value">同属工业水刀设备，覆盖五轴切割与复材加工场景。</div>
+                        <div class="label">竞品介绍</div><div class="value">同属工业水刀设备，覆盖五轴切割与复材加工场景。</div>
                       </div>
                       <div style="display:none" class="config-editor-field-grid">
                         <label class="config-editor-field"><span>竞品名称<span class="v134-required">*</span></span><input type="text" value="Flow International"></label>
                         <label class="config-editor-field"><span>竞品域名<span class="v134-required">*</span></span><input type="text" value="flowwaterjet.com"></label>
                         <label class="config-editor-field config-editor-field-full"><span>竞品别名</span><input type="text" value="Flow · Flow Waterjet"></label>
-                        <label class="config-editor-field config-editor-field-full"><span>竞争说明</span><textarea rows="2">同属工业水刀设备，覆盖五轴切割与复材加工场景。</textarea></label>
+                        <label class="config-editor-field config-editor-field-full"><span>竞品介绍</span><textarea rows="2">同属工业水刀设备，覆盖五轴切割与复材加工场景。</textarea></label>
                       </div>
                     </article>
                   </div>
@@ -10435,7 +10403,7 @@ updateMonitorPendingUI();
                           <dt>竞品名称</dt><dd>OMAX</dd>
                           <dt>竞品域名</dt><dd>omax.com</dd>
                           <dt>竞品别名</dt><dd>OMAX Waterjet</dd>
-                          <dt>竞争说明</dt><dd>—</dd>
+                          <dt>竞品介绍</dt><dd>—</dd>
                         </dl>
                         <button class="v142-rec-action" type="button" data-v134-action="accept-competitor" data-competitor-id="omax">选择竞品</button>
                       </article>
@@ -10446,7 +10414,7 @@ updateMonitorPendingUI();
                           <dt>竞品名称</dt><dd>Bystronic</dd>
                           <dt>竞品域名</dt><dd>bystronic.com</dd>
                           <dt>竞品别名</dt><dd>Bystronic Group</dd>
-                          <dt>竞争说明</dt><dd>—</dd>
+                          <dt>竞品介绍</dt><dd>—</dd>
                         </dl>
                         <button class="v142-rec-action" type="button" data-v134-action="accept-competitor" data-competitor-id="bystronic">选择竞品</button>
                       </article>
@@ -10457,7 +10425,7 @@ updateMonitorPendingUI();
                           <dt>竞品名称</dt><dd>KMT Waterjet</dd>
                           <dt>竞品域名</dt><dd>kmtwaterjet.com</dd>
                           <dt>竞品别名</dt><dd>KMT</dd>
-                          <dt>竞争说明</dt><dd>—</dd>
+                          <dt>竞品介绍</dt><dd>—</dd>
                         </dl>
                         <button class="v142-rec-action" type="button" data-v134-action="accept-competitor" data-competitor-id="kmt">选择竞品</button>
                       </article>
@@ -10574,7 +10542,8 @@ updateMonitorPendingUI();
           const weekdayLabels = { '1': '周一', '2': '周二', '3': '周三', '4': '周四', '5': '周五', '6': '周六', '0': '周日' };
           if (samplingFrequency === 'weekly') return `每周${weekdayLabels[samplingWeekday] || '周一'} ${samplingTime}`;
           if (samplingFrequency === 'monthly') return `每月 ${samplingMonthday} 日 ${samplingTime}`;
-          return `每日 ${samplingTime}`;
+          if (samplingFrequency === 'quarterly') return `每季度首月 ${samplingQuarterday} 日 ${samplingTime}`;
+          return `每周${weekdayLabels[samplingWeekday] || '周一'} ${samplingTime}`;
         }
 
         function renderSamplingScheduleFields() {
@@ -10593,19 +10562,24 @@ updateMonitorPendingUI();
               <select id="sampling-monthday-input" style="min-height:36px; padding:0 10px; border:1px solid #CBD5E1; border-radius:8px; background:#FFFFFF; color:#182230;">
                 ${Array.from({length:28},(_,i)=>i+1).map(v => `<option value="${v}" ${String(samplingMonthday) === String(v) ? 'selected' : ''}>${v} 日</option>`).join('')}
               </select></label>${timeField}`;
+          } else if (document.querySelector('[data-sampling-frequency]:checked')?.value === 'quarterly') {
+            host.innerHTML = `<label style="display:grid; gap:6px; font-size:12px; font-weight:600;">季度首月日期
+              <select id="sampling-quarterday-input" style="min-height:36px; padding:0 10px; border:1px solid #CBD5E1; border-radius:8px; background:#FFFFFF; color:#182230;">
+                ${Array.from({length:28},(_,i)=>i+1).map(v => `<option value="${v}" ${String(samplingQuarterday) === String(v) ? 'selected' : ''}>${v} 日</option>`).join('')}
+              </select></label>${timeField}`;
           } else {
             host.innerHTML = timeField;
           }
         }
 
         function openSamplingSettings() {
-          const platformOptions = ['ChatGPT', 'Perplexity', 'Google AI', 'Gemini', 'Claude', 'AI Mode'].map((platform) => `
-            <label style="display:flex; align-items:center; gap:8px; min-height:30px; color:#334155; font-size:13px;">
-              <input class="sampling-platform-checkbox" type="checkbox" value="${platform}" ${selectedSamplingPlatforms.includes(platform) ? 'checked' : ''}>
-              <span>${platform}</span>
+          const platformOptions = ['ChatGPT', 'Perplexity', 'Google AI', 'Gemini', 'AI Mode', 'Claude'].map((platform) => `
+            <label style="display:flex; align-items:center; gap:8px; min-height:30px; color:${platform === 'Claude' ? '#98A2B3' : '#334155'}; font-size:13px; cursor:${platform === 'Claude' ? 'not-allowed' : 'pointer'};" title="${platform === 'Claude' ? '本期暂未开放' : ''}">
+              <input class="sampling-platform-checkbox" type="checkbox" value="${platform}" ${platform === 'Claude' ? 'disabled' : ''} ${selectedSamplingPlatforms.includes(platform) ? 'checked' : ''}>
+              <span>${platform}${platform === 'Claude' ? '（本期暂不开放）' : ''}</span>
             </label>
           `).join('');
-          const frequencyOptions = [['daily','每日'],['weekly','每周'],['monthly','每月']].map(([value,label]) => `
+          const frequencyOptions = [['weekly','每周'],['monthly','每月'],['quarterly','每季度']].map(([value,label]) => `
             <label style="display:flex; align-items:center; gap:7px; min-height:34px; padding:0 12px; border:1px solid ${samplingFrequency === value ? '#93C5FD' : '#E2E8F0'}; border-radius:8px; background:${samplingFrequency === value ? '#EFF6FF' : '#FFFFFF'}; color:#334155; font-size:13px; font-weight:600; cursor:pointer;">
               <input type="radio" name="sampling-frequency" data-sampling-frequency value="${value}" ${samplingFrequency === value ? 'checked' : ''}>
               <span>${label}</span>
@@ -10613,7 +10587,7 @@ updateMonitorPendingUI();
           openModal('调整采集频率与平台', `<div style="display:grid; gap:18px; color:#334155;">
             <div><div style="margin-bottom:8px; font-size:12px; font-weight:600;">采集频率</div><div style="display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:8px;">${frequencyOptions}</div></div>
             <div id="sampling-schedule-fields" style="display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:10px;"></div>
-            <div><div style="margin-bottom:8px; font-size:12px; font-weight:600;">AI 平台 <span style="color:#94A3B8; font-weight:400;">共 6 个</span></div><div style="display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:4px 18px;">${platformOptions}</div></div>
+            <div><div style="margin-bottom:8px; font-size:12px; font-weight:600;">AI 平台 <span style="color:#94A3B8; font-weight:400;">5 个可选 · Claude 本期暂不开放</span></div><div style="display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:4px 18px;">${platformOptions}</div></div>
             <div style="padding:10px 12px; border:1px solid #E2E8F0; border-radius:8px; background:#F8FAFC; color:#64748B; font-size:12px; line-height:1.55;">市场、人设与问题集沿用当前监测计划，不在这里配置。</div>
           </div>`, '<button type="button" class="secondary-button" data-action="close-modal">取消</button><button type="button" class="primary-button" data-action="save-sampling-settings">保存当前设置</button>');
           renderSamplingScheduleFields();
@@ -10632,6 +10606,7 @@ updateMonitorPendingUI();
           samplingTime = timeInput.value;
           if (samplingFrequency === 'weekly') samplingWeekday = document.getElementById('sampling-weekday-input')?.value || samplingWeekday;
           if (samplingFrequency === 'monthly') samplingMonthday = document.getElementById('sampling-monthday-input')?.value || samplingMonthday;
+          if (samplingFrequency === 'quarterly') samplingQuarterday = document.getElementById('sampling-quarterday-input')?.value || samplingQuarterday;
           selectedSamplingPlatforms = platformInputs.map((input) => input.value);
           document.querySelectorAll('[data-settings-time]').forEach((element) => {
             element.textContent = samplingScheduleLabel();
@@ -10675,7 +10650,7 @@ updateMonitorPendingUI();
           sample: { value: '累计 1,200 次观测；有效返回 1,169 次' },
           intent: { value: '67 个问题；覆盖 4 类意图' },
           cadence: { value: '4 类意图已纳入当前口径；结果可按意图拆分' },
-          stability: { value: '每日监测；按当前监测配置执行' },
+          stability: { value: '按周、月或季度计划执行；按当前监测配置执行' },
           engines: { value: '7 日复现波动 ±3.1pp；当前周期可复现' },
           collection: { value: '5 个平台分别展示；按当前口径建立基线' }
         };
@@ -12812,7 +12787,6 @@ For procurement purposes, the brand should only be treated as a meaningful compe
 
 
         const queuePendingPanel = document.getElementById('queue-pending-panel');
-        const queueRunningPanel = document.getElementById('queue-running-panel');
         const maturityShell = document.getElementById('maturity-shell');
         const competitorDiscoveryDrawer = document.getElementById('competitor-discovery-drawer');
         const competitorDiscoveryRoleNote = document.getElementById('competitor-discovery-role-note');
@@ -12823,41 +12797,24 @@ For procurement purposes, the brand should only be treated as a meaningful compe
         const competitorActiveDetail = document.getElementById('competitor-active-detail');
         let activeCompetitorCandidateId = 'flow-x';
 
-        const queueRunningHtml = {
-          self: `
-            <article class="v51-queue-row v51-running-row"><div class="v51-queue-main"><div class="v51-tag-row"><span class="v51-tag p1">P1</span><span class="v51-tag agent">Agent</span><span class="v51-tag source">优化中心</span></div><strong class="v51-item-title">德国 Tier-1 采购问答内容</strong><p>Agent 正在生成正文并补充权威来源。</p><div class="v51-link-row"><span>Agent 执行中</span></div></div><div class="v51-next-card"><span>当前动作</span><strong>内容生成</strong><small>下一步：自动质检</small></div><div class="v51-row-actions"><button type="button" class="secondary-button">查看来源</button></div></article>
-            <article class="v51-queue-row v51-running-row"><div class="v51-queue-main"><div class="v51-tag-row"><span class="v51-tag p0">P0</span><span class="v51-tag agent">Agent</span><span class="v51-tag source">优化中心</span></div><strong class="v51-item-title">官网结构化数据修复</strong><p>Agent 正在执行 Product / FAQ Schema 修复。</p><div class="v51-link-row"><span>AI 官网协同</span></div></div><div class="v51-next-card"><span>当前动作</span><strong>Schema 修复</strong><small>下一步：自动验证</small></div><div class="v51-row-actions"><button type="button" class="secondary-button">查看来源</button></div></article>
-            <article class="v51-queue-row v51-running-row"><div class="v51-queue-main"><div class="v51-tag-row"><span class="v51-tag p2">P2</span><span class="v51-tag agent">Agent</span><span class="v51-tag source">优化中心</span></div><strong class="v51-item-title">碳纤维方案页 Re-check</strong><p>已发布，Agent 正在重新采样并计算品牌可见率变化。</p><div class="v51-link-row"><span>Re-check</span></div></div><div class="v51-next-card"><span>当前动作</span><strong>效果重采样</strong><small>下一步：生成效果对比</small></div><div class="v51-row-actions"><button type="button" class="secondary-button">查看来源</button></div></article>
-            <div class="v51-queue-footer"><span>当前有 3 项由 Agent 执行</span><span>排序：逾期 → P0 → 今日到期 → P1 → P2</span></div>`,
-          managedCustomer: `
-            <article class="v51-queue-row v51-running-row"><div class="v51-queue-main"><div class="v51-tag-row"><span class="v51-tag p1">P1</span><span class="v51-tag agent">Agent</span><span class="v51-tag source">优化中心</span></div><strong class="v51-item-title">德国 Tier-1 采购问答内容</strong><p>Agent 正在生成正文，完成后将由运营顾问复核。</p><div class="v51-link-row"><span>Agent 执行中</span></div></div><div class="v51-next-card"><span>当前动作</span><strong>内容生成</strong><small>下一步：运营复核</small></div><div class="v51-row-actions"><button type="button" class="secondary-button">查看来源</button></div></article>
-            <article class="v51-queue-row v51-running-row"><div class="v51-queue-main"><div class="v51-tag-row"><span class="v51-tag p0">P0</span><span class="v51-tag customer">运营顾问</span><span class="v51-tag source">优化中心</span></div><strong class="v51-item-title">官网结构化数据修复</strong><p>Agent 已完成初步修复，运营顾问正在复核结构化数据。</p><div class="v51-link-row"><span>运营复核中</span></div></div><div class="v51-next-card"><span>当前动作</span><strong>运营复核</strong><small>下一步：提交客户确认</small></div><div class="v51-row-actions"><button type="button" class="secondary-button">查看来源</button></div></article>
-            <article class="v51-queue-row v51-running-row"><div class="v51-queue-main"><div class="v51-tag-row"><span class="v51-tag p2">P2</span><span class="v51-tag agent">Agent</span><span class="v51-tag source">优化中心</span></div><strong class="v51-item-title">碳纤维方案页 Re-check</strong><p>Agent 正在重新采样，运营顾问将根据结果判断是否需要调整。</p><div class="v51-link-row"><span>Re-check</span></div></div><div class="v51-next-card"><span>当前动作</span><strong>效果重采样</strong><small>下一步：运营判断</small></div><div class="v51-row-actions"><button type="button" class="secondary-button">查看来源</button></div></article>
-            <div class="v51-queue-footer"><span>当前有 3 项正在协同处理中</span><span>Agent 执行 → 运营调整 / 确认 → 客户确认</span></div>`,
-          managedOperator: `
-            <article class="v51-queue-row v51-running-row"><div class="v51-queue-main"><div class="v51-tag-row"><span class="v51-tag p1">P1</span><span class="v51-tag agent">Agent</span><span class="v51-tag source">优化中心</span></div><strong class="v51-item-title">德国 Tier-1 采购问答内容</strong><p>Agent 正在生成正文并补充权威来源，完成后进入你的复核队列。</p><div class="v51-link-row"><span>Agent 执行中</span></div></div><div class="v51-next-card"><span>当前动作</span><strong>内容生成</strong><small>下一步：你复核内容</small></div><div class="v51-row-actions"><button type="button" class="secondary-button">查看来源</button></div></article>
-            <article class="v51-queue-row v51-running-row"><div class="v51-queue-main"><div class="v51-tag-row"><span class="v51-tag p0">P0</span><span class="v51-tag customer">运营顾问</span><span class="v51-tag source">优化中心</span></div><strong class="v51-item-title">官网结构化数据修复</strong><p>Agent 已完成初步修复，当前需要运营顾问复核 Product / FAQ Schema。</p><div class="v51-link-row"><span>运营处理中</span></div></div><div class="v51-next-card"><span>当前动作</span><strong>复核 Schema</strong><small>下一步：提交客户确认</small></div><div class="v51-row-actions"><button type="button" class="primary-button">去处理</button><button type="button" class="secondary-button">查看来源</button></div></article>
-            <article class="v51-queue-row v51-running-row"><div class="v51-queue-main"><div class="v51-tag-row"><span class="v51-tag p2">P2</span><span class="v51-tag agent">Agent</span><span class="v51-tag source">优化中心</span></div><strong class="v51-item-title">碳纤维方案页 Re-check</strong><p>Agent 正在重新采样，完成后需要你判断是否继续优化。</p><div class="v51-link-row"><span>Re-check</span></div></div><div class="v51-next-card"><span>当前动作</span><strong>效果重采样</strong><small>下一步：你判断优化动作</small></div><div class="v51-row-actions"><button type="button" class="secondary-button">查看来源</button></div></article>
-            <div class="v51-queue-footer"><span>当前有 1 项待你接续处理，2 项由 Agent 执行</span><span>Agent 执行 → 运营调整 / 确认 → 客户确认</span></div>`
-        };
-
         const queuePendingHtml = {
           self: `
             <article class="v51-queue-row" data-competitor-discovery-task><div class="v51-queue-main"><div class="v51-tag-row"><span class="v51-tag p1">P1</span><span class="v51-tag agent">Agent</span><span class="v51-tag source">可见性监测</span><span class="v51-tag competitor-candidate">潜在竞品</span></div><strong class="v51-item-title">发现 3 个潜在新竞品候选</strong><p>近 3 轮监测中，Flow X、Techni Waterjet、STM 达到系统提示条件，等待确认是否纳入正式竞品监测。</p><div class="v51-link-row"><span>3 个候选品牌</span><span>14 条相关问题</span><span>37 次出现</span></div></div><div class="v51-next-card"><span>下一步</span><strong>逐个确认竞品候选</strong><small>确认后下轮生效</small></div><div class="v51-row-actions"><button type="button" class="primary-button" data-action="open-competitor-discovery">查看并确认</button><button type="button" class="secondary-button" data-action="open-monitor-results">查看监测结果</button></div></article>
-            <article class="v51-queue-row"><div class="v51-queue-main"><div class="v51-tag-row"><span class="v51-tag p0">P0</span><span class="v51-tag customer">客户</span><span class="v51-tag source">优化中心</span><span class="v51-tag neutral">2 项待确认</span></div><strong class="v51-item-title">交期与产能页优化</strong><p>Agent 已生成 Task 草稿，Brief 与交期 / SLA 事实需要你确认。</p><div class="v51-link-row"><span>Brief</span><span>交期 / SLA</span></div></div><div class="v51-next-card"><span>下一步</span><strong>确认 Task Brief</strong><small>截止：今天 20:00</small></div><div class="v51-row-actions"><button type="button" class="primary-button">去处理</button><button type="button" class="secondary-button">查看来源</button></div></article>
-            <article class="v51-queue-row"><div class="v51-queue-main"><div class="v51-tag-row"><span class="v51-tag p1">P1</span><span class="v51-tag customer">客户</span><span class="v51-tag source">优化中心</span></div><strong class="v51-item-title">认证与品牌实体完善</strong><p>Agent 已整理认证事实，认证编号适用范围需要你确权后才能执行。</p><div class="v51-link-row"><span>认证事实</span></div></div><div class="v51-next-card"><span>下一步</span><strong>确认认证事实</strong><small>截止：明天</small></div><div class="v51-row-actions"><button type="button" class="primary-button">去处理</button><button type="button" class="secondary-button">查看来源</button></div></article>
-            <div class="v51-queue-footer"><span>你当前有 2 项需要确认</span><span>排序：逾期 → P0 → 今日到期 → P1 → P2</span></div>`,
+            <article class="v51-queue-row"><div class="v51-queue-main"><div class="v51-tag-row"><span class="v51-tag p0">P0</span><span class="v51-tag customer">客户</span><span class="v51-tag source">优化中心</span><span class="v51-tag neutral">待客户确认</span></div><strong class="v51-item-title">交期与产能页优化</strong><p>Agent 已生成 Task 草稿，Brief 与交期 / SLA 事实需要你确认。</p><div class="v51-link-row"><span>Brief</span><span>交期 / SLA</span></div></div><div class="v51-next-card"><span>下一步</span><strong>确认 Task Brief</strong><small>截止：今天 20:00</small></div><div class="v51-row-actions"><button type="button" class="primary-button">去确认</button><button type="button" class="secondary-button">查看来源</button></div></article>
+            <article class="v51-queue-row"><div class="v51-queue-main"><div class="v51-tag-row"><span class="v51-tag p1">P1</span><span class="v51-tag customer">客户</span><span class="v51-tag source">优化中心</span><span class="v51-tag neutral">待客户确认</span></div><strong class="v51-item-title">认证与品牌实体完善</strong><p>认证编号适用范围需要你确权后才能进入执行。</p><div class="v51-link-row"><span>认证事实</span></div></div><div class="v51-next-card"><span>下一步</span><strong>确认认证事实</strong><small>截止：明天</small></div><div class="v51-row-actions"><button type="button" class="primary-button">去确认</button><button type="button" class="secondary-button">查看来源</button></div></article>
+            <div class="v51-queue-footer"><span>当前有 3 项需要确认</span><span>排序：逾期 → P0 → 今日到期 → P1 → P2</span></div>`,
           managedCustomer: `
-            <article class="v51-queue-row" data-competitor-discovery-task><div class="v51-queue-main"><div class="v51-tag-row"><span class="v51-tag p1">P1</span><span class="v51-tag customer">客户</span><span class="v51-tag source">可见性监测</span><span class="v51-tag competitor-candidate">待确认竞品</span></div><strong class="v51-item-title">3 个潜在新竞品待确认</strong><p>运营顾问已核对候选品牌的出现证据，请分别确认 Flow X、Techni Waterjet、STM 是否加入正式竞品监测。</p><div class="v51-link-row"><span>3 个候选品牌</span><span>运营已核验</span><span>可分别处理</span></div></div><div class="v51-next-card"><span>下一步</span><strong>客户逐个确认</strong><small>逐个选择加入或忽略</small></div><div class="v51-row-actions"><button type="button" class="primary-button" data-action="open-competitor-discovery">查看并确认</button><button type="button" class="secondary-button" data-action="open-monitor-results">查看监测结果</button></div></article>
-            <article class="v51-queue-row"><div class="v51-queue-main"><div class="v51-tag-row"><span class="v51-tag p0">P0</span><span class="v51-tag customer">客户</span><span class="v51-tag source">优化中心</span></div><strong class="v51-item-title">交期与产能页优化</strong><p>Agent 已生成、运营顾问已复核 Task Brief，现需要你确认交期 / SLA 事实。</p><div class="v51-link-row"><span>运营已复核</span><span>交期 / SLA</span></div></div><div class="v51-next-card"><span>下一步</span><strong>客户最终确认</strong><small>截止：今天 20:00</small></div><div class="v51-row-actions"><button type="button" class="primary-button">去确认</button><button type="button" class="secondary-button">查看来源</button></div></article>
-            <article class="v51-queue-row"><div class="v51-queue-main"><div class="v51-tag-row"><span class="v51-tag p1">P1</span><span class="v51-tag customer">客户</span><span class="v51-tag source">优化中心</span></div><strong class="v51-item-title">认证与品牌实体完善</strong><p>运营顾问已核对认证材料，认证编号适用范围需要你最终确权。</p><div class="v51-link-row"><span>运营已复核</span><span>认证事实</span></div></div><div class="v51-next-card"><span>下一步</span><strong>客户最终确认</strong><small>截止：明天</small></div><div class="v51-row-actions"><button type="button" class="primary-button">去确认</button><button type="button" class="secondary-button">查看来源</button></div></article>
-            <div class="v51-queue-footer"><span>当前有 2 项等待你的最终确认</span><span>Agent 执行 → 运营调整 / 确认 → 客户确认</span></div>`,
+            <article class="v51-queue-row" data-competitor-discovery-task><div class="v51-queue-main"><div class="v51-tag-row"><span class="v51-tag p1">P1</span><span class="v51-tag customer">待运营处理</span><span class="v51-tag source">可见性监测</span><span class="v51-tag competitor-candidate">潜在竞品</span></div><strong class="v51-item-title">发现 3 个潜在新竞品候选</strong><p>运营顾问正在核对 Flow X、Techni Waterjet、STM 的出现证据，核验完成后将提交你确认。</p><div class="v51-link-row"><span>3 个候选品牌</span><span>14 条相关问题</span><span>37 次出现</span></div></div><div class="v51-next-card"><span>下一步</span><strong>等待运营核验</strong><small>核验后由你确认</small></div><div class="v51-row-actions"><button type="button" class="secondary-button" data-action="open-monitor-results">查看监测结果</button></div></article>
+            <article class="v51-queue-row" data-manual-review-task><div class="v51-queue-main"><div class="v51-tag-row"><span class="v51-tag p0">P0</span><span class="v51-tag customer">待运营处理</span><span class="v51-tag source">可见性监测</span><span class="v51-tag review">待人工复核</span></div><strong class="v51-item-title">ChatGPT · CFRP 五轴水刀选型问题</strong><p>本轮采样结果波动较大，运营顾问正在进行人工复核。</p><div class="v51-link-row"><span>德国 × 德语</span><span>复材技术主管</span><span>结果波动</span></div></div><div class="v51-next-card"><span>下一步</span><strong>等待运营复核</strong><small>复核后更新结果</small></div><div class="v51-row-actions"><button type="button" class="secondary-button" data-action="open-monitor-results">查看监测结果</button></div></article>
+            <article class="v51-queue-row"><div class="v51-queue-main"><div class="v51-tag-row"><span class="v51-tag p0">P0</span><span class="v51-tag customer">待客户确认</span><span class="v51-tag source">优化中心</span></div><strong class="v51-item-title">交期与产能页优化</strong><p>Agent 已生成、运营顾问已复核 Task Brief，现需要你确认交期 / SLA 事实。</p><div class="v51-link-row"><span>运营已复核</span><span>交期 / SLA</span></div></div><div class="v51-next-card"><span>下一步</span><strong>客户最终确认</strong><small>截止：今天 20:00</small></div><div class="v51-row-actions"><button type="button" class="primary-button">去确认</button><button type="button" class="secondary-button">查看来源</button></div></article>
+            <article class="v51-queue-row"><div class="v51-queue-main"><div class="v51-tag-row"><span class="v51-tag p1">P1</span><span class="v51-tag customer">待客户确认</span><span class="v51-tag source">优化中心</span></div><strong class="v51-item-title">认证与品牌实体完善</strong><p>运营顾问已核对认证材料，认证编号适用范围需要你最终确权。</p><div class="v51-link-row"><span>运营已复核</span><span>认证事实</span></div></div><div class="v51-next-card"><span>下一步</span><strong>客户最终确认</strong><small>截止：明天</small></div><div class="v51-row-actions"><button type="button" class="primary-button">去确认</button><button type="button" class="secondary-button">查看来源</button></div></article>
+            <div class="v51-queue-footer"><span>当前有 4 项待确认，其中 2 项待运营处理、2 项待客户确认</span><span>排序：逾期 → P0 → 今日到期 → P1 → P2</span></div>`,
           managedOperator: `
-            <article class="v51-queue-row" data-competitor-discovery-task><div class="v51-queue-main"><div class="v51-tag-row"><span class="v51-tag p1">P1</span><span class="v51-tag customer">运营顾问</span><span class="v51-tag source">可见性监测</span><span class="v51-tag competitor-candidate">候选竞品核验</span></div><strong class="v51-item-title">发现 3 个潜在新竞品候选</strong><p>Agent 已识别 Flow X、Techni Waterjet、STM 达到提示条件。请逐个核对出现频次、对应问题和原始证据，再提交客户确认。</p><div class="v51-link-row"><span>3 个候选品牌</span><span>14 条相关问题</span><span>37 次出现</span></div></div><div class="v51-next-card"><span>下一步</span><strong>核验证据并提交客户</strong><small>可分别处理每个候选</small></div><div class="v51-row-actions"><button type="button" class="primary-button" data-action="open-competitor-discovery">核验证据</button><button type="button" class="secondary-button" data-action="open-monitor-results">查看监测结果</button></div></article>
-            <article class="v51-queue-row" data-manual-review-task><div class="v51-queue-main"><div class="v51-tag-row"><span class="v51-tag p0">P0</span><span class="v51-tag customer">运营顾问</span><span class="v51-tag source">可见性监测</span><span class="v51-tag review">待人工复核</span></div><strong class="v51-item-title">ChatGPT · CFRP 五轴水刀选型问题</strong><p>本轮采样结果波动较大，需要你前往目标 AI 平台手动提问，并把实测结果返回系统。</p><div class="v51-link-row"><span>德国 × 德语</span><span>复材技术主管</span><span>结果波动</span></div></div><div class="v51-next-card"><span>下一步</span><strong>人工复核</strong><small>截止：今天 19:00</small></div><div class="v51-row-actions"><button type="button" class="primary-button" data-action="open-manual-review">人工复核</button><button type="button" class="secondary-button" data-action="open-monitor-results">查看监测结果</button></div></article>
-            <article class="v51-queue-row"><div class="v51-queue-main"><div class="v51-tag-row"><span class="v51-tag p0">P0</span><span class="v51-tag customer">运营顾问</span><span class="v51-tag source">优化中心</span></div><strong class="v51-item-title">交期与产能页优化</strong><p>Agent 已生成 Task 草稿，需要你核对 Brief 与交期 / SLA 后再提交客户。</p><div class="v51-link-row"><span>Agent 已完成</span><span>待运营复核</span></div></div><div class="v51-next-card"><span>下一步</span><strong>复核并提交客户</strong><small>截止：今天 18:00</small></div><div class="v51-row-actions"><button type="button" class="primary-button">去处理</button><button type="button" class="secondary-button">查看来源</button></div></article>
-            <article class="v51-queue-row"><div class="v51-queue-main"><div class="v51-tag-row"><span class="v51-tag p1">P1</span><span class="v51-tag customer">运营顾问</span><span class="v51-tag source">优化中心</span></div><strong class="v51-item-title">认证与品牌实体完善</strong><p>Agent 已整理认证事实，需要你判断材料完整性并提交客户确权。</p><div class="v51-link-row"><span>Agent 已完成</span><span>待运营复核</span></div></div><div class="v51-next-card"><span>下一步</span><strong>复核认证事实</strong><small>截止：明天</small></div><div class="v51-row-actions"><button type="button" class="primary-button">去处理</button><button type="button" class="secondary-button">查看来源</button></div></article>
-            <div class="v51-queue-footer"><span>你当前有 3 项需要处理，其中 1 项为人工复核</span><span>人工复核需运营人员前往目标 AI 平台手动验证</span></div>`
+            <article class="v51-queue-row" data-competitor-discovery-task><div class="v51-queue-main"><div class="v51-tag-row"><span class="v51-tag p1">P1</span><span class="v51-tag customer">待运营处理</span><span class="v51-tag source">可见性监测</span><span class="v51-tag competitor-candidate">候选竞品核验</span></div><strong class="v51-item-title">发现 3 个潜在新竞品候选</strong><p>Agent 已识别 Flow X、Techni Waterjet、STM 达到提示条件。请核对出现频次、对应问题和原始证据，再提交客户确认。</p><div class="v51-link-row"><span>3 个候选品牌</span><span>14 条相关问题</span><span>37 次出现</span></div></div><div class="v51-next-card"><span>下一步</span><strong>核验证据并提交客户</strong><small>可分别处理每个候选</small></div><div class="v51-row-actions"><button type="button" class="primary-button" data-action="open-competitor-discovery">核验证据</button><button type="button" class="secondary-button" data-action="open-monitor-results">查看监测结果</button></div></article>
+            <article class="v51-queue-row" data-manual-review-task><div class="v51-queue-main"><div class="v51-tag-row"><span class="v51-tag p0">P0</span><span class="v51-tag customer">待运营处理</span><span class="v51-tag source">可见性监测</span><span class="v51-tag review">待人工复核</span></div><strong class="v51-item-title">ChatGPT · CFRP 五轴水刀选型问题</strong><p>本轮采样结果波动较大，需要你前往目标 AI 平台手动提问，并把实测结果返回系统。</p><div class="v51-link-row"><span>德国 × 德语</span><span>复材技术主管</span><span>结果波动</span></div></div><div class="v51-next-card"><span>下一步</span><strong>人工复核</strong><small>截止：今天 19:00</small></div><div class="v51-row-actions"><button type="button" class="primary-button" data-action="open-manual-review">人工复核</button><button type="button" class="secondary-button" data-action="open-monitor-results">查看监测结果</button></div></article>
+            <article class="v51-queue-row"><div class="v51-queue-main"><div class="v51-tag-row"><span class="v51-tag p0">P0</span><span class="v51-tag customer">待客户确认</span><span class="v51-tag source">优化中心</span></div><strong class="v51-item-title">交期与产能页优化</strong><p>Agent 已生成 Task 草稿，运营顾问已完成复核，现等待客户确认 Brief 与交期 / SLA。</p><div class="v51-link-row"><span>运营已复核</span><span>交期 / SLA</span></div></div><div class="v51-next-card"><span>下一步</span><strong>等待客户确认</strong><small>截止：今天 20:00</small></div><div class="v51-row-actions"><button type="button" class="secondary-button">查看来源</button></div></article>
+            <article class="v51-queue-row"><div class="v51-queue-main"><div class="v51-tag-row"><span class="v51-tag p1">P1</span><span class="v51-tag customer">待客户确认</span><span class="v51-tag source">优化中心</span></div><strong class="v51-item-title">认证与品牌实体完善</strong><p>运营顾问已核对认证材料，现等待客户确权认证编号适用范围。</p><div class="v51-link-row"><span>运营已复核</span><span>认证事实</span></div></div><div class="v51-next-card"><span>下一步</span><strong>等待客户确认</strong><small>截止：明天</small></div><div class="v51-row-actions"><button type="button" class="secondary-button">查看来源</button></div></article>
+            <div class="v51-queue-footer"><span>当前有 4 项待确认，其中 2 项待运营处理、2 项待客户确认</span><span>排序：逾期 → P0 → 今日到期 → P1 → P2</span></div>`
         };
 
         function maturityHtml(mode, role) {
@@ -12889,11 +12846,8 @@ For procurement purposes, the brand should only be treated as a meaningful compe
 
         function syncCompetitorDiscoveryTaskVisibility() {
           const allResolved = competitorCandidates.every(item => ['added','ignored'].includes(item.customerDecision));
-          const operatorSubmittedAll = currentServiceMode === 'managed' && currentRoleMode === 'operator'
-            && competitorCandidates.every(item => item.submittedToCustomer || ['added','ignored'].includes(item.customerDecision));
-
           document.querySelectorAll('[data-competitor-discovery-task]').forEach((row) => {
-            row.hidden = allResolved || operatorSubmittedAll;
+            row.hidden = allResolved;
           });
           document.querySelectorAll('[data-competitor-config-entry]').forEach((entry) => {
             entry.hidden = allResolved;
@@ -13152,29 +13106,26 @@ For procurement purposes, the brand should only be treated as a meaningful compe
           if (isSelf) {
             if (lede) lede.dataset.info = '集中查看指标变化、各平台表现，以及 Agent 正在执行和等待你确认的事项。';
             if (qTitle) qTitle.textContent = '③ Agent 工作队列';
-            if (qDesc) qDesc.dataset.info = '聚合「诊断与策略」和「优化中心」中 Agent 正在执行或需要你确认的事项';
+            if (qDesc) qDesc.dataset.info = '聚合需要客户确认或运营处理的事项；不同角色看到相同事项及对应的责任状态';
             if (mDesc) mDesc.dataset.info = '根据近 30 天 Agent 独立执行表现，评估可进一步交由 Agent 自主处理的工作范围';
-            if (pendingCountBadge) pendingCountBadge.textContent = competitorCandidates.every(item => ['added','ignored'].includes(item.customerDecision)) ? '2' : '3';
+            if (pendingCountBadge) pendingCountBadge.textContent = String(2 + (unresolvedCandidateCount() > 0 ? 1 : 0));
             queuePendingPanel.innerHTML = queuePendingHtml.self;
-            queueRunningPanel.innerHTML = queueRunningHtml.self;
             maturityShell.innerHTML = maturityHtml('self','customer');
           } else if (currentRoleMode === 'operator') {
             if (lede) lede.dataset.info = '集中查看指标变化、各平台表现，以及 Agent 与运营顾问正在协同处理的事项。';
             if (qTitle) qTitle.textContent = '③ Agent / 运营工作队列';
-            if (qDesc) qDesc.dataset.info = '聚合 Agent 执行结果、待运营复核事项与需要提交客户确认的协同任务';
+            if (qDesc) qDesc.dataset.info = '聚合待运营处理与待客户确认事项；客户和运营看到相同事项，按责任人显示操作';
             if (mDesc) mDesc.dataset.info = '根据近 30 天 Agent 与运营复核的一致性表现，判断哪些工作可逐步移交客户自主处理';
-            if (pendingCountBadge) pendingCountBadge.textContent = competitorCandidates.every(item => item.submittedToCustomer || ['added','ignored'].includes(item.customerDecision)) ? '3' : '4';
+            if (pendingCountBadge) pendingCountBadge.textContent = String(3 + (unresolvedCandidateCount() > 0 ? 1 : 0));
             queuePendingPanel.innerHTML = queuePendingHtml.managedOperator;
-            queueRunningPanel.innerHTML = queueRunningHtml.managedOperator;
             maturityShell.innerHTML = maturityHtml('managed','operator');
           } else {
             if (lede) lede.dataset.info = '集中查看指标变化、各平台表现，以及 Agent 与运营顾问正在处理和等待你确认的事项。';
             if (qTitle) qTitle.textContent = '③ Agent / 运营工作队列';
-            if (qDesc) qDesc.dataset.info = '聚合 Agent 与运营顾问的执行状态，以及需要你最终确认的事项';
+            if (qDesc) qDesc.dataset.info = '聚合待运营处理与待客户确认事项；客户和运营看到相同事项，按责任人显示操作';
             if (mDesc) mDesc.dataset.info = '根据近 30 天 Agent 与运营复核的一致性表现，评估可切换为自主处理的工作范围';
-            if (pendingCountBadge) pendingCountBadge.textContent = competitorCandidates.every(item => ['added','ignored'].includes(item.customerDecision)) ? '2' : '3';
+            if (pendingCountBadge) pendingCountBadge.textContent = String(3 + (unresolvedCandidateCount() > 0 ? 1 : 0));
             queuePendingPanel.innerHTML = queuePendingHtml.managedCustomer;
-            queueRunningPanel.innerHTML = queueRunningHtml.managedCustomer;
             maturityShell.innerHTML = maturityHtml('managed','customer');
           }
           syncCompetitorDiscoveryTaskVisibility();
@@ -13238,15 +13189,20 @@ For procurement purposes, the brand should only be treated as a meaningful compe
               const selectedCount=Number(window.__onboardingSelectedQuestionCount||0);
               if(selectedCount<1){if(typeof showToast==='function')showToast('请至少选择 1 条监测问题');return;}
             }
+            if(step===4){
+              const selectedPlatforms=[...root.querySelectorAll('.ob57-check:checked')].map(input=>input.value);
+              if(!selectedPlatforms.length){if(typeof showToast==='function')showToast('请至少选择 1 个 AI 平台');return;}
+              selectedSamplingPlatforms=selectedPlatforms;
+            }
             if(step<4){step++;render();} else {root.hidden=true; const monitorBtn=document.querySelector('.nav-item[data-route="monitor"]'); if(monitorBtn) monitorBtn.click(); if(typeof showToast==='function') showToast('首次监测已启动，已进入可见性监测');} }
           if(action==='back' && step>1){step--;render();}
-          if(action==='skip'){root.hidden=true;}
         });
         root.querySelectorAll('input[name="ob57freq"]').forEach(input => input.addEventListener('change', () => {
-          const value=root.querySelector('input[name="ob57freq"]:checked')?.value || 'daily';
-          const ready=document.getElementById('ob57-ready-frequency'), rule=document.getElementById('ob58-fixed-rule');
-          const labels={daily:'每日',weekly:'每周',monthly:'每月'}; if(ready) ready.textContent=labels[value];
-          if(rule) rule.textContent=value==='daily'?'每日按系统固定时间自动采集':value==='weekly'?'每周按系统固定采集日与时间自动采集':'每月按系统固定采集日与时间自动采集';
+          const value=root.querySelector('input[name="ob57freq"]:checked')?.value || 'weekly';
+          samplingFrequency=value;
+          const rule=document.getElementById('ob58-fixed-rule');
+          const rules={weekly:'每周按系统固定采集日与时间自动采集',monthly:'每月按系统固定采集日与时间自动采集',quarterly:'每季度按系统固定采集日与时间自动采集'};
+          if(rule) rule.textContent=rules[value];
         }));
         render();
       })();
@@ -13342,13 +13298,13 @@ For procurement purposes, the brand should only be treated as a meaningful compe
       '<div class="label">竞品名称 *</div><div class="value">'+data.name+'</div>'+
       '<div class="label">竞品域名 *</div><div class="value">'+data.domain+'</div>'+
       '<div class="label">竞品别名</div><div class="value">'+data.alias+'</div>'+
-      '<div class="label">竞争说明</div><div class="value">'+data.note+'</div>'+
+      '<div class="label">竞品介绍</div><div class="value">'+data.note+'</div>'+
       '</div>'+
       '<div style="display:none" class="config-editor-field-grid">'+
       '<label class="config-editor-field"><span>竞品名称<span class="v134-required">*</span></span><input type="text" value="+"data.name"+"></label>'+
       '<label class="config-editor-field"><span>竞品域名<span class="v134-required">*</span></span><input type="text" value="+"data.domain"+"></label>'+
       '<label class="config-editor-field config-editor-field-full"><span>竞品别名</span><input type="text" value="+"data.alias"+"></label>'+
-      '<label class="config-editor-field config-editor-field-full"><span>竞争说明</span><textarea rows="2">'+data.note+'</textarea></label>'+
+      '<label class="config-editor-field config-editor-field-full"><span>竞品介绍</span><textarea rows="2">'+data.note+'</textarea></label>'+
       '</div>';
     list.appendChild(card);
     rec.remove();
@@ -13639,7 +13595,7 @@ For procurement purposes, the brand should only be treated as a meaningful compe
   function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
   function productTemplate(d){return '<div class="v142-confirm-head"><div class="info"><div><div class="v142-confirm-name">'+esc(d.name)+'</div><div class="v142-confirm-sub">'+(d.isMainProduct?'<span class="v134-confirmed-pill main-product-badge">主推产品</span>':'')+'</div></div></div><div class="v142-confirm-actions"><button class="step1-ghost-btn" type="button" data-action="edit-entity-card">编辑</button><button class="entity-delete-button" type="button" data-action="delete-brand-product-group">删除</button></div></div><div class="step1-detail-grid"><div class="label">核心产品 <span class="v134-required">*</span></div><div class="value">'+esc(d.name)+'</div><div class="label">使用场景 <span class="v134-required">*</span></div><div class="value">'+esc(d.scene)+'</div><div class="label">核心能力 / 卖点</div><div class="value">'+esc(d.ability)+'</div><div class="label">客户群体</div><div class="value">'+esc(d.customer)+'</div><div class="label">是否是主推产品</div><div class="value" data-main-product-value>'+(d.isMainProduct?'是':'否')+'</div></div><div class="config-editor-field-grid" hidden><label class="config-editor-field"><span>核心产品 <span class="v134-required">*</span></span><input type="text" value="'+esc(d.name)+'"></label><label class="config-editor-field"><span>使用场景 <span class="v134-required">*</span></span><input type="text" value="'+esc(d.scene)+'"></label><label class="config-editor-field config-editor-field-full"><span>核心能力 / 卖点</span><textarea rows="2">'+esc(d.ability)+'</textarea></label><label class="config-editor-field config-editor-field-full"><span>客户群体</span><input type="text" value="'+esc(d.customer)+'"></label><label class="config-editor-field config-editor-field-full main-product-toggle"><span>是否是主推产品</span><select class="main-product-select" aria-label="是否是主推产品"><option value="no" '+(!d.isMainProduct?'selected':'')+'>否</option><option value="yes" '+(d.isMainProduct?'selected':'')+'>是</option></select></label></div><div class="entity-edit-actions" hidden><button class="entity-edit-cancel" type="button" data-action="cancel-entity-edit">取消</button><button class="entity-edit-save" type="button" data-action="save-entity-edit">保存修改</button></div>';}
   function competitorVisual(name){const n=(name||'').toLowerCase();if(n.includes('flow'))return {cls:'flow',txt:'FI'};if(n.includes('omax'))return {cls:'omax',txt:'OM'};if(n.includes('bystronic'))return {cls:'bystronic',txt:'BY'};if(n.includes('kmt'))return {cls:'flow',txt:'KM'};const words=(name||'竞').split(/\s+/).filter(Boolean).slice(0,2);return {cls:'flow',txt:((words.map(w=>w[0]).join('')||'竞').toUpperCase()).slice(0,2)};}
-  function competitorTemplate(d){const logo=competitorVisual(d.name);return '<div class="v142-confirm-head"><div class="info"><div class="v142-logo '+logo.cls+'">'+logo.txt+'</div><div><div class="v142-confirm-name">'+esc(d.name)+'</div><div class="v142-confirm-sub"><span class="v134-confirmed-pill">已确认</span><span>'+esc(d.domain)+'</span></div></div></div><div class="v142-confirm-actions"><button class="step1-ghost-btn" type="button" data-action="edit-entity-card">编辑</button><button class="entity-delete-button" type="button" data-action="delete-brand-competitor-group">删除</button></div></div><div class="step1-detail-grid"><div class="label">竞品名称 <span class="v134-required">*</span></div><div class="value">'+esc(d.name)+'</div><div class="label">竞品域名 <span class="v134-required">*</span></div><div class="value">'+esc(d.domain)+'</div><div class="label">竞品别名</div><div class="value">'+esc(d.alias)+'</div><div class="label">竞争说明</div><div class="value">'+esc(d.note)+'</div></div><div class="config-editor-field-grid" hidden><label class="config-editor-field"><span>竞品名称 <span class="v134-required">*</span></span><input type="text" value="'+esc(d.name)+'"></label><label class="config-editor-field"><span>竞品域名 <span class="v134-required">*</span></span><input type="text" value="'+esc(d.domain)+'"></label><label class="config-editor-field config-editor-field-full"><span>竞品别名</span><input type="text" value="'+esc(d.alias)+'"></label><label class="config-editor-field config-editor-field-full"><span>竞争说明</span><textarea rows="2">'+esc(d.note)+'</textarea></label></div><div class="entity-edit-actions" hidden><button class="entity-edit-cancel" type="button" data-action="cancel-entity-edit">取消</button><button class="entity-edit-save" type="button" data-action="save-entity-edit">保存修改</button></div>';}
+  function competitorTemplate(d){const logo=competitorVisual(d.name);return '<div class="v142-confirm-head"><div class="info"><div class="v142-logo '+logo.cls+'">'+logo.txt+'</div><div><div class="v142-confirm-name">'+esc(d.name)+'</div><div class="v142-confirm-sub"><span class="v134-confirmed-pill">已确认</span><span>'+esc(d.domain)+'</span></div></div></div><div class="v142-confirm-actions"><button class="step1-ghost-btn" type="button" data-action="edit-entity-card">编辑</button><button class="entity-delete-button" type="button" data-action="delete-brand-competitor-group">删除</button></div></div><div class="step1-detail-grid"><div class="label">竞品名称 <span class="v134-required">*</span></div><div class="value">'+esc(d.name)+'</div><div class="label">竞品域名 <span class="v134-required">*</span></div><div class="value">'+esc(d.domain)+'</div><div class="label">竞品别名</div><div class="value">'+esc(d.alias)+'</div><div class="label">竞品介绍</div><div class="value">'+esc(d.note)+'</div></div><div class="config-editor-field-grid" hidden><label class="config-editor-field"><span>竞品名称 <span class="v134-required">*</span></span><input type="text" value="'+esc(d.name)+'"></label><label class="config-editor-field"><span>竞品域名 <span class="v134-required">*</span></span><input type="text" value="'+esc(d.domain)+'"></label><label class="config-editor-field config-editor-field-full"><span>竞品别名</span><input type="text" value="'+esc(d.alias)+'"></label><label class="config-editor-field config-editor-field-full"><span>竞品介绍</span><textarea rows="2">'+esc(d.note)+'</textarea></label></div><div class="entity-edit-actions" hidden><button class="entity-edit-cancel" type="button" data-action="cancel-entity-edit">取消</button><button class="entity-edit-save" type="button" data-action="save-entity-edit">保存修改</button></div>';}
   function normalizeCards(){document.querySelectorAll('[data-entity-card="product"]').forEach(function(card){if(card.dataset.normalized==='yes')return;const d=getProductValues(card);card.className='entity-editor-card v142-confirm-card';card.dataset.entityCard='product';card.innerHTML=productTemplate(d);card.dataset.normalized='yes';});document.querySelectorAll('[data-entity-card="competitor"]').forEach(function(card){if(card.dataset.normalized==='yes')return;const d=getCompetitorValues(card);card.className='entity-editor-card v142-confirm-card';card.dataset.entityCard='competitor';card.innerHTML=competitorTemplate(d);card.dataset.normalized='yes';});}
   function enterEdit(card){var detail=card.querySelector('.step1-detail-grid');var form=card.querySelector('.config-editor-field-grid');var actions=card.querySelector('.entity-edit-actions');var headActions=card.querySelector('.v142-confirm-actions');if(detail)detail.hidden=true;if(form)form.hidden=false;if(actions)actions.hidden=false;if(headActions)headActions.hidden=true;card.dataset.editing='yes';}
   function exitEdit(card,save){var type=card.dataset.entityCard;var detail=card.querySelector('.step1-detail-grid');var form=card.querySelector('.config-editor-field-grid');var actions=card.querySelector('.entity-edit-actions');var headActions=card.querySelector('.v142-confirm-actions');if(save){var d=type==='product'?getProductValues(card):getCompetitorValues(card);card.innerHTML=(type==='product'?productTemplate(d):competitorTemplate(d));card.dataset.normalized='yes';return;}if(detail)detail.hidden=false;if(form)form.hidden=true;if(actions)actions.hidden=true;if(headActions)headActions.hidden=false;card.dataset.editing='no';}
@@ -13672,7 +13628,7 @@ For procurement purposes, the brand should only be treated as a meaningful compe
   }
   function logo(name){const n=(name||'').toLowerCase();if(n.includes('flow'))return['flow','FI'];if(n.includes('omax'))return['omax','OM'];if(n.includes('bystronic'))return['bystronic','BY'];if(n.includes('kmt'))return['flow','KM'];return['flow',(name||'竞').slice(0,2).toUpperCase()];}
   function productHTML(d){return '<div class="v142-confirm-head"><div class="info"><div><div class="v142-confirm-name">'+esc(d.name)+'</div><div class="v142-confirm-sub">'+(d.isMainProduct?'<span class="v134-confirmed-pill main-product-badge">主推产品</span>':'')+'</div></div></div><div class="v142-confirm-actions"><button class="step1-ghost-btn" type="button" data-action="edit-entity-card">编辑</button><button class="entity-delete-button" type="button" data-action="delete-brand-product-group">删除</button></div></div><div class="step1-detail-grid"><div class="label">核心产品 <span class="v134-required">*</span></div><div class="value">'+esc(d.name)+'</div><div class="label">使用场景 <span class="v134-required">*</span></div><div class="value">'+esc(d.scene)+'</div><div class="label">核心能力 / 卖点</div><div class="value">'+esc(d.ability)+'</div><div class="label">客户群体</div><div class="value">'+esc(d.customer)+'</div><div class="label">是否是主推产品</div><div class="value" data-main-product-value>'+(d.isMainProduct?'是':'否')+'</div></div><div class="config-editor-field-grid" hidden><label class="config-editor-field"><span>核心产品 <span class="v134-required">*</span></span><input type="text" value="'+esc(d.name)+'"></label><label class="config-editor-field"><span>使用场景 <span class="v134-required">*</span></span><input type="text" value="'+esc(d.scene)+'"></label><label class="config-editor-field config-editor-field-full"><span>核心能力 / 卖点</span><textarea rows="2">'+esc(d.ability)+'</textarea></label><label class="config-editor-field config-editor-field-full"><span>客户群体</span><input type="text" value="'+esc(d.customer)+'"></label><label class="config-editor-field config-editor-field-full main-product-toggle"><span>是否是主推产品</span><select class="main-product-select" aria-label="是否是主推产品"><option value="no" '+(!d.isMainProduct?'selected':'')+'>否</option><option value="yes" '+(d.isMainProduct?'selected':'')+'>是</option></select></label></div><div class="entity-edit-actions" hidden><button class="entity-edit-cancel" type="button" data-action="cancel-entity-edit">取消</button><button class="entity-edit-save" type="button" data-action="save-entity-edit">保存修改</button></div>';}
-  function competitorHTML(d){const l=logo(d.name);return '<div class="v142-confirm-head"><div class="info"><div class="v142-logo '+l[0]+'">'+l[1]+'</div><div><div class="v142-confirm-name">'+esc(d.name)+'</div><div class="v142-confirm-sub"><span class="v134-confirmed-pill">已确认</span><span>'+esc(d.domain)+'</span></div></div></div><div class="v142-confirm-actions"><button class="step1-ghost-btn" type="button" data-action="edit-entity-card">编辑</button><button class="entity-delete-button" type="button" data-action="delete-brand-competitor-group">删除</button></div></div><div class="step1-detail-grid"><div class="label">竞品名称 <span class="v134-required">*</span></div><div class="value">'+esc(d.name)+'</div><div class="label">竞品域名 <span class="v134-required">*</span></div><div class="value">'+esc(d.domain)+'</div><div class="label">竞品别名</div><div class="value">'+esc(d.alias)+'</div><div class="label">竞争说明</div><div class="value">'+esc(d.note)+'</div></div><div class="config-editor-field-grid" hidden><label class="config-editor-field"><span>竞品名称 <span class="v134-required">*</span></span><input type="text" value="'+esc(d.name)+'"></label><label class="config-editor-field"><span>竞品域名 <span class="v134-required">*</span></span><input type="text" value="'+esc(d.domain)+'"></label><label class="config-editor-field config-editor-field-full"><span>竞品别名</span><input type="text" value="'+esc(d.alias)+'"></label><label class="config-editor-field config-editor-field-full"><span>竞争说明</span><textarea rows="2">'+esc(d.note)+'</textarea></label></div><div class="entity-edit-actions" hidden><button class="entity-edit-cancel" type="button" data-action="cancel-entity-edit">取消</button><button class="entity-edit-save" type="button" data-action="save-entity-edit">保存修改</button></div>';}
+  function competitorHTML(d){const l=logo(d.name);return '<div class="v142-confirm-head"><div class="info"><div class="v142-logo '+l[0]+'">'+l[1]+'</div><div><div class="v142-confirm-name">'+esc(d.name)+'</div><div class="v142-confirm-sub"><span class="v134-confirmed-pill">已确认</span><span>'+esc(d.domain)+'</span></div></div></div><div class="v142-confirm-actions"><button class="step1-ghost-btn" type="button" data-action="edit-entity-card">编辑</button><button class="entity-delete-button" type="button" data-action="delete-brand-competitor-group">删除</button></div></div><div class="step1-detail-grid"><div class="label">竞品名称 <span class="v134-required">*</span></div><div class="value">'+esc(d.name)+'</div><div class="label">竞品域名 <span class="v134-required">*</span></div><div class="value">'+esc(d.domain)+'</div><div class="label">竞品别名</div><div class="value">'+esc(d.alias)+'</div><div class="label">竞品介绍</div><div class="value">'+esc(d.note)+'</div></div><div class="config-editor-field-grid" hidden><label class="config-editor-field"><span>竞品名称 <span class="v134-required">*</span></span><input type="text" value="'+esc(d.name)+'"></label><label class="config-editor-field"><span>竞品域名 <span class="v134-required">*</span></span><input type="text" value="'+esc(d.domain)+'"></label><label class="config-editor-field config-editor-field-full"><span>竞品别名</span><input type="text" value="'+esc(d.alias)+'"></label><label class="config-editor-field config-editor-field-full"><span>竞品介绍</span><textarea rows="2">'+esc(d.note)+'</textarea></label></div><div class="entity-edit-actions" hidden><button class="entity-edit-cancel" type="button" data-action="cancel-entity-edit">取消</button><button class="entity-edit-save" type="button" data-action="save-entity-edit">保存修改</button></div>';}
   function normalize(){
     document.querySelectorAll('#modal [data-entity-card="product"]').forEach(card=>{if(card.dataset.v146==='1')return;const d=readProduct(card);card.className='entity-editor-card v142-confirm-card';card.innerHTML=productHTML(d);card.dataset.v146='1';});
     document.querySelectorAll('#modal [data-entity-card="competitor"]').forEach(card=>{if(card.dataset.v146==='1')return;const d=readCompetitor(card);card.className='entity-editor-card v142-confirm-card';card.innerHTML=competitorHTML(d);card.dataset.v146='1';});
