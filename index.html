@@ -4052,6 +4052,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
   border-top: 1px solid var(--line-soft);
   border-bottom: 1px solid var(--line-soft);
 }
+.monitor-question-maintenance-toolbar>div { display: flex; flex-wrap: wrap; gap: 8px; }
 
 .monitor-question-maintenance-summary {
   display: grid;
@@ -4963,6 +4964,15 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
   box-shadow: var(--shadow-xs);
 }
 
+.report-list-item[data-report-state="no-data"] {
+  border-color: #F3D38A;
+  background: #FFFCF4;
+}
+
+.report-list-item[data-report-state="no-data"] .report-list-focus {
+  color: var(--ink-3);
+}
+
 .report-list-item[hidden],
 .report-list-empty[hidden] {
   display: none !important;
@@ -5535,7 +5545,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
     flex-direction: column;
   }
 }
-    
+
 /* V51 Agent / 运营工作队列 */
 .v51-queue-shell{border:1px solid var(--line);border-radius:20px;background:#fff;box-shadow:var(--shadow-xs);overflow:hidden}
 .v51-queue-header{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:26px 28px 22px;border-bottom:1px solid var(--line)}
@@ -7409,11 +7419,6 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 </style>
 
 
-<style id="v154-monitor-question-selection">
-.monitor-question-select-count{display:inline-flex;align-items:center;margin-right:12px;padding:6px 10px;border-radius:999px;background:#F3F6FB;color:#52647D;font-size:12px;font-weight:700;}
-.monitor-question-checkbox{width:16px;height:16px;cursor:pointer;}
-</style>
-
 <style id="v157-onboarding-question-style">
 .ob157-question-section .ob57-section-head{align-items:flex-start;gap:16px}
 .ob157-question-subtitle{margin-top:6px;color:#7A8699;font-size:12px;line-height:1.55}
@@ -7562,7 +7567,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
         </nav>
       </aside>
       <main class="ob57-main">
-        
+
         <div class="ob57-panel">
           <section class="ob57-screen" data-ob57-screen="1">
             <div class="ob73-heading-row"><h1 class="ob57-title">确认品牌知识</h1><span class="ob73-help-wrap"><button class="ob73-help-btn" type="button" aria-label="查看说明">i</button><span class="ob73-help-pop">请确认并完善品牌基础信息，这些信息将用于后续买家人设生成、监测问题生成与可见性监测。</span></span><span class="ob57-source">数据来源：独立站超级智能体</span></div>
@@ -7701,7 +7706,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
             <div class="ob58-guide-step" data-ob57-step-indicator="4"><i>4</i><span>开始监测</span></div>
           </div>
         </div>
-            <div class="ob57-section"><div class="ob57-section-head"><div><div class="ob75-section-title"><h3>采集频率</h3><span class="ob73-help-wrap"><button class="ob73-help-btn ob75-mini-help" type="button" aria-label="查看采集频率说明">i</button><span class="ob73-help-pop">只需选择频率，具体采集日期与执行时间由系统固定</span></span></div></div><span class="ob57-pill">可调整</span></div><div class="ob57-grid"><div class="ob57-field full"><label>采集频率</label><div class="ob57-frequency"><label><input type="radio" name="ob57freq" value="weekly" checked><span>每周</span></label><label><input type="radio" name="ob57freq" value="monthly"><span>每月</span></label><label><input type="radio" name="ob57freq" value="quarterly"><span>每季度</span></label></div></div></div><div class="ob58-fixed-schedule"><span>系统执行规则</span><strong id="ob58-fixed-rule">每周按系统固定采集日与时间自动采集</strong></div></div>
+            <div class="ob57-section"><div class="ob57-section-head"><div><div class="ob75-section-title"><h3>采集频率</h3><span class="ob73-help-wrap"><button class="ob73-help-btn ob75-mini-help" type="button" aria-label="查看采集频率说明">i</button><span class="ob73-help-pop">只需选择频率，具体采集日期与执行时间由系统固定</span></span></div></div><span class="ob57-pill">可调整</span></div><div class="ob57-grid"><div class="ob57-field full"><label>采集频率</label><div class="ob57-frequency"><label><input type="radio" name="ob57freq" value="weekly" checked><span>每周</span></label><label><input type="radio" name="ob57freq" value="monthly"><span>每月</span></label></div></div></div><div class="ob58-fixed-schedule"><span>系统执行规则</span><strong id="ob58-fixed-rule">每周按系统固定采集日与时间自动采集</strong></div></div>
             <div class="ob57-section"><div class="ob57-section-head"><div><div class="ob75-section-title"><h3>AI 平台</h3><span class="ob73-help-wrap"><button class="ob73-help-btn ob75-mini-help" type="button" aria-label="查看 AI 平台说明">i</button><span class="ob73-help-pop">选择首次监测需要采集的平台</span></span></div></div><span class="ob57-pill">5 个可选</span></div><div class="ob57-grid"><div class="ob57-field full"><div class="ob57-platforms">
               <label class="ob57-platform"><span class="ob58-platform-logo"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="#111827" stroke-width="2"/><path d="M8 12h8M12 8v8" stroke="#111827" stroke-width="2"/></svg></span><span class="ob58-platform-name">ChatGPT</span><input class="ob57-check" type="checkbox" value="ChatGPT" checked></label><label class="ob57-platform"><span class="ob58-platform-logo"><svg viewBox="0 0 24 24"><path d="M6 5l6 5 6-5v14l-6-5-6 5z" fill="none" stroke="#111827" stroke-width="1.8"/></svg></span><span class="ob58-platform-name">Perplexity</span><input class="ob57-check" type="checkbox" value="Perplexity" checked></label><label class="ob57-platform"><span class="ob58-platform-logo"><svg viewBox="0 0 24 24"><path d="M12 3c1.1 4.6 3.4 6.9 8 8-4.6 1.1-6.9 3.4-8 8-1.1-4.6-3.4-6.9-8-8 4.6-1.1 6.9-3.4 8-8z" fill="#4285f4"/></svg></span><span class="ob58-platform-name">Google AI</span><input class="ob57-check" type="checkbox" value="Google AI" checked></label><label class="ob57-platform"><span class="ob58-platform-logo"><svg viewBox="0 0 24 24"><path d="M12 2c1.3 5.8 4.2 8.7 10 10-5.8 1.3-8.7 4.2-10 10C10.7 16.2 7.8 13.3 2 12 7.8 10.7 10.7 7.8 12 2z" fill="#6b6ff5"/></svg></span><span class="ob58-platform-name">Gemini</span><input class="ob57-check" type="checkbox" value="Gemini" checked></label><label class="ob57-platform"><span class="ob58-platform-logo"><svg viewBox="0 0 24 24"><path d="M12 3l2.2 5.1L20 10l-5.1 2.2L13 18l-2.2-5.1L5 11l5.1-2.2z" fill="#4285f4"/><circle cx="18" cy="5" r="2" fill="#ea4335"/></svg></span><span class="ob58-platform-name">AI Mode</span><input class="ob57-check" type="checkbox" value="AI Mode" checked></label><label class="ob57-platform is-unavailable" aria-disabled="true" title="本期暂未开放"><span class="ob58-platform-logo"><svg viewBox="0 0 24 24"><path d="M12 4v16M4 12h16M6.3 6.3l11.4 11.4M17.7 6.3L6.3 17.7" stroke="#d97757" stroke-width="2.2" stroke-linecap="round"/></svg></span><span class="ob58-platform-name">Claude</span><span class="ob58-unavailable-tag">本期暂不开放</span><input class="ob57-check" type="checkbox" value="Claude" disabled></label>
             </div></div></div></div>
@@ -7819,7 +7824,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
           <div class="page-header">
             <div class="page-title-row">
               <h1 class="page-title">概览 <button type="button" class="info-badge" id="workbench-lede" data-info="集中查看指标变化、各平台表现，以及 Agent 正在执行和等待你确认的事项。" aria-label="查看概览说明">ⓘ</button></h1>
-              
+
             </div>
           </div>
 
@@ -8242,7 +8247,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
           <div class="page-header">
             <div class="page-title-row">
               <h1 class="page-title">可见性监测 <button type="button" class="info-badge" data-info="直接透视品牌在各大生成式 AI 引擎中的曝光度、真实问答证据与主域名信源引用。" aria-label="查看可见性监测说明">ⓘ</button></h1>
-              
+
             </div>
           </div>
 
@@ -8273,8 +8278,8 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
             <div class="monitor-process-head"><div><strong>当前监测流程</strong><span>当前口径已完成；数字角标表示需要确认的配置</span></div></div>
             <div class="monitor-process-steps">
               <button class="monitor-process-step is-link is-complete" type="button" data-action="open-monitor-config" data-config-tab="brand"><strong class="monitor-process-step-title">1. 品牌知识 <span class="monitor-process-step-count" data-pending-count="brand">1</span></strong><span>当前版本已生效</span></button>
-              <button class="monitor-process-step is-link is-complete" type="button" data-action="open-monitor-config" data-config-tab="persona"><strong class="monitor-process-step-title">2. 买家人设 <span class="monitor-process-step-count" data-pending-count="persona">1</span></strong><span>6 类当前生效</span></button>
-              <button class="monitor-process-step is-link is-complete" type="button" data-action="open-monitor-config" data-config-tab="questions"><strong class="monitor-process-step-title">3. 监测问题 <span class="monitor-process-step-count" data-pending-count="questions">1</span></strong><span>67 条当前生效</span></button>
+              <button class="monitor-process-step is-link is-complete" type="button" data-action="open-monitor-config" data-config-tab="persona"><strong class="monitor-process-step-title">2. 买家人设</strong><span>6 类当前生效</span></button>
+              <button class="monitor-process-step is-link is-complete" type="button" data-action="open-monitor-config" data-config-tab="questions"><strong class="monitor-process-step-title">3. 监测问题</strong><span>67 条当前生效</span></button>
               <button class="monitor-process-step is-link is-complete" type="button" data-action="open-sampling-execution"><strong class="monitor-process-step-title">4. 采样执行</strong><span>最近一轮已完成</span></button>
               <button class="monitor-process-step is-link is-current is-result" type="button" data-action="open-monitor-results"><strong>5. 监测结果</strong><span>2026-09-18 本轮结果</span></button>
             </div>
@@ -8284,8 +8289,8 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
             <div class="monitor-config-tabs-row">
               <div class="monitor-config-tabs" role="tablist" aria-label="监测配置">
                 <button class="monitor-config-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="monitor-config-panel-brand" data-action="switch-monitor-config-tab" data-config-tab="brand">品牌知识 <span class="monitor-config-count" data-pending-count="brand">1</span></button>
-                <button class="monitor-config-tab" type="button" role="tab" aria-selected="false" aria-controls="monitor-config-panel-persona" data-action="switch-monitor-config-tab" data-config-tab="persona">买家人设 <span class="monitor-config-count" data-pending-count="persona">1</span></button>
-                <button class="monitor-config-tab" type="button" role="tab" aria-selected="false" aria-controls="monitor-config-panel-questions" data-action="switch-monitor-config-tab" data-config-tab="questions">监测问题 <span class="monitor-config-count" data-pending-count="questions">1</span></button>
+                <button class="monitor-config-tab" type="button" role="tab" aria-selected="false" aria-controls="monitor-config-panel-persona" data-action="switch-monitor-config-tab" data-config-tab="persona">买家人设</button>
+                <button class="monitor-config-tab" type="button" role="tab" aria-selected="false" aria-controls="monitor-config-panel-questions" data-action="switch-monitor-config-tab" data-config-tab="questions">监测问题</button>
               </div>
               <button class="monitor-config-back-link" type="button" data-action="close-monitor-config">返回监测结果</button>
             </div>
@@ -8323,20 +8328,11 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
                     <div class="monitor-brand-dimension-footer"><button class="monitor-config-edit-button" type="button" data-v17="view-brand-knowledge" data-brand-item="竞争对手">查看</button></div>
                   </article>
                 </div>
-                
+
               </article>
             </div>
 
             <div id="monitor-config-panel-persona" class="monitor-config-tab-panel" role="tabpanel" hidden>
-              <div class="monitor-config-pending" data-pending-section="persona">
-                <div class="monitor-config-pending-head"><strong>待确认</strong><span class="monitor-config-count" data-pending-count="persona">1</span></div>
-                <div class="monitor-config-pending-item" data-pending-item="persona">
-                  <div class="monitor-config-pending-item-copy"><strong>新增买家人设：复材初创工坊创始人</strong><span>确认加入买家人设</span></div>
-                  <button class="monitor-config-confirm-button" type="button" data-action="confirm-monitor-change" data-config-tab="persona">确认加入</button>
-                  <span class="monitor-config-confirmed">已加入 · 下一次监测生效</span>
-                </div>
-                <span class="monitor-config-empty" data-pending-empty="persona">暂无待确认内容</span>
-              </div>
               <article class="monitor-config-view-card" data-config-section="persona">
                 <div class="monitor-config-card-head"><div><h2>当前买家人设 <button type="button" class="info-badge" data-info="当前 6 类买家人设；每个人设独立维护和累计样本。" aria-label="查看当前买家人设说明">ⓘ</button></h2></div><div class="monitor-config-card-head-actions"><button class="monitor-question-add-button" type="button" data-action="open-config-editor" data-config-section="persona">维护买家人设</button><span class="monitor-config-status">6 类</span></div></div>
                 <div class="monitor-persona-grid" aria-label="当前买家人设">
@@ -8381,25 +8377,16 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
             </div>
 
             <div id="monitor-config-panel-questions" class="monitor-config-tab-panel" role="tabpanel" hidden>
-              <div class="monitor-config-pending" data-pending-section="questions">
-                <div class="monitor-config-pending-head"><strong>待确认</strong><span class="monitor-config-count" data-pending-count="questions">1</span></div>
-                <div class="monitor-config-pending-item" data-pending-item="questions">
-                  <div class="monitor-config-pending-item-copy"><strong>新增 6 条监测问题</strong><span>确认加入问题集</span></div>
-                  <button class="monitor-config-confirm-button" type="button" data-action="confirm-monitor-change" data-config-tab="questions">确认加入</button>
-                  <span class="monitor-config-confirmed">已加入 · 下一次监测生效</span>
-                </div>
-                <span class="monitor-config-empty" data-pending-empty="questions">暂无待确认内容</span>
-              </div>
               <article class="monitor-config-view-card monitor-question-maintenance" data-config-section="questions">
-                <div class="monitor-question-maintenance-head"><div class="monitor-config-card-head"><div><h2>当前监测问题 <button type="button" class="info-badge" data-info="这里维护用于采集的监测问题，不展示问题答案。AI 默认生成 2N 条（当前展示 10 条），最多选择 5 条用于首次监测。可查看问题是否生效并添加问题。" aria-label="查看当前监测问题说明">ⓘ</button></h2></div><span class="monitor-config-status" data-question-total>67 条</span></div></div>
-                <div class="monitor-question-maintenance-toolbar"><div><span id="monitor-question-select-count" class="monitor-question-select-count">已选择 0 / 5</span><button type="button" class="monitor-question-add-button" data-action="add-monitor-question">添加监测问题</button></div></div>
+                <div class="monitor-question-maintenance-head"><div class="monitor-config-card-head"><div><h2>当前监测问题 <button type="button" class="info-badge" data-info="当前市场共维护 67 条监测问题，列表默认展示 10 条。可批量编辑整组问题或单独新增。新人引导中的首次监测选择是另一项独立操作。" aria-label="查看当前监测问题说明">ⓘ</button></h2></div><span class="monitor-config-status" data-question-total>67 条</span></div></div>
+                <div class="monitor-question-maintenance-toolbar"><div><button type="button" class="monitor-question-add-button" data-v17="edit-question-set">编辑全部问题</button><button type="button" class="monitor-question-add-button" data-action="add-monitor-question">添加监测问题</button></div></div>
                 <div class="monitor-question-table-wrap">
                   <table class="monitor-question-table" aria-label="当前监测问题列表">
-                    <thead><tr><th>选择</th><th>问题</th><th>关键词</th><th>类型</th><th>买家人设</th><th>采购阶段</th><th>意图</th><th>主要关注问题</th></tr></thead>
+                    <thead><tr><th>问题</th><th>关键词</th><th>类型</th><th>买家人设</th><th>采购阶段</th><th>意图</th><th>主要关注问题</th></tr></thead>
                     <tbody id="monitor-question-maintenance-body"></tbody>
                   </table>
                 </div>
-                <div class="monitor-config-card-footer"><small>确认加入或新增后，从下一次监测开始生效</small><span></span></div>
+                <div class="monitor-config-card-footer"><small>新增后，从下一次监测开始生效</small><span></span></div>
               </article>
             </div>
 
@@ -8487,28 +8474,6 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
                 </div>
                 <div class="iab-benchmark-callout"><strong id="sampling-benchmark-callout-label">判定状态：</strong><span id="sampling-benchmark-callout-text">当前监测已按统一质量口径执行。</span></div>
               </div>
-              <div class="sampling-section-heading">
-                <h3>可信度指标</h3>
-              </div>
-              <div class="quality-cards-grid">
-                <div class="quality-card"><div class="quality-head"><span class="quality-title">有效返回率 <button type="button" class="info-badge quality-info-badge" data-info="实际返回了可用于判定的有效回答，占全部采样的比例。" aria-label="查看有效返回率说明">ⓘ</button></span><span class="quality-status-pill status-reference">当前值</span></div><div class="quality-val">97.4%</div><div class="quality-definition">有多少次采样拿到了可判定的有效回答</div><div class="quality-sub">累计 1,200 次采样中 1,169 次返回有效回答</div></div>
-                <div class="quality-card"><div class="quality-head"><span class="quality-title">双源一致率 <button type="button" class="info-badge quality-info-badge" data-info="同一问题由两条独立采集来源得到相同判定的比例。" aria-label="查看双源一致率说明">ⓘ</button></span><span class="quality-status-pill status-reference">当前值</span></div><div class="quality-val">91%</div><div class="quality-definition">两条采集来源对同一问题的判断有多一致</div><div class="quality-sub">主源与第二源对同一问题判定的一致比例</div></div>
-                <div class="quality-card"><div class="quality-head"><span class="quality-title">人工复核一致率 <button type="button" class="info-badge quality-info-badge" data-info="人工复核结果与系统自动判定结果相同的比例。" aria-label="查看人工复核一致率说明">ⓘ</button></span><span class="quality-status-pill status-reference">当前值</span></div><div class="quality-val">96.0%</div><div class="quality-definition">人工检查和系统自动判断有多一致</div><div class="quality-sub">62 条人工复核与自动判定结果一致</div></div>
-                <div class="quality-card"><div class="quality-head"><span class="quality-title">样本量 / 95% 置信区间 <button type="button" class="info-badge quality-info-badge" data-info="样本量表示本次用于计算的观测规模；95% 置信区间表示结果可能落入的范围，区间越窄，结果越稳定。" aria-label="查看样本量与置信区间说明">ⓘ</button></span><span id="sampling-quality-sample-status" class="quality-status-pill status-reference">当前值</span></div><div class="quality-val">n = 1,200 · ±2.8pp</div><div id="sampling-quality-sample-definition" class="quality-definition">当前展示累计样本与 95% 置信区间</div><div class="quality-sub">当前口径累计；人设层置信区间约 ±8.8pp</div></div>
-                <div class="quality-card"><div class="quality-head"><span class="quality-title">7 日复现波动 <button type="button" class="info-badge quality-info-badge" data-info="同一套问题连续重跑 7 天，结果在这段时间内的上下波动范围。" aria-label="查看 7 日复现波动说明">ⓘ</button></span><span class="quality-status-pill status-reference">当前值</span></div><div class="quality-val">±3.1 pp</div><div class="quality-definition">同样的问题重复监测，结果会不会反复变化</div><div class="quality-sub">同套问题重跑浮动极低，非偶发单次事件</div></div>
-                <div class="quality-card"><div class="quality-head"><span class="quality-title">引擎漂移告警 <button type="button" class="info-badge quality-info-badge" data-info="AI 引擎发生模型或规则变化，可能影响本次监测结果的可比性。" aria-label="查看引擎漂移告警说明">ⓘ</button></span><span class="quality-status-pill status-reference">已记录</span></div><div class="quality-val">1 个事件</div><div class="quality-definition">AI 引擎有没有发生可能影响结果的变化</div><div class="quality-sub">ChatGPT 模型更新，已作为外部事件标记</div></div>
-              </div>
-              <details class="sampling-method-details">
-                <summary>查看采样口径与判定规则</summary>
-                <div class="sampling-method-grid">
-                  <div><strong>会话：</strong>每次采样使用全新会话，不带登录态与个性化历史。</div>
-                  <div><strong>地区与语言：</strong>按本轮监测市场与语言执行统一采样。</div>
-                  <div><strong>采集方式：</strong>真实模拟用户方式采集，记录用户实际看到的回答。</div>
-                  <div><strong>频率：</strong>按当前监测配置执行，本期按每周或每月计划监测。</div>
-                  <div><strong>判定：</strong>统一判定品牌提及、推荐、引用与情感，周期内口径保持一致。</div>
-                  <div><strong>失败处理：</strong>无有效回答不计入分母；有效返回不足时标记样本不足。</div>
-                </div>
-              </details>
             </section>
 
 
@@ -8593,7 +8558,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
                 <span><i class="legend-dot heat-2"></i>偏弱区 (25-49%)</span>
                 <span><i class="legend-dot heat-1"></i>盲区/缺口 (&lt;25%)</span>
               </div>
-              
+
             </div>
 
             <div id="monitor-panel-queries" class="merged-tab-panel" role="tabpanel" hidden>
@@ -8656,7 +8621,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
           <div class="page-header">
             <div class="page-title-row">
               <h1 class="page-title">报告中心 <button type="button" class="info-badge" data-info="集中查看次报、周报、月报与季报；次报由用户点击「生成最新报告」后触发生成。" aria-label="查看报告中心说明">ⓘ</button></h1>
-              
+
             </div>
           </div>
 
@@ -9150,7 +9115,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
           const legacyIntent = seed.intent;
           const stage = ['信息','认知'].includes(legacyIntent) ? '需求发现' : ['推荐','背书'].includes(legacyIntent) ? '方案寻找' : ['比较','评估'].includes(legacyIntent) ? '供应商评估' : '采购决策';
           const focus = window.__geoSuggestedFocus(seed.persona, stage, legacyIntent);
-          return { id: `maintenance-q-${index + 1}`, text, persona: seed.persona, keyword, intent: legacyIntent, type, stage, focus, active: true, selected: index < 5 };
+          return { id: `maintenance-q-${index + 1}`, text, persona: seed.persona, keyword, intent: legacyIntent, type, stage, focus, active: true };
         });
 
         const questionSamplingProfiles = {
@@ -9276,7 +9241,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
         let activeReportFilter = 'all';
         let activeMonitorMode = 'results';
         let activeMonitorConfigTab = 'brand';
-        const pendingMonitorChanges = { brand: true, persona: true, questions: true };
+        const pendingMonitorChanges = { brand: true, persona: false, questions: false };
         let samplingFrequency = 'weekly';
         let samplingTime = '05:00';
         let samplingWeekday = '1';
@@ -9569,7 +9534,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
           const profile = getQuestionSamplingProfile(query);
           return `
             <div class="question-drawer-submetrics" aria-label="问题级累计采样"><div class="question-drawer-submetric"><span>累计采集批次</span><strong>${profile.batches} 次</strong></div>
-              
+
               <div class="question-drawer-submetric"><span>有效回答</span><strong>${profile.valid} / ${profile.total}</strong></div>
               <div class="question-drawer-submetric"><span>95% 置信区间</span><strong>${profile.interval}</strong></div>
               <div class="question-drawer-submetric"><span>累计范围</span><strong style="font-size:11px;">09-01 至 09-18</strong></div>
@@ -10314,7 +10279,7 @@ updateMonitorPendingUI();
                     <div class="left"><h3>核心产品</h3><p>至少维护 1 条核心产品信息，用于后续问题生成、内容优化与监测分析。</p></div>
                     <div class="right"><span class="step1-panel-count">已维护 1 条</span><button class="secondary-button" type="button" data-action="add-brand-product-group">＋ 新增核心产品</button></div>
                   </div>
-                  
+
                   <div class="entity-editor-list" data-entity-list="product">
                     <div class="v134-empty-state" id="v140-product-empty" hidden>尚未维护核心产品，请新增核心产品或从下方 AI 推荐加入。</div>
                     <article class="entity-editor-card v142-confirm-card" data-entity-card="product">
@@ -10552,71 +10517,37 @@ updateMonitorPendingUI();
           const weekdayLabels = { '1': '周一', '2': '周二', '3': '周三', '4': '周四', '5': '周五', '6': '周六', '0': '周日' };
           if (samplingFrequency === 'weekly') return `每周${weekdayLabels[samplingWeekday] || '周一'} ${samplingTime}`;
           if (samplingFrequency === 'monthly') return `每月 ${samplingMonthday} 日 ${samplingTime}`;
-          if (samplingFrequency === 'quarterly') return `每季度首月 ${samplingQuarterday} 日 ${samplingTime}`;
           return `每周${weekdayLabels[samplingWeekday] || '周一'} ${samplingTime}`;
         }
 
-        function renderSamplingScheduleFields() {
-          const host = document.getElementById('sampling-schedule-fields');
-          if (!host) return;
-          const timeField = `<label style="display:grid; gap:6px; font-size:12px; font-weight:600;">采集时间
-            <input id="sampling-time-input" type="time" value="${samplingTime}" style="min-height:36px; padding:0 10px; border:1px solid #CBD5E1; border-radius:8px; background:#FFFFFF; color:#182230;">
-          </label>`;
-          if (document.querySelector('[data-sampling-frequency]:checked')?.value === 'weekly') {
-            host.innerHTML = `<label style="display:grid; gap:6px; font-size:12px; font-weight:600;">采集日期
-              <select id="sampling-weekday-input" style="min-height:36px; padding:0 10px; border:1px solid #CBD5E1; border-radius:8px; background:#FFFFFF; color:#182230;">
-                ${[['1','周一'],['2','周二'],['3','周三'],['4','周四'],['5','周五'],['6','周六'],['0','周日']].map(([v,l]) => `<option value="${v}" ${samplingWeekday === v ? 'selected' : ''}>${l}</option>`).join('')}
-              </select></label>${timeField}`;
-          } else if (document.querySelector('[data-sampling-frequency]:checked')?.value === 'monthly') {
-            host.innerHTML = `<label style="display:grid; gap:6px; font-size:12px; font-weight:600;">每月日期
-              <select id="sampling-monthday-input" style="min-height:36px; padding:0 10px; border:1px solid #CBD5E1; border-radius:8px; background:#FFFFFF; color:#182230;">
-                ${Array.from({length:28},(_,i)=>i+1).map(v => `<option value="${v}" ${String(samplingMonthday) === String(v) ? 'selected' : ''}>${v} 日</option>`).join('')}
-              </select></label>${timeField}`;
-          } else if (document.querySelector('[data-sampling-frequency]:checked')?.value === 'quarterly') {
-            host.innerHTML = `<label style="display:grid; gap:6px; font-size:12px; font-weight:600;">季度首月日期
-              <select id="sampling-quarterday-input" style="min-height:36px; padding:0 10px; border:1px solid #CBD5E1; border-radius:8px; background:#FFFFFF; color:#182230;">
-                ${Array.from({length:28},(_,i)=>i+1).map(v => `<option value="${v}" ${String(samplingQuarterday) === String(v) ? 'selected' : ''}>${v} 日</option>`).join('')}
-              </select></label>${timeField}`;
-          } else {
-            host.innerHTML = timeField;
-          }
-        }
-
         function openSamplingSettings() {
+          if (samplingFrequency !== 'monthly') samplingFrequency = 'weekly';
           const platformOptions = ['ChatGPT', 'Perplexity', 'Google AI', 'Gemini', 'AI Mode', 'Claude'].map((platform) => `
             <label style="display:flex; align-items:center; gap:8px; min-height:30px; color:${platform === 'Claude' ? '#98A2B3' : '#334155'}; font-size:13px; cursor:${platform === 'Claude' ? 'not-allowed' : 'pointer'};" title="${platform === 'Claude' ? '本期暂未开放' : ''}">
               <input class="sampling-platform-checkbox" type="checkbox" value="${platform}" ${platform === 'Claude' ? 'disabled' : ''} ${selectedSamplingPlatforms.includes(platform) ? 'checked' : ''}>
               <span>${platform}${platform === 'Claude' ? '（本期暂不开放）' : ''}</span>
             </label>
           `).join('');
-          const frequencyOptions = [['weekly','每周'],['monthly','每月'],['quarterly','每季度']].map(([value,label]) => `
+          const frequencyOptions = [['weekly','每周'],['monthly','每月']].map(([value,label]) => `
             <label style="display:flex; align-items:center; gap:7px; min-height:34px; padding:0 12px; border:1px solid ${samplingFrequency === value ? '#93C5FD' : '#E2E8F0'}; border-radius:8px; background:${samplingFrequency === value ? '#EFF6FF' : '#FFFFFF'}; color:#334155; font-size:13px; font-weight:600; cursor:pointer;">
               <input type="radio" name="sampling-frequency" data-sampling-frequency value="${value}" ${samplingFrequency === value ? 'checked' : ''}>
               <span>${label}</span>
             </label>`).join('');
           openModal('调整采集频率与平台', `<div style="display:grid; gap:18px; color:#334155;">
-            <div><div style="margin-bottom:8px; font-size:12px; font-weight:600;">采集频率</div><div style="display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:8px;">${frequencyOptions}</div></div>
-            <div id="sampling-schedule-fields" style="display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:10px;"></div>
+            <div><div style="margin-bottom:8px; font-size:12px; font-weight:600;">采集频率</div><div style="display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:8px;">${frequencyOptions}</div></div>
             <div><div style="margin-bottom:8px; font-size:12px; font-weight:600;">AI 平台 <span style="color:#94A3B8; font-weight:400;">5 个可选 · Claude 本期暂不开放</span></div><div style="display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:4px 18px;">${platformOptions}</div></div>
-            <div style="padding:10px 12px; border:1px solid #E2E8F0; border-radius:8px; background:#F8FAFC; color:#64748B; font-size:12px; line-height:1.55;">市场、人设与问题集沿用当前监测计划，不在这里配置。</div>
+            <div style="padding:10px 12px; border:1px solid #E2E8F0; border-radius:8px; background:#F8FAFC; color:#64748B; font-size:12px; line-height:1.55;">采集日期与时间按系统计划执行。市场、人设与问题集沿用当前监测计划。</div>
           </div>`, '<button type="button" class="secondary-button" data-action="close-modal">取消</button><button type="button" class="primary-button" data-action="save-sampling-settings">保存当前设置</button>');
-          renderSamplingScheduleFields();
-          document.querySelectorAll('[data-sampling-frequency]').forEach((input) => input.addEventListener('change', renderSamplingScheduleFields));
         }
 
         function saveSamplingSettings() {
           const frequencyInput = document.querySelector('[data-sampling-frequency]:checked');
-          const timeInput = document.getElementById('sampling-time-input');
           const platformInputs = [...document.querySelectorAll('.sampling-platform-checkbox:checked')];
-          if (!frequencyInput || !timeInput || !platformInputs.length) {
+          if (!frequencyInput || !platformInputs.length) {
             showToast('请完整设置采集频率，并至少保留一个 AI 平台');
             return;
           }
           samplingFrequency = frequencyInput.value;
-          samplingTime = timeInput.value;
-          if (samplingFrequency === 'weekly') samplingWeekday = document.getElementById('sampling-weekday-input')?.value || samplingWeekday;
-          if (samplingFrequency === 'monthly') samplingMonthday = document.getElementById('sampling-monthday-input')?.value || samplingMonthday;
-          if (samplingFrequency === 'quarterly') samplingQuarterday = document.getElementById('sampling-quarterday-input')?.value || samplingQuarterday;
           selectedSamplingPlatforms = platformInputs.map((input) => input.value);
           document.querySelectorAll('[data-settings-time]').forEach((element) => {
             element.textContent = samplingScheduleLabel();
@@ -10928,7 +10859,6 @@ updateMonitorPendingUI();
           const displayQuestions = monitorQuestionMaintenanceData.slice(0, 10);
           body.innerHTML = displayQuestions.map((question, index) => `
             <tr data-question-maintenance-row="${escapeHtml(question.id)}">
-              <td><input class="monitor-question-checkbox" type="checkbox" ${question.selected ? 'checked' : ''} onchange="toggleMonitorQuestionSelection('${escapeHtml(question.id)}', this.checked)"></td>
               <td><div class="monitor-question-cell"><span class="monitor-question-number">Q${String(index + 1).padStart(2, '0')}</span><span class="monitor-question-text">${escapeHtml(question.text)}</span></div></td>
               <td><span class="monitor-question-keyword">${escapeHtml(question.keyword || '—')}</span></td>
               <td>${escapeHtml(question.type || '—')}</td>
@@ -10938,31 +10868,14 @@ updateMonitorPendingUI();
               <td>${escapeHtml(question.focus || window.__geoSuggestedFocus(question.persona, question.stage || procurementStageForIntent(question.intent), question.intent))}</td>
             </tr>
           `).join('');
-          const selectedCount = monitorQuestionMaintenanceData.filter(item => item.selected).length;
-          const countEl = document.getElementById('monitor-question-select-count');
-          if(countEl) countEl.textContent = `已选择 ${selectedCount} / 5`;
-          document.querySelectorAll('.monitor-question-checkbox').forEach((checkbox)=>{
-            const q = monitorQuestionMaintenanceData.find(item=>item.id===checkbox.closest('tr').dataset.questionMaintenanceRow);
-            checkbox.disabled = !checkbox.checked && selectedCount >= 5;
-          });
           document.querySelectorAll('[data-question-total]').forEach((element) => {
             element.textContent = `${monitorQuestionMaintenanceData.length} 条`;
           });
         }
 
+        window.__getMonitorQuestionMaintenanceData = () => monitorQuestionMaintenanceData.map(item => ({ ...item }));
+        window.__setMonitorQuestionMaintenanceData = (items) => { monitorQuestionMaintenanceData = items.map(item => ({ ...item })); renderMonitorQuestionMaintenance(); };
 
-        function toggleMonitorQuestionSelection(questionId, checked) {
-          const question = monitorQuestionMaintenanceData.find((item) => item.id === questionId);
-          if (!question) return;
-          const selectedCount = monitorQuestionMaintenanceData.filter(item => item.selected).length;
-          if (checked && selectedCount >= 5) {
-            showToast('最多选择 5 条监测问题');
-            renderMonitorQuestionMaintenance();
-            return;
-          }
-          question.selected = checked;
-          renderMonitorQuestionMaintenance();
-        }
 
         function toggleMonitorQuestion(questionId) {
           const question = monitorQuestionMaintenanceData.find((item) => item.id === questionId);
@@ -11008,7 +10921,6 @@ updateMonitorPendingUI();
             focus,
             type,
             active: true,
-            selected: false
           });
           renderMonitorQuestionMaintenance();
           closeModal();
@@ -13169,7 +13081,7 @@ For procurement purposes, the brand should only be treated as a meaningful compe
         switchMonitorConfigTab('brand');
         updateMonitorPendingUI();
       })();
-    
+
 
       // v57 首次进入：复用正式配置的数据结构，只改变首次确认流程
       (() => {
@@ -13223,13 +13135,13 @@ For procurement purposes, the brand should only be treated as a meaningful compe
           const value=root.querySelector('input[name="ob57freq"]:checked')?.value || 'weekly';
           samplingFrequency=value;
           const rule=document.getElementById('ob58-fixed-rule');
-          const rules={weekly:'每周按系统固定采集日与时间自动采集',monthly:'每月按系统固定采集日与时间自动采集',quarterly:'每季度按系统固定采集日与时间自动采集'};
+          const rules={weekly:'每周按系统固定采集日与时间自动采集',monthly:'每月按系统固定采集日与时间自动采集'};
           if(rule) rule.textContent=rules[value];
         }));
         render();
       })();
 </script>
-  
+
 <script id="v77-onboarding-help-popover-fix">
 (function(){
   function closeAll(except){
@@ -13793,7 +13705,21 @@ For procurement purposes, the brand should only be treated as a meaningful compe
 <style id="v17-config-version-rules">
   /* v17：全局品牌知识、市场配置、市场语言与报告无数据状态 */
   .v17-modal-backdrop{position:fixed;inset:0;z-index:10050;background:rgba(22,34,55,.42);display:grid;place-items:center;padding:20px}
-  .v17-modal{width:min(560px,100%);background:#fff;border:1px solid #dce5f1;border-radius:18px;box-shadow:0 24px 80px rgba(25,45,80,.22);padding:26px;color:#263854}
+.v17-modal{width:min(560px,100%);background:#fff;border:1px solid #dce5f1;border-radius:18px;box-shadow:0 24px 80px rgba(25,45,80,.22);padding:26px;color:#263854}
+.v17-modal.v17-question-batch-editor{width:min(1640px,calc(100vw - 32px));height:min(94vh,1000px);display:flex;flex-direction:column;padding:22px 24px 0;overflow:hidden}
+.v17-question-editor-body{display:flex;flex:1;min-height:0;flex-direction:column}
+.v17-question-editor-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:4px 0 12px;color:#71819a;font-size:12px}
+.v17-question-editor-add{min-height:34px;padding:0 12px;border:1px solid #bfd7ff;border-radius:8px;background:#f4f8ff;color:#2458d3;font:inherit;font-weight:700;cursor:pointer}
+.v17-question-editor-wrap{flex:1;min-height:0;overflow:auto;border:1px solid #dfe7f2;border-radius:10px}
+.v17-question-editor-table{width:100%;min-width:1420px;table-layout:fixed;border-collapse:separate;border-spacing:0;font-size:12px}
+.v17-question-editor-table th,.v17-question-editor-table td{padding:8px;border-bottom:1px solid #e8edf4;text-align:left;vertical-align:top}
+.v17-question-editor-table th{position:sticky;top:0;z-index:2;background:#f5f8fc;color:#6b7c95;font-size:11px;white-space:nowrap}
+.v17-question-editor-table td:first-child{color:#8695aa;font-weight:700;text-align:center}
+.v17-question-editor-table tr:last-child td{border-bottom:0}
+.v17-question-editor-table input,.v17-question-editor-table select,.v17-question-editor-table textarea{width:100%;min-height:36px;box-sizing:border-box;padding:7px 8px;border:1px solid #d7e1ef;border-radius:7px;background:#fff;color:#293c59;font:inherit;line-height:1.4}
+.v17-question-editor-table textarea{min-height:58px;resize:vertical}
+.v17-question-editor-table .v17-question-remove{padding:5px 7px;border:0;background:transparent;color:#b54747;font:inherit;white-space:nowrap;cursor:pointer}
+.v17-modal.v17-question-batch-editor .v17-actions{flex:none;margin-top:0;padding:12px 0 16px;border-top:1px solid #e7edf5;background:#fff}
   .v17-modal h2{font-size:20px;margin:0 0 10px}.v17-modal p{color:#657793;line-height:1.7;margin:8px 0 18px}
   .v17-modal .v17-note{background:#f5f8fd;border:1px solid #e1e9f4;border-radius:12px;padding:13px 15px;margin:14px 0;color:#50627f;line-height:1.65}
   .v17-modal .v17-usage{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-radius:10px;background:#f7f9fc;margin:14px 0 20px}
@@ -13843,12 +13769,13 @@ For procurement purposes, the brand should only be treated as a meaningful compe
 (function(){
   const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>Array.from(r.querySelectorAll(s));
   let bypass=false, editContext=null, modalStep='', marketCount=1, marketPromptReviews=[], marketPromptIndex=0, confirmedMarketPrompts=[];
+  let questionEditorOriginal=[], pendingQuestionEdits=[];
   let monitoringPaused=false, pausedScope='current';
-  const mountModal=(title,body,buttons)=>{let old=$('.v17-modal-backdrop');if(old)old.remove();const wrap=document.createElement('div');wrap.className='v17-modal-backdrop';wrap.innerHTML='<section class="v17-modal" role="dialog" aria-modal="true"><h2>'+title+'</h2>'+body+'<div class="v17-actions">'+buttons+'</div></section>';wrap.addEventListener('click',e=>{if(e.target===wrap)wrap.remove()});document.body.appendChild(wrap);return wrap};
+  const mountModal=(title,body,buttons)=>{let old=$('.v17-modal-backdrop');if(old)old.remove();const wrap=document.createElement('div');wrap.className='v17-modal-backdrop';wrap.innerHTML='<section class="v17-modal" role="dialog" aria-modal="true"><h2>'+title+'</h2>'+body+'<div class="v17-actions">'+buttons+'</div></section>';wrap.addEventListener('click',e=>{if(e.target===wrap){const dialog=$('.v17-modal',wrap);if(dialog&&(dialog.classList.contains('v17-question-batch-editor')||dialog.classList.contains('v17-question-edit-confirmation'))){editContext=null;pendingQuestionEdits=[];}wrap.remove()}});document.body.appendChild(wrap);return wrap};
   const closeModal=()=>{$$('.v17-modal-backdrop').forEach(x=>x.remove())};
   const btn=(text,action,primary=false)=>'<button type="button" data-v17="'+action+'" class="'+(primary?'primary':'')+'">'+text+'</button>';
   function syncMonitoringStatus(){const label=monitoringPaused?'已暂停':'进行中';$$('.monitor-running-pill,.monitor-card-badge').forEach(el=>{el.textContent=label;el.classList.toggle('is-paused',monitoringPaused);});$$('[data-v17="toggle-monitoring"]').forEach(el=>{el.textContent=monitoringPaused?(pausedScope==='all'?'开启全部市场':'开启监测'):'暂停监测';});}
-  function showResumePrompt(scope){const all=scope==='all';mountModal(all?'开启全部市场监测？':'开启当前市场监测？','<p>开启后按原定采集计划运行。</p><div class="v17-note">新配置建立新的 SOA 基线，不与旧数据做环比。</div>',btn('暂不开启',all?'keep-all-paused':'keep-paused')+btn(all?'开启全部市场':'开启当前市场',all?'enable-all-markets':'enable-current-market',true));}
+  function showResumePrompt(scope){const all=scope==='all';mountModal(all?'开启全部市场监测？':'开启当前市场监测？','<p>开启后按原定采集计划运行，历史数据与报告保留。</p>',btn('暂不开启',all?'keep-all-paused':'keep-paused')+btn(all?'开启全部市场':'开启当前市场',all?'enable-all-markets':'enable-current-market',true));}
   function syncMarketPair(){
     const project=$('.v129-project-wrap'), languageWrap=$('.v133-language-wrap'), market=$('.v129-market-switcher');
     if(project)project.hidden=true;
@@ -13937,11 +13864,30 @@ For procurement purposes, the brand should only be treated as a meaningful compe
     editContext={section,name,isBrand,target:target};
     const currentMarket=($('#v129-global-market-label')?.textContent||'德国 · 德语').split(' · ')[0];
     const markets=isBrand?'全部已启用市场（'+marketCount+' 个）':'当前市场（'+currentMarket+'）';
-    const title=isBrand?'编辑品牌知识':'修改当前市场配置';
-    const body=isBrand?'<p>修改品牌知识会影响所有已启用市场。</p><div class="v17-note"><strong>影响范围：</strong>'+markets+'<br><strong>生效规则：</strong>新版本按原计划采集，建立新的 SOA 基线，不与旧数据做环比。</div><div class="v17-usage"><span>品牌知识修改次数</span><strong>本套餐剩余 2 次</strong></div>':'<p>修改人设、Prompt 或监测问题会影响当前市场的后续监测。</p><div class="v17-note"><strong>影响范围：</strong>'+markets+'<br><strong>生效规则：</strong>新配置按原计划采集，建立新的 SOA 基线，不与旧数据做环比。</div>';
+    const configName=section==='questions'?'监测问题':'监测 Prompt';
+    const isAddingQuestion=section==='questions'&&target.dataset.action==='add-monitor-question';
+    const title=isBrand?'编辑品牌知识':(isAddingQuestion?'添加':'修改')+configName;
+    const body=isBrand?'<p>修改品牌知识会影响所有已启用市场。</p><div class="v17-note"><strong>影响范围：</strong>'+markets+'<br><strong>生效规则：</strong>新版本按原计划采集，建立新的 SOA 基线，不与旧数据做环比。</div><div class="v17-usage"><span>品牌知识修改次数</span><strong>本套餐剩余 2 次</strong></div>':'<p>'+(isAddingQuestion?'添加':'修改')+configName+'会影响当前市场后续采集使用的内容。</p><div class="v17-note"><strong>影响范围：</strong>'+markets+'<br><strong>生效规则：</strong>后续采集按新配置执行，并建立新的 SOA 基线；新旧口径的数据不做环比，历史数据与报告保留。</div>';
     mountModal(title,body,btn('取消','close')+btn(isBrand?'暂停所有市场并继续':'暂停当前市场并继续','edit-confirm',true));
   }
-  function launchEditor(){const target=editContext&&editContext.target;if(!target)return;const section=editContext.section;closeModal();if(section==='persona'){openMonitorPersonaBatchEditor(target);return;}bypass=true;target.click();bypass=false;}
+  function launchEditor(){const target=editContext&&editContext.target;if(!target)return;const section=editContext.section;closeModal();if(section==='persona'){openMonitorPersonaBatchEditor(target);return;}if(section==='questions'){openQuestionBatchEditor();return;}bypass=true;target.click();bypass=false;}
+  function questionEditorEscape(value){return String(value==null?'':value).replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));}
+  function questionEditorSelect(field,value,options){return '<select data-question-field="'+field+'">'+options.map(option=>'<option value="'+questionEditorEscape(option)+'" '+(option===value?'selected':'')+'>'+questionEditorEscape(option)+'</option>').join('')+'</select>';}
+  function renderQuestionEditorRows(rows){
+    const unique=(base,key)=>[...new Set([...base,...rows.map(item=>item[key]).filter(Boolean)])];
+    const types=unique(['品牌词','业务词','产品词'],'type'),personas=unique(['企业老板','采购负责人','技术负责人','生产负责人','质量负责人','财务与法务审批人','复材加工技术主管','航空部件采购经理','精密加工车间主管','商社设备采购担当','汽车 Tier-1 工艺工程师','航空复材项目负责人'],'persona'),stages=unique(['需求发现','方案寻找','供应商评估','采购决策'],'stage'),intents=unique(['认知','信息','比较','决策','推荐','评估','背书','交易'],'intent');
+    return rows.map((question,index)=>'<tr data-question-editor-row data-question-id="'+questionEditorEscape(question.id)+'"><td>Q'+String(index+1).padStart(2,'0')+'</td><td><textarea data-question-field="text" aria-label="问题 '+(index+1)+'">'+questionEditorEscape(question.text)+'</textarea></td><td><input data-question-field="keyword" aria-label="问题 '+(index+1)+' 关键词" value="'+questionEditorEscape(question.keyword)+'"></td><td>'+questionEditorSelect('type',question.type,types)+'</td><td>'+questionEditorSelect('persona',question.persona,personas)+'</td><td>'+questionEditorSelect('stage',question.stage,stages)+'</td><td>'+questionEditorSelect('intent',question.intent,intents)+'</td><td><input data-question-field="focus" aria-label="问题 '+(index+1)+' 关注点" value="'+questionEditorEscape(question.focus)+'"></td><td><button type="button" class="v17-question-remove" data-v17="question-row-remove">移除</button></td></tr>').join('');
+  }
+  function openQuestionBatchEditor(rows,resetOriginal=true){
+    const current=rows||window.__getMonitorQuestionMaintenanceData();
+    if(resetOriginal)questionEditorOriginal=window.__getMonitorQuestionMaintenanceData();
+    const body='<div class="v17-question-editor-body"><div class="v17-question-editor-toolbar"><span>当前市场 · '+current.length+' 条问题；所有修改统一保存</span><button type="button" class="v17-question-editor-add" data-v17="question-row-add">＋ 新增问题</button></div><div class="v17-question-editor-wrap"><table class="v17-question-editor-table"><colgroup><col style="width:58px"><col style="width:320px"><col style="width:150px"><col style="width:110px"><col style="width:190px"><col style="width:130px"><col style="width:100px"><col style="width:210px"><col style="width:72px"></colgroup><thead><tr><th>序号</th><th>监测问题</th><th>关键词</th><th>类型</th><th>买家人设</th><th>采购阶段</th><th>意图</th><th>主要关注问题</th><th>操作</th></tr></thead><tbody id="v17-question-editor-rows">'+renderQuestionEditorRows(current)+'</tbody></table></div></div>';
+    const wrap=mountModal('批量编辑监测问题',body,btn('取消','close')+btn('保存','question-review-save',true));const dialog=$('.v17-modal',wrap);if(dialog)dialog.classList.add('v17-question-batch-editor');
+  }
+  function collectQuestionEditorRows(dialog){
+    const source=window.__getMonitorQuestionMaintenanceData();
+    return $$('[data-question-editor-row]',dialog).map(row=>{const original=source.find(item=>item.id===row.dataset.questionId)||{};const read=field=>{const input=$('[data-question-field="'+field+'"]',row);return input?input.value.trim():'';};return{id:row.dataset.questionId||'maintenance-q-new-'+Date.now()+'-'+Math.random().toString(36).slice(2,7),text:read('text'),keyword:read('keyword'),type:read('type'),persona:read('persona'),stage:read('stage'),intent:read('intent'),focus:read('focus'),active:original.active!==false};});
+  }
   function interceptSave(save){
     if(!editContext)return false;
     if(!editContext.isBrand){
@@ -13954,17 +13900,23 @@ For procurement purposes, the brand should only be treated as a meaningful compe
   document.addEventListener('click',function(e){
     const action=e.target.closest('[data-v17]');
     if(action){e.preventDefault();e.stopImmediatePropagation();const a=action.dataset.v17;
-      if(a==='close'){closeModal();return;} if(a==='done'){closeModal();return;}
+      if(a==='close'){const dialog=action.closest('.v17-modal');if(dialog&&(dialog.classList.contains('v17-question-batch-editor')||dialog.classList.contains('v17-question-edit-confirmation'))){editContext=null;pendingQuestionEdits=[];}closeModal();return;} if(a==='done'){closeModal();return;}
+      if(a==='edit-question-set'){editContext={section:'questions',name:'',isBrand:false,target:action};openQuestionBatchEditor();return;}
+      if(a==='question-row-add'){const dialog=action.closest('.v17-modal');const rows=collectQuestionEditorRows(dialog);rows.push({id:'maintenance-q-new-'+Date.now(),text:'',keyword:'',type:'业务词',persona:'复材加工技术主管',stage:'供应商评估',intent:'评估',focus:'',active:true,selected:false});closeModal();openQuestionBatchEditor(rows,false);return;}
+      if(a==='question-row-remove'){const dialog=action.closest('.v17-modal');const row=action.closest('[data-question-editor-row]');const rows=collectQuestionEditorRows(dialog).filter(item=>item.id!==row?.dataset.questionId);if(!rows.length){showToast('至少保留 1 条监测问题');return;}closeModal();openQuestionBatchEditor(rows,false);return;}
+      if(a==='question-review-save'){const dialog=action.closest('.v17-modal');const rows=collectQuestionEditorRows(dialog);if(!rows.length){showToast('至少保留 1 条监测问题');return;}const fields=['id','text','keyword','type','persona','stage','intent','focus'];const clean=items=>items.map(item=>fields.map(field=>item[field]||''));if(JSON.stringify(clean(rows))===JSON.stringify(clean(questionEditorOriginal))){closeModal();editContext=null;showToast('没有检测到修改');return;}if(rows.some(item=>!item.text||!item.keyword||!item.type||!item.persona||!item.stage||!item.intent||!item.focus)){showToast('请补全每条问题的所有信息');return;}pendingQuestionEdits=rows;closeModal();const confirmation=mountModal('确认保存监测问题？','<p>保存后，当前市场的后续采集将使用这套完整的问题配置。</p><div class="v17-note">当前市场会暂停。重新开启后将按新问题集采集并建立新的 SOA 基线；新旧口径的数据不做环比，历史数据与报告保留。</div>',btn('返回编辑','question-review-back')+btn('确认保存并暂停','question-save-confirm',true));const confirmDialog=$('.v17-modal',confirmation);if(confirmDialog)confirmDialog.classList.add('v17-question-edit-confirmation');return;}
+      if(a==='question-review-back'){const rows=pendingQuestionEdits;closeModal();openQuestionBatchEditor(rows,false);return;}
+      if(a==='question-save-confirm'){window.__setMonitorQuestionMaintenanceData(pendingQuestionEdits);pendingQuestionEdits=[];monitoringPaused=true;pausedScope='current';syncMonitoringStatus();closeModal();editContext=null;showResumePrompt('current');return;}
       if(a==='pause-current'){monitoringPaused=true;pausedScope='current';syncMonitoringStatus();closeModal();return;}
       if(a==='keep-paused'||a==='keep-all-paused'){monitoringPaused=true;pausedScope=a==='keep-all-paused'?'all':'current';syncMonitoringStatus();closeModal();return;}
       if(a==='enable-current-market'||a==='enable-all-markets'){monitoringPaused=false;pausedScope=a==='enable-all-markets'?'all':'current';syncMonitoringStatus();closeModal();return;}
       if(a==='view-all-personas'){const cards=$$('.monitor-persona-card');const field=(label,value,required)=>'<label class="ob159-field"><span>'+label+(required?' <i>*</i>':'')+'</span><div class="ob159-readonly-control">'+(value||'—')+'</div></label>';const sets=cards.map(card=>{const grid=$('.monitor-persona-expanded-grid',card);const data={};if(grid)$$('div',grid).filter(row=>row.querySelector(':scope > span')&&row.querySelector(':scope > strong')).forEach(row=>data[row.querySelector(':scope > span').textContent]=row.querySelector(':scope > strong').textContent);const name=$('.monitor-persona-card-title strong',card)?.textContent||'买家人设';return '<section class="ob159-set"><div class="ob159-set-head"><span>'+name+'</span></div><div class="ob159-required-grid">'+field('人设类型',data['人设类型'],true)+field('采购阶段',data['采购阶段'],true)+'</div><details class="ob159-optional"><summary>选填信息（实际职位、行业、企业规模等）</summary><div class="ob159-optional-grid ob159-required-grid">'+[['实际职位','实际职位'],['行业','行业'],['企业规模','企业规模'],['决策角色','决策角色'],['采购触发场景','采购触发场景'],['采购预算','采购预算'],['采购周期','采购周期'],['了解渠道','了解渠道']].map(([label,key])=>field(label,data[key],false)).join('')+'</div></details></section>';}).join('');const body='<div class="v17-persona-readonly-scroll"><p class="ob159-intro">当前市场已确认的全部买家人设，仅供查看。</p><div class="ob159-set-list">'+sets+'</div></div>';const wrap=mountModal('查看买家人设',body,btn('关闭','close',true));const dialog=$('.v17-modal',wrap);if(dialog)dialog.classList.add('v17-modal-persona-batch','v17-modal-persona-readonly','v17-modal-persona-all');return;}
       if(a==='toggle-persona-details'){return;}
-      
+
       if(a==='persona-add-set'){const dialog=action.closest('.v17-modal');const rows=$$('.ob159-set',dialog);if(rows.length>=6){const msg=$('#v17-persona-validation',dialog);if(msg){msg.textContent='最多维护 6 套人设。';msg.hidden=false;}return;}const list=$('#v17-persona-set-list',dialog);list.insertAdjacentHTML('beforeend',openPersonaSetTemplate(rows.length));return;}
       if(a==='persona-remove-set'){const dialog=action.closest('.v17-modal');const row=action.closest('.ob159-set');if(row)row.remove();$$('.ob159-set',dialog).forEach((item,index)=>{const title=$('.ob159-set-head span',item);if(title)title.textContent='人设 '+(index+1);let remove=$('[data-v17="persona-remove-set"]',item);if(index===0&&remove)remove.remove();else if(index>0&&!remove){$('.ob159-set-head',item).insertAdjacentHTML('beforeend','<button class="ob159-remove" type="button" data-v17="persona-remove-set">移除</button>');}});return;}
-      if(a==='persona-save'){const dialog=action.closest('.v17-modal');const rows=collectMonitorPersonaSets(dialog);const validation=$('#v17-persona-validation',dialog);let error='';if(rows.some(row=>!row.fixedRole||!row.stage))error='请为每套人设选择人设类型和采购阶段。';const types=rows.map(row=>row.fixedRole);const original=(dialog.dataset.originalRoles||'').split('|').filter(Boolean);const count=(items,key)=>items.filter(x=>x===key).length;if(!error&&types.some(type=>count(types,type)>count(original,type)))error='同一类型只能添加一次，请检查人设类型。';if(error){validation.textContent=error;validation.hidden=false;return;}closeModal();editContext=null;showResumePrompt('current');return;}
-      
+      if(a==='persona-save'){const dialog=action.closest('.v17-modal');const rows=collectMonitorPersonaSets(dialog);const validation=$('#v17-persona-validation',dialog);let error='';if(rows.some(row=>!row.fixedRole||!row.stage))error='请为每套人设选择人设类型和采购阶段。';const types=rows.map(row=>row.fixedRole);const original=(dialog.dataset.originalRoles||'').split('|').filter(Boolean);const count=(items,key)=>items.filter(x=>x===key).length;if(!error&&types.some(type=>count(types,type)>count(original,type)))error='同一类型只能添加一次，请检查人设类型。';if(error){validation.textContent=error;validation.hidden=false;return;}const removed=original.some(type=>count(original,type)>count(types,type));closeModal();editContext=null;const body=removed?'<p>已移除所选买家人设。关联 Prompt 未自动修改或停用，仍按当前已保存配置用于后续采集。</p><div class="v17-note">如需调整后续采集，请单独编辑或停用对应 Prompt。历史监测数据与报告保留。</div>':'<p>买家人设资料已保存，不会自动修改关联 Prompt，也不会改变历史监测数据或后续采集口径。</p><div class="v17-note">如需调整采集内容，请单独编辑监测 Prompt。</div>';mountModal(removed?'人设已移除':'买家人设已保存',body,btn('完成','done',true));return;}
+
       if(a==='persona-review-tab'){const key=action.dataset.reviewTab;const dialog=action.closest('.v17-modal');$$('[data-v17="persona-review-tab"]',dialog).forEach(tab=>{const active=tab===action;tab.classList.toggle('is-active',active);tab.setAttribute('aria-selected',active?'true':'false');});$$('[data-review-panel]',dialog).forEach(panel=>panel.hidden=panel.dataset.reviewPanel!==key);return;}
       if(a==='view-brand-knowledge'){
         const tabMap={'品牌信息':'brand','核心产品':'product','市场与语言':'market','竞争对手':'competitor'};
@@ -13995,15 +13947,15 @@ For procurement purposes, the brand should only be treated as a meaningful compe
     const monitorToggle=e.target.closest('[data-v17="toggle-monitoring"]');if(monitorToggle){e.preventDefault();e.stopImmediatePropagation();if(monitoringPaused)showResumePrompt(pausedScope);else mountModal('暂停监测？','<p>暂停后将停止后续计划采集，历史数据与报告保留。</p>',btn('取消','close')+btn('暂停当前市场','pause-current',true));return;}
     const addQuestion=e.target.closest('[data-action="add-monitor-question"]');if(addQuestion&&!bypass&&addQuestion.closest('.monitor-config-view-card[data-config-section="questions"]')){e.preventDefault();e.stopImmediatePropagation();editContext={section:'questions',name:'',isBrand:false,target:addQuestion};beforeEdit(addQuestion);return;}
     const saveQuestion=e.target.closest('[data-action="save-monitor-question"]');if(saveQuestion&&!bypass&&editContext&&editContext.section==='questions'){const ids=['new-monitor-question-text','new-monitor-question-keyword','new-monitor-question-type','new-monitor-question-persona','new-monitor-question-stage','new-monitor-question-intent','new-monitor-question-focus'];if(ids.some(id=>!document.getElementById(id)?.value.trim()))return;e.preventDefault();e.stopImmediatePropagation();bypass=true;saveQuestion.click();bypass=false;setTimeout(()=>{if(!document.getElementById('new-monitor-question-text')){editContext=null;showResumePrompt('current');}},0);return;}
-    const addPersona=e.target.closest('[data-action="add-monitor-persona"]');if(addPersona&&addPersona.closest('.monitor-config-view-card[data-config-section="persona"]')){e.preventDefault();e.stopImmediatePropagation();editContext={section:'persona',name:'',isBrand:false,target:addPersona};beforeEdit(addPersona);return;}
+    const addPersona=e.target.closest('[data-action="add-monitor-persona"]');if(addPersona&&addPersona.closest('.monitor-config-view-card[data-config-section="persona"]')){e.preventDefault();e.stopImmediatePropagation();editContext={section:'persona',name:'',isBrand:false,target:addPersona};launchEditor();return;}
     const marketAdd=e.target.closest('[data-v129-action="add-market"]');if(marketAdd){e.preventDefault();e.stopImmediatePropagation();marketWizard();return;}
-    const edit=e.target.closest('[data-action="open-config-editor"]');const isMonitorConfigEdit=!!(edit&&edit.closest('.monitor-config-view-card'));if(edit&&!bypass&&isMonitorConfigEdit){e.preventDefault();e.stopImmediatePropagation();editContext={section:edit.dataset.configSection||'brand',name:edit.dataset.configItem||'',isBrand:(edit.dataset.configSection||'brand')==='brand',target:edit};beforeEdit(edit);return;}
+    const edit=e.target.closest('[data-action="open-config-editor"]');const isMonitorConfigEdit=!!(edit&&edit.closest('.monitor-config-view-card'));if(edit&&!bypass&&isMonitorConfigEdit){e.preventDefault();e.stopImmediatePropagation();editContext={section:edit.dataset.configSection||'brand',name:edit.dataset.configItem||'',isBrand:(edit.dataset.configSection||'brand')==='brand',target:edit};if(editContext.section==='persona'){launchEditor();return;}beforeEdit(edit);return;}
     const save=e.target.closest('[data-action="save-config-section"]');if(save&&!bypass&&editContext){e.preventDefault();e.stopImmediatePropagation();interceptSave(save);return;}
   },true);
   function markReportNoData(){
-    const item=$('.report-list-item[data-report-kind="monthly"]');if(!item||item.dataset.v17NoData)return;item.dataset.v17NoData='true';
-    const meta=$('.report-list-meta',item);if(meta)meta.textContent='2026-09-01–09-30 · 最新配置版本';
-    const focus=$('.report-list-focus span',item);if(focus)focus.textContent='最新配置暂无监测数据。报告记录保留，待新配置完成首次采集后再生成 SOA。';
+    const item=$('.report-list-item[data-report-kind="monthly"]');if(!item||item.dataset.v17NoData)return;item.dataset.v17NoData='true';item.dataset.reportState='no-data';
+    const meta=$('.report-list-meta',item);if(meta)meta.textContent='2026-09-01–09-30 · 月报';
+    const focus=$('.report-list-focus span',item);if(focus)focus.textContent='本周期暂无可用监测数据，暂时无法生成报告结论。报告记录已保留，后续周期采集到有效数据后即可查看。';
     const tags=$('.report-list-tags',item);if(tags)tags.innerHTML='<span>最新配置暂无监测数据</span><span>SOA 未生成</span>';
     const actions=$('.report-list-actions',item);if(actions)actions.innerHTML='<span class="v17-report-no-data">暂无数据</span>';
   }
