@@ -598,6 +598,13 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
   color: #2563EB;
 }
 
+.sampling-execution-breakdown {
+  color: var(--ink-3);
+  font-size: 10px;
+  line-height: 1.35;
+  white-space: normal;
+}
+
 .flag-mini {
   font-size: 14px;
   line-height: 1;
@@ -7868,13 +7875,14 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
               </div>
 
               <div class="strip-item">
-                <span class="strip-label">监测问题</span>
-                <strong class="strip-val text-red">67 ↑</strong>
+                <span class="strip-label">采样执行数</span>
+                <strong class="strip-val" data-sampling-execution-total>10,050</strong>
+                <small class="sampling-execution-breakdown" data-sampling-execution-breakdown>67 个问题 × 30 次 × 5 个平台</small>
               </div>
 
               <div class="strip-item">
                 <span class="strip-label">AI平台</span>
-                <strong class="strip-val" data-settings-platform-count>6 个</strong>
+                <strong class="strip-val" data-settings-platform-count>5 个</strong>
               </div>
 
               <div class="strip-item">
@@ -8002,7 +8010,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
                     <polyline points="20,150 140,145 260,140 380,135 500,128 620,120 740,115" fill="none" stroke="#0891B2" stroke-width="2.5"></polyline>
                   </svg>
                   <div class="v40-overview-x-axis">
-                    <span>W-6 (08/07)</span><span>W-5 (08/14)</span><span>W-4 (08/21)</span><span>W-3 (08/28)</span><span>W-2 (09/04)</span><span>W-1 (09/11)</span><span>本周 (09/18)</span>
+                    <span>08/07</span><span>08/14</span><span>08/21</span><span>08/28</span><span>09/04</span><span>09/11</span><span>09/18</span>
                   </div>
                 </div>
               </div>
@@ -8148,7 +8156,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
                     <div class="v51-link-row"><span>Brief</span><span>交期 / SLA</span></div>
                   </div>
                   <div class="v51-next-card"><span>下一步</span><strong>确认 Task Brief</strong><small>截止：今天 20:00</small></div>
-                  <div class="v51-row-actions"><button type="button" class="primary-button">去处理</button><button type="button" class="secondary-button">查看来源</button></div>
+                  <div class="v51-row-actions"><button type="button" class="primary-button">去确认</button></div>
                 </article>
                 <article class="v51-queue-row">
                   <div class="v51-queue-main">
@@ -8158,7 +8166,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
                     <div class="v51-link-row"><span>认证事实</span></div>
                   </div>
                   <div class="v51-next-card"><span>下一步</span><strong>确认认证事实</strong><small>截止：明天</small></div>
-                  <div class="v51-row-actions"><button type="button" class="primary-button">去处理</button><button type="button" class="secondary-button">查看来源</button></div>
+                  <div class="v51-row-actions"><button type="button" class="primary-button">去确认</button></div>
                 </article>
                 <div class="v51-queue-footer"><span>客户当前有 2 项需要处理</span><span>排序：逾期 → P0 → 今日到期 → P1 → P2</span></div>
               </div>
@@ -8268,8 +8276,8 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
               <div class="monitor-card-item"><span class="monitor-card-item-label">买家人设</span><span class="monitor-card-item-value">6 类</span></div>
               <div class="monitor-card-item"><span class="monitor-card-item-label">意图</span><span class="monitor-card-item-value">4 类</span></div>
               <div class="monitor-card-item"><span class="monitor-card-item-label">关键词</span><span class="monitor-card-item-value">5 个</span></div>
-              <div class="monitor-card-item"><span class="monitor-card-item-label">监测问题</span><span class="monitor-card-item-value trend-up">67 <span>↑</span></span></div>
-              <div class="monitor-card-item"><span class="monitor-card-item-label">AI平台</span><span class="monitor-card-item-value" data-settings-platform-count>6 个</span></div>
+              <div class="monitor-card-item"><span class="monitor-card-item-label">采样执行数</span><span class="monitor-card-item-value" data-sampling-execution-total>10,050</span><small class="sampling-execution-breakdown" data-sampling-execution-breakdown>67 个问题 × 30 次 × 5 个平台</small></div>
+              <div class="monitor-card-item"><span class="monitor-card-item-label">AI平台</span><span class="monitor-card-item-value" data-settings-platform-count>5 个</span></div>
               <div class="monitor-card-item"><span class="monitor-card-item-label">采样可信度</span><span id="sampling-level-monitor-card" class="monitor-card-item-value">趋势级</span></div>
             </div>
           </section>
@@ -8292,7 +8300,6 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
                 <button class="monitor-config-tab" type="button" role="tab" aria-selected="false" aria-controls="monitor-config-panel-persona" data-action="switch-monitor-config-tab" data-config-tab="persona">买家人设</button>
                 <button class="monitor-config-tab" type="button" role="tab" aria-selected="false" aria-controls="monitor-config-panel-questions" data-action="switch-monitor-config-tab" data-config-tab="questions">监测问题</button>
               </div>
-              <button class="monitor-config-back-link" type="button" data-action="close-monitor-config">返回监测结果</button>
             </div>
 
             <div id="monitor-config-panel-brand" class="monitor-config-tab-panel" role="tabpanel">
@@ -8988,7 +8995,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
               r1: makeRound('第 1 次采集 (09-15)'),
               r2: makeRound('第 2 次采集 (09-17)')
             },
-            trendWeeks: ['W-6', 'W-5', 'W-4', 'W-3', 'W-2', 'W-1', '本周'],
+            trendWeeks: ['08/07', '08/14', '08/21', '08/28', '09/04', '09/11', '09/18'],
             platformTrends: {
               ChatGPT: [28, 32, 36, 40, 44, 48, 52],
               Perplexity: [18, 22, 25, 30, 34, 38, 42],
@@ -9042,7 +9049,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
                 ]
               }
             },
-            trendWeeks: ['W-6', 'W-5', 'W-4', 'W-3', 'W-2', 'W-1', '本周'],
+            trendWeeks: ['08/07', '08/14', '08/21', '08/28', '09/04', '09/11', '09/18'],
             platformTrends: { ChatGPT: [30, 35, 40, 42, 48, 55, 62], Perplexity: [10, 12, 15, 15, 20, 25, 30], 'Google AI': [40, 42, 45, 50, 52, 58, 65], Gemini: [20, 22, 25, 28, 30, 35, 40] }
           },
           {
@@ -9070,7 +9077,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
                 citationsTable: [{ source: 'apw.com/compare', isMe: true, mentioned: true, content: 'Updated edge-quality comparison metrics', engine: 'ChatGPT' }]
               }
             },
-            trendWeeks: ['W-6', 'W-5', 'W-4', 'W-3', 'W-2', 'W-1', '本周'],
+            trendWeeks: ['08/07', '08/14', '08/21', '08/28', '09/04', '09/11', '09/18'],
             platformTrends: { ChatGPT: [20, 25, 30, 35, 40, 45, 52], Perplexity: [25, 28, 35, 40, 48, 55, 60], 'Google AI': [10, 15, 18, 20, 25, 30, 35], Gemini: [15, 18, 20, 22, 25, 28, 32] }
           },
           ...supplementalQueries
@@ -9194,7 +9201,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
           'youtube.com': { hitQuestions: 5, citations: 11, mentioned: false, engineStats: [{ name: 'Google AI', citations: 11, questions: 5, pages: 2 }], mentionEvidence: [] }
         };
 
-        const visibilityTrendWeeks = ['W-11', 'W-10', 'W-9', 'W-8', 'W-7', 'W-6', 'W-5', 'W-4', 'W-3', 'W-2', 'W-1', '本周'];
+        const visibilityTrendDates = ['07/03', '07/10', '07/17', '07/24', '07/31', '08/07', '08/14', '08/21', '08/28', '09/04', '09/11', '09/18'];
         const visibilityTrendViews = {
           overall: {
             note: '整体品牌提及率（SOA） · 置信区间用于判断周度估计的不确定范围',
@@ -9264,7 +9271,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
           const innerWidth = width - pad.left - pad.right;
           const innerHeight = height - pad.top - pad.bottom;
           const maxValue = 80;
-          const xAt = (index) => pad.left + index * (innerWidth / (visibilityTrendWeeks.length - 1));
+          const xAt = (index) => pad.left + index * (innerWidth / (visibilityTrendDates.length - 1));
           const yAt = (value) => pad.top + innerHeight - (value / maxValue) * innerHeight;
           const formatTrendPercent = (value) => `${Number(value).toFixed(Number.isInteger(Number(value)) ? 0 : 1)}%`;
           const gridValues = [0, 20, 40, 60, 80];
@@ -9272,7 +9279,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
             const y = yAt(value);
             return `<line class="visibility-trend-grid-line" x1="${pad.left}" y1="${y}" x2="${width - pad.right}" y2="${y}"></line><text class="visibility-trend-axis-label" x="${pad.left - 8}" y="${y + 4}" text-anchor="end">${value}%</text>`;
           }).join('');
-          const xLabels = visibilityTrendWeeks.map((week, index) => `<text class="visibility-trend-x-label" x="${xAt(index)}" y="${height - 9}" text-anchor="middle">${escapeHtml(week)}</text>`).join('');
+          const xLabels = visibilityTrendDates.map((date, index) => `<text class="visibility-trend-x-label" x="${xAt(index)}" y="${height - 9}" text-anchor="middle">${escapeHtml(date)}</text>`).join('');
           let band = '';
           if (Array.isArray(view.confidenceInterval)) {
             const upper = view.series[0].values.map((value, index) => `${xAt(index)},${yAt(Math.min(maxValue, value + view.confidenceInterval[index]))}`).join(' L ');
@@ -9289,8 +9296,8 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
             const lower = hasConfidenceInterval ? Math.max(0, value - view.confidenceInterval[index]) : null;
             const upper = hasConfidenceInterval ? Math.min(maxValue, value + view.confidenceInterval[index]) : null;
             const confidenceText = hasConfidenceInterval ? `，95% 置信区间 ${formatTrendPercent(lower)}–${formatTrendPercent(upper)}` : '';
-            const ariaLabel = `${visibilityTrendWeeks[index]}，${series.name} ${formatTrendPercent(value)}${confidenceText}`;
-            return `<circle class="visibility-trend-hit-area" data-trend-point="true" data-trend-week="${escapeHtml(visibilityTrendWeeks[index])}" data-trend-series="${escapeHtml(series.name)}" data-trend-value="${value}" data-trend-ci-lower="${lower ?? ''}" data-trend-ci-upper="${upper ?? ''}" cx="${xAt(index)}" cy="${yAt(value)}" r="10" tabindex="0" aria-label="${escapeHtml(ariaLabel)}"></circle>`;
+            const ariaLabel = `${visibilityTrendDates[index]}，${series.name} ${formatTrendPercent(value)}${confidenceText}`;
+            return `<circle class="visibility-trend-hit-area" data-trend-point="true" data-trend-date="${escapeHtml(visibilityTrendDates[index])}" data-trend-series="${escapeHtml(series.name)}" data-trend-value="${value}" data-trend-ci-lower="${lower ?? ''}" data-trend-ci-upper="${upper ?? ''}" cx="${xAt(index)}" cy="${yAt(value)}" r="10" tabindex="0" aria-label="${escapeHtml(ariaLabel)}"></circle>`;
           }).join('')).join('');
           let endpointLabel = '';
           if (Array.isArray(view.confidenceInterval)) {
@@ -9328,7 +9335,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
           const lower = point.dataset.trendCiLower;
           const upper = point.dataset.trendCiUpper;
           const confidenceLine = lower !== '' && upper !== '' ? `<br>95% 置信区间：${Number(lower).toFixed(1)}%–${Number(upper).toFixed(1)}%` : '';
-          tooltip.innerHTML = `<strong>${escapeHtml(point.dataset.trendWeek)}</strong><br>${escapeHtml(point.dataset.trendSeries)}：${Number(value).toFixed(Number.isInteger(value) ? 0 : 1)}%${confidenceLine}`;
+          tooltip.innerHTML = `<strong>${escapeHtml(point.dataset.trendDate)}</strong><br>${escapeHtml(point.dataset.trendSeries)}：${Number(value).toFixed(Number.isInteger(value) ? 0 : 1)}%${confidenceLine}`;
           tooltip.hidden = false;
           const chartRect = chart.getBoundingClientRect();
           const pointRect = point.getBoundingClientRect();
@@ -10549,6 +10556,7 @@ updateMonitorPendingUI();
           }
           samplingFrequency = frequencyInput.value;
           selectedSamplingPlatforms = platformInputs.map((input) => input.value);
+          updateSamplingExecutionMetrics();
           document.querySelectorAll('[data-settings-time]').forEach((element) => {
             element.textContent = samplingScheduleLabel();
           });
@@ -10853,6 +10861,19 @@ updateMonitorPendingUI();
           return 'AI 补全';
         }
 
+        function updateSamplingExecutionMetrics() {
+          const questionCount = monitorQuestionMaintenanceData.length;
+          const platformCount = selectedSamplingPlatforms.length;
+          const runsPerQuestionPlatform = 30;
+          const executionCount = questionCount * runsPerQuestionPlatform * platformCount;
+          document.querySelectorAll('[data-sampling-execution-total]').forEach((element) => {
+            element.textContent = executionCount.toLocaleString('en-US');
+          });
+          document.querySelectorAll('[data-sampling-execution-breakdown]').forEach((element) => {
+            element.textContent = `${questionCount} 个问题 × ${runsPerQuestionPlatform} 次 × ${platformCount} 个平台`;
+          });
+        }
+
         function renderMonitorQuestionMaintenance() {
           const body = document.getElementById('monitor-question-maintenance-body');
           if (!body) return;
@@ -10871,6 +10892,7 @@ updateMonitorPendingUI();
           document.querySelectorAll('[data-question-total]').forEach((element) => {
             element.textContent = `${monitorQuestionMaintenanceData.length} 条`;
           });
+          updateSamplingExecutionMetrics();
         }
 
         window.__getMonitorQuestionMaintenanceData = () => monitorQuestionMaintenanceData.map(item => ({ ...item }));
@@ -11083,7 +11105,7 @@ updateMonitorPendingUI();
         }
         function qv103Trend(query){
           if(query.id==='q1') return {labels:['11-17','11-24','12-01','12-08','12-15'],series:[{name:'ChatGPT',color:'#2563eb',values:[33,33,67,67,67]},{name:'Perplexity',color:'#7c3aed',values:[0,33,33,67,67]},{name:'Google AI',color:'#f59e0b',values:[33,33,33,67,67]}]};
-          const labels=(query.trendWeeks||['W-4','W-3','W-2','W-1','本周']).slice(-5);
+          const labels=(query.trendWeeks||['08/21','08/28','09/04','09/11','09/18']).slice(-5);
           const colors={'ChatGPT':'#2563eb','Perplexity':'#7c3aed','Google AI':'#f59e0b','Gemini':'#10b981'};
           const series=Object.entries(query.platformTrends||{}).slice(0,4).map(([name,values])=>({name,color:colors[name]||'#64748b',values:values.slice(-5)}));
           return {labels,series};
@@ -12723,20 +12745,20 @@ For procurement purposes, the brand should only be treated as a meaningful compe
         const queuePendingHtml = {
           self: `
             <article class="v51-queue-row" data-competitor-discovery-task><div class="v51-queue-main"><div class="v51-tag-row"><span class="v51-tag p1">P1</span><span class="v51-tag agent">Agent</span><span class="v51-tag source">可见性监测</span><span class="v51-tag competitor-candidate">潜在竞品</span></div><strong class="v51-item-title">发现 3 个潜在新竞品候选</strong><p>近 3 轮监测中，Flow X、Techni Waterjet、STM 达到系统提示条件，等待确认是否纳入正式竞品监测。</p><div class="v51-link-row"><span>3 个候选品牌</span><span>14 条相关问题</span><span>37 次出现</span></div></div><div class="v51-next-card"><span>下一步</span><strong>逐个确认竞品候选</strong><small>确认后下轮生效</small></div><div class="v51-row-actions"><button type="button" class="primary-button" data-action="open-competitor-discovery">查看并确认</button><button type="button" class="secondary-button" data-action="open-monitor-results">查看监测结果</button></div></article>
-            <article class="v51-queue-row"><div class="v51-queue-main"><div class="v51-tag-row"><span class="v51-tag p0">P0</span><span class="v51-tag customer">客户</span><span class="v51-tag source">优化中心</span><span class="v51-tag neutral">待客户确认</span></div><strong class="v51-item-title">交期与产能页优化</strong><p>Agent 已生成 Task 草稿，Brief 与交期 / SLA 事实需要你确认。</p><div class="v51-link-row"><span>Brief</span><span>交期 / SLA</span></div></div><div class="v51-next-card"><span>下一步</span><strong>确认 Task Brief</strong><small>截止：今天 20:00</small></div><div class="v51-row-actions"><button type="button" class="primary-button">去确认</button><button type="button" class="secondary-button">查看来源</button></div></article>
-            <article class="v51-queue-row"><div class="v51-queue-main"><div class="v51-tag-row"><span class="v51-tag p1">P1</span><span class="v51-tag customer">客户</span><span class="v51-tag source">优化中心</span><span class="v51-tag neutral">待客户确认</span></div><strong class="v51-item-title">认证与品牌实体完善</strong><p>认证编号适用范围需要你确权后才能进入执行。</p><div class="v51-link-row"><span>认证事实</span></div></div><div class="v51-next-card"><span>下一步</span><strong>确认认证事实</strong><small>截止：明天</small></div><div class="v51-row-actions"><button type="button" class="primary-button">去确认</button><button type="button" class="secondary-button">查看来源</button></div></article>
+            <article class="v51-queue-row"><div class="v51-queue-main"><div class="v51-tag-row"><span class="v51-tag p0">P0</span><span class="v51-tag customer">客户</span><span class="v51-tag source">优化中心</span><span class="v51-tag neutral">待客户确认</span></div><strong class="v51-item-title">交期与产能页优化</strong><p>Agent 已生成 Task 草稿，Brief 与交期 / SLA 事实需要你确认。</p><div class="v51-link-row"><span>Brief</span><span>交期 / SLA</span></div></div><div class="v51-next-card"><span>下一步</span><strong>确认 Task Brief</strong><small>截止：今天 20:00</small></div><div class="v51-row-actions"><button type="button" class="primary-button">去确认</button></div></article>
+            <article class="v51-queue-row"><div class="v51-queue-main"><div class="v51-tag-row"><span class="v51-tag p1">P1</span><span class="v51-tag customer">客户</span><span class="v51-tag source">优化中心</span><span class="v51-tag neutral">待客户确认</span></div><strong class="v51-item-title">认证与品牌实体完善</strong><p>认证编号适用范围需要你确权后才能进入执行。</p><div class="v51-link-row"><span>认证事实</span></div></div><div class="v51-next-card"><span>下一步</span><strong>确认认证事实</strong><small>截止：明天</small></div><div class="v51-row-actions"><button type="button" class="primary-button">去确认</button></div></article>
             <div class="v51-queue-footer"><span>当前有 3 项需要确认</span><span>排序：逾期 → P0 → 今日到期 → P1 → P2</span></div>`,
           managedCustomer: `
             <article class="v51-queue-row" data-competitor-discovery-task><div class="v51-queue-main"><div class="v51-tag-row"><span class="v51-tag p1">P1</span><span class="v51-tag customer">待运营处理</span><span class="v51-tag source">可见性监测</span><span class="v51-tag competitor-candidate">潜在竞品</span></div><strong class="v51-item-title">发现 3 个潜在新竞品候选</strong><p>运营顾问正在核对 Flow X、Techni Waterjet、STM 的出现证据，核验完成后将提交你确认。</p><div class="v51-link-row"><span>3 个候选品牌</span><span>14 条相关问题</span><span>37 次出现</span></div></div><div class="v51-next-card"><span>下一步</span><strong>等待运营核验</strong><small>核验后由你确认</small></div><div class="v51-row-actions"><button type="button" class="secondary-button" data-action="open-monitor-results">查看监测结果</button></div></article>
             <article class="v51-queue-row" data-manual-review-task><div class="v51-queue-main"><div class="v51-tag-row"><span class="v51-tag p0">P0</span><span class="v51-tag customer">待运营处理</span><span class="v51-tag source">可见性监测</span><span class="v51-tag review">待人工复核</span></div><strong class="v51-item-title">ChatGPT · CFRP 五轴水刀选型问题</strong><p>本轮采样结果波动较大，运营顾问正在进行人工复核。</p><div class="v51-link-row"><span>德国 × 德语</span><span>复材技术主管</span><span>结果波动</span></div></div><div class="v51-next-card"><span>下一步</span><strong>等待运营复核</strong><small>复核后更新结果</small></div><div class="v51-row-actions"><button type="button" class="secondary-button" data-action="open-monitor-results">查看监测结果</button></div></article>
-            <article class="v51-queue-row"><div class="v51-queue-main"><div class="v51-tag-row"><span class="v51-tag p0">P0</span><span class="v51-tag customer">待客户确认</span><span class="v51-tag source">优化中心</span></div><strong class="v51-item-title">交期与产能页优化</strong><p>Agent 已生成、运营顾问已复核 Task Brief，现需要你确认交期 / SLA 事实。</p><div class="v51-link-row"><span>运营已复核</span><span>交期 / SLA</span></div></div><div class="v51-next-card"><span>下一步</span><strong>客户最终确认</strong><small>截止：今天 20:00</small></div><div class="v51-row-actions"><button type="button" class="primary-button">去确认</button><button type="button" class="secondary-button">查看来源</button></div></article>
-            <article class="v51-queue-row"><div class="v51-queue-main"><div class="v51-tag-row"><span class="v51-tag p1">P1</span><span class="v51-tag customer">待客户确认</span><span class="v51-tag source">优化中心</span></div><strong class="v51-item-title">认证与品牌实体完善</strong><p>运营顾问已核对认证材料，认证编号适用范围需要你最终确权。</p><div class="v51-link-row"><span>运营已复核</span><span>认证事实</span></div></div><div class="v51-next-card"><span>下一步</span><strong>客户最终确认</strong><small>截止：明天</small></div><div class="v51-row-actions"><button type="button" class="primary-button">去确认</button><button type="button" class="secondary-button">查看来源</button></div></article>
+            <article class="v51-queue-row"><div class="v51-queue-main"><div class="v51-tag-row"><span class="v51-tag p0">P0</span><span class="v51-tag customer">待客户确认</span><span class="v51-tag source">优化中心</span></div><strong class="v51-item-title">交期与产能页优化</strong><p>Agent 已生成、运营顾问已复核 Task Brief，现需要你确认交期 / SLA 事实。</p><div class="v51-link-row"><span>运营已复核</span><span>交期 / SLA</span></div></div><div class="v51-next-card"><span>下一步</span><strong>客户最终确认</strong><small>截止：今天 20:00</small></div><div class="v51-row-actions"><button type="button" class="primary-button">去确认</button></div></article>
+            <article class="v51-queue-row"><div class="v51-queue-main"><div class="v51-tag-row"><span class="v51-tag p1">P1</span><span class="v51-tag customer">待客户确认</span><span class="v51-tag source">优化中心</span></div><strong class="v51-item-title">认证与品牌实体完善</strong><p>运营顾问已核对认证材料，认证编号适用范围需要你最终确权。</p><div class="v51-link-row"><span>运营已复核</span><span>认证事实</span></div></div><div class="v51-next-card"><span>下一步</span><strong>客户最终确认</strong><small>截止：明天</small></div><div class="v51-row-actions"><button type="button" class="primary-button">去确认</button></div></article>
             <div class="v51-queue-footer"><span>当前有 4 项待确认，其中 2 项待运营处理、2 项待客户确认</span><span>排序：逾期 → P0 → 今日到期 → P1 → P2</span></div>`,
           managedOperator: `
             <article class="v51-queue-row" data-competitor-discovery-task><div class="v51-queue-main"><div class="v51-tag-row"><span class="v51-tag p1">P1</span><span class="v51-tag customer">待运营处理</span><span class="v51-tag source">可见性监测</span><span class="v51-tag competitor-candidate">候选竞品核验</span></div><strong class="v51-item-title">发现 3 个潜在新竞品候选</strong><p>Agent 已识别 Flow X、Techni Waterjet、STM 达到提示条件。请核对出现频次、对应问题和原始证据，再提交客户确认。</p><div class="v51-link-row"><span>3 个候选品牌</span><span>14 条相关问题</span><span>37 次出现</span></div></div><div class="v51-next-card"><span>下一步</span><strong>核验证据并提交客户</strong><small>可分别处理每个候选</small></div><div class="v51-row-actions"><button type="button" class="primary-button" data-action="open-competitor-discovery">核验证据</button><button type="button" class="secondary-button" data-action="open-monitor-results">查看监测结果</button></div></article>
             <article class="v51-queue-row" data-manual-review-task><div class="v51-queue-main"><div class="v51-tag-row"><span class="v51-tag p0">P0</span><span class="v51-tag customer">待运营处理</span><span class="v51-tag source">可见性监测</span><span class="v51-tag review">待人工复核</span></div><strong class="v51-item-title">ChatGPT · CFRP 五轴水刀选型问题</strong><p>本轮采样结果波动较大，需要你前往目标 AI 平台手动提问，并把实测结果返回系统。</p><div class="v51-link-row"><span>德国 × 德语</span><span>复材技术主管</span><span>结果波动</span></div></div><div class="v51-next-card"><span>下一步</span><strong>人工复核</strong><small>截止：今天 19:00</small></div><div class="v51-row-actions"><button type="button" class="primary-button" data-action="open-manual-review">人工复核</button><button type="button" class="secondary-button" data-action="open-monitor-results">查看监测结果</button></div></article>
-            <article class="v51-queue-row"><div class="v51-queue-main"><div class="v51-tag-row"><span class="v51-tag p0">P0</span><span class="v51-tag customer">待客户确认</span><span class="v51-tag source">优化中心</span></div><strong class="v51-item-title">交期与产能页优化</strong><p>Agent 已生成 Task 草稿，运营顾问已完成复核，现等待客户确认 Brief 与交期 / SLA。</p><div class="v51-link-row"><span>运营已复核</span><span>交期 / SLA</span></div></div><div class="v51-next-card"><span>下一步</span><strong>等待客户确认</strong><small>截止：今天 20:00</small></div><div class="v51-row-actions"><button type="button" class="secondary-button">查看来源</button></div></article>
-            <article class="v51-queue-row"><div class="v51-queue-main"><div class="v51-tag-row"><span class="v51-tag p1">P1</span><span class="v51-tag customer">待客户确认</span><span class="v51-tag source">优化中心</span></div><strong class="v51-item-title">认证与品牌实体完善</strong><p>运营顾问已核对认证材料，现等待客户确权认证编号适用范围。</p><div class="v51-link-row"><span>运营已复核</span><span>认证事实</span></div></div><div class="v51-next-card"><span>下一步</span><strong>等待客户确认</strong><small>截止：明天</small></div><div class="v51-row-actions"><button type="button" class="secondary-button">查看来源</button></div></article>
+            <article class="v51-queue-row"><div class="v51-queue-main"><div class="v51-tag-row"><span class="v51-tag p0">P0</span><span class="v51-tag customer">待客户确认</span><span class="v51-tag source">优化中心</span></div><strong class="v51-item-title">交期与产能页优化</strong><p>Agent 已生成 Task 草稿，运营顾问已完成复核，现等待客户确认 Brief 与交期 / SLA。</p><div class="v51-link-row"><span>运营已复核</span><span>交期 / SLA</span></div></div><div class="v51-next-card"><span>下一步</span><strong>等待客户确认</strong><small>截止：今天 20:00</small></div></article>
+            <article class="v51-queue-row"><div class="v51-queue-main"><div class="v51-tag-row"><span class="v51-tag p1">P1</span><span class="v51-tag customer">待客户确认</span><span class="v51-tag source">优化中心</span></div><strong class="v51-item-title">认证与品牌实体完善</strong><p>运营顾问已核对认证材料，现等待客户确权认证编号适用范围。</p><div class="v51-link-row"><span>运营已复核</span><span>认证事实</span></div></div><div class="v51-next-card"><span>下一步</span><strong>等待客户确认</strong><small>截止：明天</small></div></article>
             <div class="v51-queue-footer"><span>当前有 4 项待确认，其中 2 项待运营处理、2 项待客户确认</span><span>排序：逾期 → P0 → 今日到期 → P1 → P2</span></div>`
         };
 
