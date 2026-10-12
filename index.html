@@ -8378,12 +8378,12 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 
             <div id="monitor-config-panel-questions" class="monitor-config-tab-panel" role="tabpanel" hidden>
               <article class="monitor-config-view-card monitor-question-maintenance" data-config-section="questions">
-                <div class="monitor-question-maintenance-head"><div class="monitor-config-card-head"><div><h2>当前监测问题 <button type="button" class="info-badge" data-info="当前市场共维护 67 条监测问题，列表默认展示 10 条。可批量编辑整组问题或单独新增。新人引导中的首次监测选择是另一项独立操作。" aria-label="查看当前监测问题说明">ⓘ</button></h2></div><span class="monitor-config-status" data-question-total>67 条</span></div></div>
-                <div class="monitor-question-maintenance-toolbar"><div><button type="button" class="monitor-question-add-button" data-v17="edit-question-set">编辑全部问题</button><button type="button" class="monitor-question-add-button" data-action="add-monitor-question">添加监测问题</button></div></div>
+                <div class="monitor-question-maintenance-head"><div class="monitor-config-card-head"><div><h2>当前监测问题 <button type="button" class="info-badge" data-info="当前市场共维护 67 条监测问题，列表默认展示 10 条。问题按当前市场分别维护；如需移出问题，请在“编辑问题”中操作。" aria-label="查看当前监测问题说明">ⓘ</button></h2></div><span class="monitor-config-status" data-question-total>67 条</span></div></div>
+                <div class="monitor-question-maintenance-toolbar"><div><button type="button" class="monitor-question-add-button" data-v17="edit-question-set">编辑问题</button><button type="button" class="monitor-question-add-button" data-action="add-monitor-question">添加监测问题</button></div></div>
                 <div class="market-prompt-hub-link" data-market-prompt-hub-link hidden><span data-market-prompt-hub-summary>品牌知识变更后的各市场问题处理进度</span><button type="button" class="monitor-question-add-button" data-v17="open-market-prompt-hub">查看各市场</button></div><section class="brand-prompt-candidate-shell" data-brand-prompt-candidates hidden aria-label="AI 推荐待加入问题"></section>
                 <div class="monitor-question-table-wrap">
                   <table class="monitor-question-table" aria-label="当前监测问题列表">
-                    <thead><tr><th>问题</th><th>关键词</th><th>类型</th><th>买家人设</th><th>采购阶段</th><th>意图</th><th>主要关注问题</th><th>操作</th></tr></thead>
+                    <thead><tr><th>问题</th><th>关键词</th><th>类型</th><th>买家人设</th><th>采购阶段</th><th>意图</th><th>主要关注问题</th></tr></thead>
                     <tbody id="monitor-question-maintenance-body"></tbody>
                   </table>
                 </div>
@@ -10857,7 +10857,7 @@ updateMonitorPendingUI();
 
         function updateSamplingExecutionMetrics() {
           const currentMarketName=(document.getElementById('v129-global-market-label')?.textContent||'德国 · 德语').split(' · ')[0];
-          const questionCount = monitorQuestionMaintenanceData.filter(question => question.active !== false && (!question.market || question.market===currentMarketName)).length;
+          const questionCount = monitorQuestionMaintenanceData.filter(question => question.active !== false && question.market===currentMarketName).length;
           const platformCount = selectedSamplingPlatforms.length;
           const runsPerQuestionPlatform = 30;
           const executionCount = questionCount * runsPerQuestionPlatform * platformCount;
@@ -10873,7 +10873,7 @@ updateMonitorPendingUI();
           const body = document.getElementById('monitor-question-maintenance-body');
           if (!body) return;
           const currentMarketName=(document.getElementById('v129-global-market-label')?.textContent||'德国 · 德语').split(' · ')[0];
-          const activeQuestions = monitorQuestionMaintenanceData.filter(question => question.active !== false && (!question.market || question.market===currentMarketName));
+          const activeQuestions = monitorQuestionMaintenanceData.filter(question => question.active !== false && question.market===currentMarketName);
           const displayQuestions = activeQuestions.slice(0, 10);
           body.innerHTML = displayQuestions.map((question, index) => `
             <tr data-question-maintenance-row="${escapeHtml(question.id)}">
@@ -10884,7 +10884,6 @@ updateMonitorPendingUI();
               <td>${escapeHtml(question.stage || procurementStageForIntent(question.intent))}</td>
               <td>${escapeHtml(question.intent)}</td>
               <td>${escapeHtml(question.focus || window.__geoSuggestedFocus(question.persona, question.stage || procurementStageForIntent(question.intent), question.intent))}</td>
-              <td><button type="button" class="monitor-question-row-remove" data-v17="remove-monitor-question" data-question-id="${escapeHtml(question.id)}">移出</button></td>
             </tr>
           `).join('');
           document.querySelectorAll('[data-question-total]').forEach((element) => {
@@ -10896,7 +10895,7 @@ updateMonitorPendingUI();
         window.__ensureMonitorQuestionMarket = (market) => {
           if (!market) return;
           if (monitorQuestionMaintenanceData.some(item => item.market === market && item.id.startsWith('maintenance-q-'))) return;
-          const templates = monitorQuestionMaintenanceData.filter(item => item.market === '德国');
+          const templates = monitorQuestionMaintenanceData.filter(item => item.market === '德国' && item.active !== false);
           const suffix = market === '美国' ? 'us' : market === '日本' ? 'jp' : 'm'+Date.now();
           monitorQuestionMaintenanceData.push(...templates.map(item => ({ ...item, id: item.id+'-'+suffix, market, active: true })));
           renderMonitorQuestionMaintenance();
@@ -13388,6 +13387,7 @@ For procurement purposes, the brand should only be treated as a meaningful compe
     if(languageDetail)languageDetail.value=languageLabel;
 
     renderQuestions();
+    if(window.__v17OnMarketChange)window.__v17OnMarketChange(marketLabel);
   }
 
   function renderQuestions(){
@@ -13840,8 +13840,6 @@ For procurement purposes, the brand should only be treated as a meaningful compe
   @media(max-width:760px){.brand-prompt-candidate-fields{grid-template-columns:repeat(2,minmax(0,1fr))}}
   .brand-prompt-candidate-meta{display:flex;align-items:center;gap:8px;margin-bottom:6px;color:#64748b;font-size:11px}
   .brand-prompt-duplicate{padding:2px 7px;border-radius:999px;background:#f1f5f9;color:#64748b}
-  .monitor-question-row-remove{padding:4px 8px;border:1px solid #e2e8f0;border-radius:6px;background:#fff;color:#64748b;font:inherit;font-size:11px;cursor:pointer}
-  .monitor-question-row-remove:hover{border-color:#fecaca;background:#fff7f7;color:#b42318}
   @media(max-width:680px){.brand-prompt-pending-banner{align-items:flex-start;flex-direction:column}.v17-brand-prompt-review-list{max-height:42vh}}
 .monitor-status-control{display:inline-flex;align-items:center;justify-content:center;min-height:30px;padding:0 11px;border:1px solid #d7e3f6;border-radius:8px;background:#f7f9ff;color:#2458d3;font-size:12px;font-weight:650;cursor:pointer}.monitor-status-control:hover{background:#edf3ff}.monitor-running-pill.is-paused,.monitor-card-badge.is-paused{background:#f1f3f6;color:#64748b}
 </style>
@@ -13854,6 +13852,7 @@ For procurement purposes, the brand should only be treated as a meaningful compe
   let brandPromptMarkets=[], brandMarketReviewStatus={};
   let questionEditorOriginal=[], pendingQuestionEdits=[];
   let monitoringPaused=false, pausedScope='current';
+  const marketMonitoringPaused={'德国':false,'美国':false,'日本':false};
   const mountModal=(title,body,buttons)=>{let old=$('.v17-modal-backdrop');if(old)old.remove();const wrap=document.createElement('div');wrap.className='v17-modal-backdrop';wrap.innerHTML='<section class="v17-modal" role="dialog" aria-modal="true"><h2>'+title+'</h2>'+body+'<div class="v17-actions">'+buttons+'</div></section>';wrap.addEventListener('click',e=>{if(e.target===wrap){const dialog=$('.v17-modal',wrap);if(dialog&&(dialog.classList.contains('v17-question-batch-editor')||dialog.classList.contains('v17-question-edit-confirmation'))){editContext=null;pendingQuestionEdits=[];}wrap.remove()}});document.body.appendChild(wrap);return wrap};
   const closeModal=()=>{$$('.v17-modal-backdrop').forEach(x=>x.remove())};
   const btn=(text,action,primary=false)=>'<button type="button" data-v17="'+action+'" class="'+(primary?'primary':'')+'">'+text+'</button>';
@@ -13907,8 +13906,8 @@ For procurement purposes, the brand should only be treated as a meaningful compe
   function marketPromptRows(){return brandPromptMarkets.map(market=>{const remaining=generatedBrandPrompts.filter(item=>item.market===market.name).length;const done=brandMarketReviewStatus[market.name]?.state==='done';const added=brandMarketReviewStatus[market.name]?.added||0;const status=done?'已处理':(added?('已加入 '+added+' 条 · 仍有 '+remaining+' 条待选'):('待处理 · '+remaining+' 条推荐问题'));return '<div class="v17-market-prompt-row"><div><strong>'+escapePromptHtml(market.name)+' · '+escapePromptHtml(market.language)+'</strong><span>'+status+'</span></div><button type="button" class="monitor-question-add-button" data-v17="go-market-prompts" data-market-name="'+escapePromptHtml(market.name)+'">'+(done?'查看问题':'处理监测问题')+'</button></div>';}).join('');}
   function showBrandPromptGeneratedNotice(){
     const pending=generatedBrandPrompts.length>0;
-    const body='<p>品牌知识已保存，推荐问题按市场分别生成。加入或移出问题都在对应市场的“监测问题”列表中操作。</p><div class="v17-market-prompt-list">'+marketPromptRows()+'</div><div class="v17-note">未调整的市场保留现有监测问题。所有市场当前已暂停，可通过统一入口一次开启全部市场。</div>';
-    const actions=btn('关闭','close')+(monitoringPaused?btn('开启全部市场','enable-all-markets',true):'');
+    const body='<p>品牌知识已保存，推荐问题按市场分别生成。加入推荐问题请在对应市场处理；移出已有问题请在该市场的“编辑问题”中操作。</p><div class="v17-market-prompt-list">'+marketPromptRows()+'</div><div class="v17-note">未调整的市场保留现有监测问题。所有市场当前已暂停；可按需开启当前市场，其他市场状态不受影响。</div>';
+    const actions=btn('关闭','close')+(monitoringPaused?btn('开启当前市场','enable-current-market',true):'');
     const wrap=mountModal(pending?'各市场监测问题':'市场问题已处理',body,actions);const dialog=$('.v17-modal',wrap);if(dialog)dialog.classList.add('v17-market-prompt-hub');
   }
   function renderBrandPromptCandidates(){
@@ -13925,7 +13924,8 @@ For procurement purposes, the brand should only be treated as a meaningful compe
     setTimeout(()=>{const tab=$('[data-config-tab="questions"]');if(tab)tab.click();if(window.__refreshMonitorQuestionMaintenance)window.__refreshMonitorQuestionMaintenance();renderBrandPromptCandidates();setTimeout(()=>{const shell=$('[data-brand-prompt-candidates]');if(shell&&!shell.hidden)shell.scrollIntoView({behavior:'smooth',block:'center'});},80);},50);
   }
   function openBrandPromptReview(){if(brandPromptMarkets.length)showBrandPromptGeneratedNotice();else if(brandPromptReviewPending)navigateToBrandPromptCandidates();}
-  function syncMonitoringStatus(){const label=monitoringPaused?'已暂停':'进行中';$$('.monitor-running-pill,.monitor-card-badge').forEach(el=>{el.textContent=label;el.classList.toggle('is-paused',monitoringPaused);});$$('[data-v17="toggle-monitoring"]').forEach(el=>{el.textContent=monitoringPaused?(pausedScope==='all'?'开启全部市场':'开启监测'):'暂停监测';});}
+  function syncMonitoringStatus(){const market=currentMarketName();monitoringPaused=!!marketMonitoringPaused[market];const label=monitoringPaused?'已暂停':'进行中';$$('.monitor-running-pill,.monitor-card-badge').forEach(el=>{el.textContent=label;el.classList.toggle('is-paused',monitoringPaused);});$$('[data-v17="toggle-monitoring"]').forEach(el=>{el.textContent=monitoringPaused?'开启当前市场':'暂停监测';});}
+  window.__v17OnMarketChange=function(market){if(window.__ensureMonitorQuestionMarket)window.__ensureMonitorQuestionMarket(market);if(window.__refreshMonitorQuestionMaintenance)window.__refreshMonitorQuestionMaintenance();syncMonitoringStatus();};
   function showResumePrompt(scope){const all=scope==='all';mountModal(all?'开启全部市场监测？':'开启当前市场监测？','<p>开启后按原定采集计划运行，历史数据与报告保留。</p>',btn('暂不开启',all?'keep-all-paused':'keep-paused')+btn(all?'开启全部市场':'开启当前市场',all?'enable-all-markets':'enable-current-market',true));}
   function syncMarketPair(){
     const project=$('.v129-project-wrap'), languageWrap=$('.v133-language-wrap'), market=$('.v129-market-switcher');
@@ -14030,7 +14030,7 @@ For procurement purposes, the brand should only be treated as a meaningful compe
     return rows.map((question,index)=>'<tr data-question-editor-row data-question-id="'+questionEditorEscape(question.id)+'"><td>Q'+String(index+1).padStart(2,'0')+'</td><td><textarea data-question-field="text" aria-label="问题 '+(index+1)+'">'+questionEditorEscape(question.text)+'</textarea></td><td><input data-question-field="keyword" aria-label="问题 '+(index+1)+' 关键词" value="'+questionEditorEscape(question.keyword)+'"></td><td>'+questionEditorSelect('type',question.type,types)+'</td><td>'+questionEditorSelect('persona',question.persona,personas)+'</td><td>'+questionEditorSelect('stage',question.stage,stages)+'</td><td>'+questionEditorSelect('intent',question.intent,intents)+'</td><td><input data-question-field="focus" aria-label="问题 '+(index+1)+' 关注点" value="'+questionEditorEscape(question.focus)+'"></td><td><button type="button" class="v17-question-remove" data-v17="question-row-remove">移除</button></td></tr>').join('');
   }
   function openQuestionBatchEditor(rows,resetOriginal=true){
-    const activeQuestions=window.__getMonitorQuestionMaintenanceData().filter(item=>item.active!==false);
+    const market=currentMarketName();const activeQuestions=window.__getMonitorQuestionMaintenanceData().filter(item=>item.active!==false&&item.market===market);
     const current=rows||activeQuestions;
     if(resetOriginal)questionEditorOriginal=activeQuestions;
     const body='<div class="v17-question-editor-body"><div class="v17-question-editor-toolbar"><span>当前市场 · '+current.length+' 条问题；所有修改统一保存</span><button type="button" class="v17-question-editor-add" data-v17="question-row-add">＋ 新增问题</button></div><div class="v17-question-editor-wrap"><table class="v17-question-editor-table"><colgroup><col style="width:58px"><col style="width:320px"><col style="width:150px"><col style="width:110px"><col style="width:190px"><col style="width:130px"><col style="width:100px"><col style="width:210px"><col style="width:72px"></colgroup><thead><tr><th>序号</th><th>监测问题</th><th>关键词</th><th>类型</th><th>买家人设</th><th>采购阶段</th><th>意图</th><th>主要关注问题</th><th>操作</th></tr></thead><tbody id="v17-question-editor-rows">'+renderQuestionEditorRows(current)+'</tbody></table></div></div>';
@@ -14038,7 +14038,7 @@ For procurement purposes, the brand should only be treated as a meaningful compe
   }
   function collectQuestionEditorRows(dialog){
     const source=window.__getMonitorQuestionMaintenanceData();
-    return $$('[data-question-editor-row]',dialog).map(row=>{const original=source.find(item=>item.id===row.dataset.questionId)||{};const read=field=>{const input=$('[data-question-field="'+field+'"]',row);return input?input.value.trim():'';};return{id:row.dataset.questionId||'maintenance-q-new-'+Date.now()+'-'+Math.random().toString(36).slice(2,7),text:read('text'),keyword:read('keyword'),type:read('type'),persona:read('persona'),stage:read('stage'),intent:read('intent'),focus:read('focus'),active:original.active!==false};});
+    return $$('[data-question-editor-row]',dialog).map(row=>{const original=source.find(item=>item.id===row.dataset.questionId)||{};const read=field=>{const input=$('[data-question-field="'+field+'"]',row);return input?input.value.trim():'';};return{id:row.dataset.questionId||'maintenance-q-new-'+Date.now()+'-'+Math.random().toString(36).slice(2,7),market:original.market||currentMarketName(),text:read('text'),keyword:read('keyword'),type:read('type'),persona:read('persona'),stage:read('stage'),intent:read('intent'),focus:read('focus'),active:original.active!==false};});
   }
   function interceptSave(save){
     if(!editContext)return false;
@@ -14047,7 +14047,7 @@ For procurement purposes, the brand should only be treated as a meaningful compe
       if(!currentSnapshot||currentSnapshot===editContext.brandOriginalSnapshot){const backdrop=$('#modal-backdrop'),dialog=$('#modal');if(backdrop)backdrop.hidden=true;if(dialog)dialog.classList.remove('config-editor-modal','persona-editor-modal');editContext=null;return true;}
       pendingBrandSaveButton=save;
       const remainingAfter=Math.max(0,brandEditQuotaRemaining-1);
-      const body='<p>确认修改品牌知识并生成各市场的 AI 推荐问题？</p><div class="v17-note"><strong>影响范围：</strong>全部已启用市场，确认后统一暂停<br><strong>本次修改：</strong>将扣除 1 次品牌信息修改次数，确认后剩余 '+remainingAfter+' 次。<br><strong>后续处理：</strong>到各市场的监测问题列表中选择加入推荐问题，或移出旧问题；未调整的市场保留现有问题。完成后可统一开启全部市场。<br><strong>数据对比：</strong>新旧口径不做环比。</div>';
+      const body='<p>确认修改品牌知识并生成各市场的 AI 推荐问题？</p><div class="v17-note"><strong>影响范围：</strong>全部已启用市场，确认后统一暂停<br><strong>本次修改：</strong>将扣除 1 次品牌信息修改次数，确认后剩余 '+remainingAfter+' 次。<br><strong>后续处理：</strong>到各市场处理 AI 推荐问题；如需移出旧问题，请进入该市场的“编辑问题”。未调整的市场保留现有问题。品牌知识影响全部市场，处理完成后可统一开启全部市场。<br><strong>数据对比：</strong>新旧口径不做环比。</div>';
       mountModal('确认修改品牌信息',body,btn('返回编辑','cancel-brand-change')+btn('确认修改并暂停全部市场','confirm-brand-change',true));
       return true;
     }
@@ -14068,24 +14068,22 @@ For procurement purposes, the brand should only be treated as a meaningful compe
         const save=pendingBrandSaveButton;pendingBrandSaveButton=null;closeModal();
         if(save){window.__v17BrandPromptPendingNotice=true;bypass=true;save.click();bypass=false;window.__v17BrandPromptPendingNotice=false;}
         brandEditQuotaRemaining=Math.max(0,brandEditQuotaRemaining-1);
-        brandPromptMarkets=initialBrandPromptSets.slice(0,Math.max(1,Math.min(marketCount,initialBrandPromptSets.length))).map(set=>({name:set.market,language:set.language}));brandMarketReviewStatus=Object.fromEntries(brandPromptMarkets.map(market=>[market.name,{state:'pending',added:0}]));generatedBrandPrompts=initialBrandPromptSets.slice(0,Math.max(1,Math.min(marketCount,initialBrandPromptSets.length))).flatMap(set=>set.prompts.map((text,index)=>({market:set.market,language:set.language,number:index+1,text,selected:index<5})));monitoringPaused=true;pausedScope='all';syncMonitoringStatus();
+        brandPromptMarkets=initialBrandPromptSets.slice(0,Math.max(1,Math.min(marketCount,initialBrandPromptSets.length))).map(set=>({name:set.market,language:set.language}));brandMarketReviewStatus=Object.fromEntries(brandPromptMarkets.map(market=>[market.name,{state:'pending',added:0}]));generatedBrandPrompts=initialBrandPromptSets.slice(0,Math.max(1,Math.min(marketCount,initialBrandPromptSets.length))).flatMap(set=>set.prompts.map((text,index)=>({market:set.market,language:set.language,number:index+1,text,selected:index<5})));Object.keys(marketMonitoringPaused).forEach(market=>marketMonitoringPaused[market]=true);monitoringPaused=true;pausedScope='all';syncMonitoringStatus();
         brandPromptReviewPending=true;syncBrandPromptPendingBanner();editContext=null;
         showBrandPromptGeneratedNotice();return;
       }
       if(a==='open-brand-prompt-review'||a==='open-market-prompt-hub'){openBrandPromptReview();return;}
       if(a==='go-market-prompts'){navigateToBrandPromptCandidates(action.dataset.marketName);return;}
       if(a==='add-brand-prompt-candidates'){const shell=action.closest('[data-brand-prompt-candidates]');const rows=$$('.brand-prompt-candidate',shell);const chosen=rows.filter(row=>$('[data-candidate-selected]',row)?.checked).map(row=>({item:generatedBrandPrompts[Number(row.dataset.candidateIndex)]})).filter(entry=>entry.item);const error=$('[data-candidate-error]',shell);if(chosen.length>5){if(error){error.textContent='每次最多选择 5 条问题，请减少选择数量。';error.hidden=false;}return;}const market=currentMarketName();if(chosen.length){const additions=chosen.map(({item},index)=>({id:'brand-prompt-'+Date.now()+'-'+index,text:item.text,keyword:'五轴水刀切割',type:'业务词',persona:'复材加工技术主管',stage:'供应商评估',intent:'评估',focus:'切割精度、分层风险与供应商能力',active:true,market:item.market||market}));window.__setMonitorQuestionMaintenanceData(window.__getMonitorQuestionMaintenanceData().concat(additions));}const prior=brandMarketReviewStatus[market]?.added||0;brandMarketReviewStatus[market]={state:'done',added:prior+chosen.length};generatedBrandPrompts=generatedBrandPrompts.filter(item=>item.market!==market);brandPromptReviewPending=generatedBrandPrompts.length>0;syncBrandPromptPendingBanner();showToast(chosen.length?'已加入 '+chosen.length+' 条问题，其余推荐不加入；原有问题保留':'已保留现有问题，本次不加入 AI 推荐');return;}
-      if(a==='remove-monitor-question'){const id=action.dataset.questionId;const question=window.__getMonitorQuestionMaintenanceData().find(item=>item.id===id);if(!question)return;pendingQuestionEdits=[];window.__v17PendingQuestionRemovalId=id;mountModal('移出当前监测？','<p>移出后，该问题从下一次计划采集开始不再执行。</p><div class="v17-note">历史数据与报告保留，不影响其他监测问题。</div>',btn('取消','close')+btn('确认移出','confirm-remove-monitor-question',true));return;}
-      if(a==='confirm-remove-monitor-question'){const id=window.__v17PendingQuestionRemovalId;window.__v17PendingQuestionRemovalId=null;if(id)window.__setMonitorQuestionActive(id,false);closeModal();showToast('问题已移出当前监测，历史数据与报告保留');return;}
       if(a==='edit-question-set'){editContext={section:'questions',name:'',isBrand:false,target:action};openQuestionBatchEditor();return;}
       if(a==='question-row-add'){const dialog=action.closest('.v17-modal');const rows=collectQuestionEditorRows(dialog);rows.push({id:'maintenance-q-new-'+Date.now(),text:'',keyword:'',type:'业务词',persona:'复材加工技术主管',stage:'供应商评估',intent:'评估',focus:'',active:true,selected:false});closeModal();openQuestionBatchEditor(rows,false);return;}
       if(a==='question-row-remove'){const dialog=action.closest('.v17-modal');const row=action.closest('[data-question-editor-row]');const rows=collectQuestionEditorRows(dialog).filter(item=>item.id!==row?.dataset.questionId);if(!rows.length){showToast('至少保留 1 条监测问题');return;}closeModal();openQuestionBatchEditor(rows,false);return;}
       if(a==='question-review-save'){const dialog=action.closest('.v17-modal');const rows=collectQuestionEditorRows(dialog);if(!rows.length){showToast('至少保留 1 条监测问题');return;}const fields=['id','text','keyword','type','persona','stage','intent','focus'];const clean=items=>items.map(item=>fields.map(field=>item[field]||''));if(JSON.stringify(clean(rows))===JSON.stringify(clean(questionEditorOriginal))){closeModal();editContext=null;showToast('没有检测到修改');return;}if(rows.some(item=>!item.text||!item.keyword||!item.type||!item.persona||!item.stage||!item.intent||!item.focus)){showToast('请补全每条问题的所有信息');return;}pendingQuestionEdits=rows;closeModal();const confirmation=mountModal('确认保存监测问题？','<p>保存后，当前市场的后续采集将使用这套完整的问题配置。</p><div class="v17-note">当前市场会暂停。重新开启后将按新问题集采集并建立新的 SOA 基线；新旧口径的数据不做环比，历史数据与报告保留。</div>',btn('返回编辑','question-review-back')+btn('确认保存并暂停','question-save-confirm',true));const confirmDialog=$('.v17-modal',confirmation);if(confirmDialog)confirmDialog.classList.add('v17-question-edit-confirmation');return;}
       if(a==='question-review-back'){const rows=pendingQuestionEdits;closeModal();openQuestionBatchEditor(rows,false);return;}
-      if(a==='question-save-confirm'){const retained=new Set(pendingQuestionEdits.map(item=>item.id));const removed=questionEditorOriginal.filter(item=>!retained.has(item.id)).map(item=>item.id);window.__setMonitorQuestionMaintenanceData(pendingQuestionEdits);removed.forEach(id=>window.__setMonitorQuestionActive(id,false));pendingQuestionEdits=[];monitoringPaused=true;if(pausedScope!=='all')pausedScope='current';syncMonitoringStatus();closeModal();editContext=null;showResumePrompt(pausedScope);return;}
-      if(a==='pause-current'){monitoringPaused=true;pausedScope='current';syncMonitoringStatus();closeModal();return;}
-      if(a==='keep-paused'||a==='keep-all-paused'){monitoringPaused=true;pausedScope=a==='keep-all-paused'?'all':'current';syncMonitoringStatus();closeModal();return;}
-      if(a==='enable-current-market'||a==='enable-all-markets'){monitoringPaused=false;pausedScope=a==='enable-all-markets'?'all':'current';syncMonitoringStatus();closeModal();return;}
+      if(a==='question-save-confirm'){const retained=new Set(pendingQuestionEdits.map(item=>item.id));const removed=questionEditorOriginal.filter(item=>!retained.has(item.id)).map(item=>item.id);window.__setMonitorQuestionMaintenanceData(pendingQuestionEdits);removed.forEach(id=>window.__setMonitorQuestionActive(id,false));pendingQuestionEdits=[];marketMonitoringPaused[currentMarketName()]=true;monitoringPaused=true;pausedScope='current';syncMonitoringStatus();closeModal();editContext=null;showResumePrompt('current');return;}
+      if(a==='pause-current'){marketMonitoringPaused[currentMarketName()]=true;monitoringPaused=true;pausedScope='current';syncMonitoringStatus();closeModal();return;}
+      if(a==='keep-paused'||a==='keep-all-paused'){if(a==='keep-all-paused'){Object.keys(marketMonitoringPaused).forEach(market=>marketMonitoringPaused[market]=true);monitoringPaused=true;pausedScope='all';}else{marketMonitoringPaused[currentMarketName()]=true;monitoringPaused=true;pausedScope='current';}syncMonitoringStatus();closeModal();return;}
+      if(a==='enable-current-market'||a==='enable-all-markets'){if(a==='enable-all-markets'){Object.keys(marketMonitoringPaused).forEach(market=>marketMonitoringPaused[market]=false);monitoringPaused=false;pausedScope='all';}else{marketMonitoringPaused[currentMarketName()]=false;monitoringPaused=false;pausedScope='current';}syncMonitoringStatus();closeModal();return;}
       if(a==='view-all-personas'){const cards=$$('.monitor-persona-card');const field=(label,value,required)=>'<label class="ob159-field"><span>'+label+(required?' <i>*</i>':'')+'</span><div class="ob159-readonly-control">'+(value||'—')+'</div></label>';const sets=cards.map(card=>{const grid=$('.monitor-persona-expanded-grid',card);const data={};if(grid)$$('div',grid).filter(row=>row.querySelector(':scope > span')&&row.querySelector(':scope > strong')).forEach(row=>data[row.querySelector(':scope > span').textContent]=row.querySelector(':scope > strong').textContent);const name=$('.monitor-persona-card-title strong',card)?.textContent||'买家人设';return '<section class="ob159-set"><div class="ob159-set-head"><span>'+name+'</span></div><div class="ob159-required-grid">'+field('人设类型',data['人设类型'],true)+field('采购阶段',data['采购阶段'],true)+'</div><details class="ob159-optional"><summary>选填信息（实际职位、行业、企业规模等）</summary><div class="ob159-optional-grid ob159-required-grid">'+[['实际职位','实际职位'],['行业','行业'],['企业规模','企业规模'],['决策角色','决策角色'],['采购触发场景','采购触发场景'],['采购预算','采购预算'],['采购周期','采购周期'],['了解渠道','了解渠道']].map(([label,key])=>field(label,data[key],false)).join('')+'</div></details></section>';}).join('');const body='<div class="v17-persona-readonly-scroll"><p class="ob159-intro">当前市场已确认的全部买家人设，仅供查看。</p><div class="ob159-set-list">'+sets+'</div></div>';const wrap=mountModal('查看买家人设',body,btn('关闭','close',true));const dialog=$('.v17-modal',wrap);if(dialog)dialog.classList.add('v17-modal-persona-batch','v17-modal-persona-readonly','v17-modal-persona-all');return;}
       if(a==='toggle-persona-details'){return;}
 
@@ -14112,7 +14110,7 @@ For procurement purposes, the brand should only be treated as a meaningful compe
         const dialog=$('.v17-modal',modal);if(dialog)dialog.classList.add('v17-modal-wide');return;
       }
       if(a==='brand-view-tab'){const key=action.dataset.brandViewTab;const dialog=action.closest('.v17-modal');$$('.v17-brand-view-tabs [data-v17="brand-view-tab"]',dialog).forEach(tab=>{const on=tab===action;tab.classList.toggle('is-active',on);tab.setAttribute('aria-selected',on?'true':'false');});$$('[data-brand-view-panel]',dialog).forEach(panel=>panel.hidden=panel.dataset.brandViewPanel!==key);return;}
-      if(a==='edit-confirm'){const c=editContext;if(c){monitoringPaused=true;pausedScope=c.isBrand?'all':'current';syncMonitoringStatus();const currentMarket=($('#v129-global-market-label')?.textContent||'德国 · 德语').split(' · ')[0];const note=c.isBrand?'所有已启用市场已暂停。':'已暂停'+currentMarket+'市场，其他市场继续运行。';closeModal();mountModal('监测已暂停','<p>'+note+'</p>',btn('继续编辑','continue-edit',true));}return;}
+      if(a==='edit-confirm'){const c=editContext;if(c){if(c.isBrand){Object.keys(marketMonitoringPaused).forEach(market=>marketMonitoringPaused[market]=true);monitoringPaused=true;pausedScope='all';}else{marketMonitoringPaused[currentMarketName()]=true;monitoringPaused=true;pausedScope='current';}syncMonitoringStatus();const currentMarket=($('#v129-global-market-label')?.textContent||'德国 · 德语').split(' · ')[0];const note=c.isBrand?'所有已启用市场已暂停。':'已暂停'+currentMarket+'市场，其他市场继续运行。';closeModal();mountModal('监测已暂停','<p>'+note+'</p>',btn('继续编辑','continue-edit',true));}return;}
       if(a==='continue-edit'){launchEditor();return;}
       if(a==='ai-generate'){closeModal();modalStep='ai-review';mountModal('AI 已生成待确认版本','<p>品牌知识新版本和各市场配置草稿已准备完成。</p><div class="v17-note"><strong>下一步：逐市场确认买家人设与监测 Prompt</strong><br>品牌知识由所有市场共用；人设与 Prompt 按市场分别确认。确认期间所有市场保持暂停，全部确认后统一应用，再选择是否开启全部市场。</div>',btn('返回','close')+btn('开始确认市场配置','ai-apply',true));return;}
       if(a==='ai-apply'){startMarketPromptReview();return;}
@@ -14120,7 +14118,7 @@ For procurement purposes, the brand should only be treated as a meaningful compe
       if(a==='market-next'){showMarketPersona();return;}if(a==='market-back'){marketWizard();return;}
       if(a==='market-save'){const select=$('#v17-market'),m=select.value,l=select.selectedOptions[0].dataset.lang,key=select.selectedOptions[0].dataset.key;closeModal();marketCount++;const quota=$('#v17-market-count');if(quota)quota.textContent=String(marketCount);const menu=$('#v129-market-menu'),option=$('.v129-market-option[data-v129-market="'+key+'"]',menu);if(option){option.hidden=false;option.classList.add('is-active');$$('.v129-market-option',menu).forEach(x=>{if(x!==option)x.classList.remove('is-active')});const label=$('#v129-global-market-label');if(label)label.textContent=m+' · '+l;if(window.v129RenderOnboardingMarket)window.v129RenderOnboardingMarket(key);}const add=$('.v129-market-add',menu);if(marketCount>=3&&add)add.hidden=true;mountModal('市场配置已保存','<p>'+m+' / '+l+' 已新增，已沿用当前全局品牌知识。</p><div class="v17-note">买家人设与监测 Prompt 为该市场专属配置。首次采集将在该市场的采集计划时间执行；完成后建立该市场 SOA 基线。</div>',btn('完成','done',true));return;}
     }
-    const monitorToggle=e.target.closest('[data-v17="toggle-monitoring"]');if(monitorToggle){e.preventDefault();e.stopImmediatePropagation();if(monitoringPaused)showResumePrompt(pausedScope);else mountModal('暂停监测？','<p>暂停后将停止后续计划采集，历史数据与报告保留。</p>',btn('取消','close')+btn('暂停当前市场','pause-current',true));return;}
+    const monitorToggle=e.target.closest('[data-v17="toggle-monitoring"]');if(monitorToggle){e.preventDefault();e.stopImmediatePropagation();if(monitoringPaused)showResumePrompt('current');else mountModal('暂停监测？','<p>暂停后将停止后续计划采集，历史数据与报告保留。</p>',btn('取消','close')+btn('暂停当前市场','pause-current',true));return;}
     const addQuestion=e.target.closest('[data-action="add-monitor-question"]');if(addQuestion&&!bypass&&addQuestion.closest('.monitor-config-view-card[data-config-section="questions"]')){e.preventDefault();e.stopImmediatePropagation();editContext={section:'questions',name:'',isBrand:false,target:addQuestion};beforeEdit(addQuestion);return;}
     const saveQuestion=e.target.closest('[data-action="save-monitor-question"]');if(saveQuestion&&!bypass&&editContext&&editContext.section==='questions'){const ids=['new-monitor-question-text','new-monitor-question-keyword','new-monitor-question-type','new-monitor-question-persona','new-monitor-question-stage','new-monitor-question-intent','new-monitor-question-focus'];if(ids.some(id=>!document.getElementById(id)?.value.trim()))return;e.preventDefault();e.stopImmediatePropagation();bypass=true;saveQuestion.click();bypass=false;setTimeout(()=>{if(!document.getElementById('new-monitor-question-text')){editContext=null;showResumePrompt('current');}},0);return;}
     const addPersona=e.target.closest('[data-action="add-monitor-persona"]');if(addPersona&&addPersona.closest('.monitor-config-view-card[data-config-section="persona"]')){e.preventDefault();e.stopImmediatePropagation();editContext={section:'persona',name:'',isBrand:false,target:addPersona};launchEditor();return;}
