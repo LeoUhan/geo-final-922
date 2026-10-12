@@ -598,13 +598,6 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
   color: #2563EB;
 }
 
-.sampling-execution-breakdown {
-  color: var(--ink-3);
-  font-size: 10px;
-  line-height: 1.35;
-  white-space: normal;
-}
-
 .flag-mini {
   font-size: 14px;
   line-height: 1;
@@ -7748,7 +7741,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
               <button class="v129-market-option is-locked" type="button" data-v129-market="us" data-v129-locked="true"><span>🇺🇸</span><strong>美国</strong><span class="v129-lock">需升级</span></button>
               <button class="v129-market-option is-locked" type="button" data-v129-market="jp" data-v129-locked="true"><span>🇯🇵</span><strong>日本</strong><span class="v129-lock">需升级</span></button>
               <button class="v129-market-add" type="button" data-v129-action="add-market">＋ 添加市场</button>
-              <div class="v129-market-quota">成长版市场权益：<strong>1 / 1</strong></div>
+              <div class="v129-market-quota">成长版市场权益：<strong>2 / 3</strong></div>
               <div class="v129-upgrade-inline" id="v129-upgrade-inline" hidden><strong>当前套餐已达到市场数量上限</strong>升级后可启用更多目标市场。<button type="button" data-v129-action="open-plan">查看版本与价格 →</button></div>
             </div>
           </div>
@@ -7875,9 +7868,8 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
               </div>
 
               <div class="strip-item">
-                <span class="strip-label">采样执行数</span>
+                <span class="strip-label">采样执行数 <button type="button" class="info-badge" data-sampling-execution-help data-info="采样执行数按监测问题数 × 单题采集次数 × 已选 AI 平台数计算（67 个问题 × 30 次 × 5 个平台 = 10,050 次）" aria-label="查看采样执行数计算方式">ⓘ</button></span>
                 <strong class="strip-val" data-sampling-execution-total>10,050</strong>
-                <small class="sampling-execution-breakdown" data-sampling-execution-breakdown>67 个问题 × 30 次 × 5 个平台</small>
               </div>
 
               <div class="strip-item">
@@ -8276,7 +8268,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
               <div class="monitor-card-item"><span class="monitor-card-item-label">买家人设</span><span class="monitor-card-item-value">6 类</span></div>
               <div class="monitor-card-item"><span class="monitor-card-item-label">意图</span><span class="monitor-card-item-value">4 类</span></div>
               <div class="monitor-card-item"><span class="monitor-card-item-label">关键词</span><span class="monitor-card-item-value">5 个</span></div>
-              <div class="monitor-card-item"><span class="monitor-card-item-label">采样执行数</span><span class="monitor-card-item-value" data-sampling-execution-total>10,050</span><small class="sampling-execution-breakdown" data-sampling-execution-breakdown>67 个问题 × 30 次 × 5 个平台</small></div>
+              <div class="monitor-card-item"><span class="monitor-card-item-label">采样执行数 <button type="button" class="info-badge" data-sampling-execution-help data-info="采样执行数按监测问题数 × 单题采集次数 × 已选 AI 平台数计算（67 个问题 × 30 次 × 5 个平台 = 10,050 次）" aria-label="查看采样执行数计算方式">ⓘ</button></span><span class="monitor-card-item-value" data-sampling-execution-total>10,050</span></div>
               <div class="monitor-card-item"><span class="monitor-card-item-label">AI平台</span><span class="monitor-card-item-value" data-settings-platform-count>5 个</span></div>
               <div class="monitor-card-item"><span class="monitor-card-item-label">采样可信度</span><span id="sampling-level-monitor-card" class="monitor-card-item-value">趋势级</span></div>
             </div>
@@ -8313,6 +8305,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
               </div>
               <article class="monitor-config-view-card" data-config-section="brand">
                 <div class="monitor-config-card-head"><div><h2>当前品牌知识 <button type="button" class="info-badge" data-info="与新人引导的品牌资料摘要保持一致。" aria-label="查看当前品牌知识说明">ⓘ</button></h2></div><div class="monitor-config-card-head-actions"><button class="monitor-question-add-button" type="button" data-action="open-config-editor" data-config-section="brand">维护品牌知识</button><span class="monitor-config-status">4 项资料</span></div></div>
+                <div class="brand-prompt-pending-banner" data-brand-prompt-pending-banner hidden><div><strong>AI 推荐问题已生成，待你选择</strong><span>现有监测问题保持不变；你可以到问题列表查看并选择加入。</span></div><button type="button" class="monitor-question-add-button" data-v17="open-brand-prompt-review">去选择问题</button></div>
                 <div class="monitor-brand-dimension-grid" aria-label="品牌资料摘要">
                   <article class="monitor-brand-dimension-card">
                     <div class="monitor-brand-dimension-head"><span class="monitor-brand-dimension-index">01</span><div class="monitor-brand-dimension-title"><strong>品牌信息</strong><span>品牌名称与品牌定位</span></div></div>
@@ -8387,13 +8380,14 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
               <article class="monitor-config-view-card monitor-question-maintenance" data-config-section="questions">
                 <div class="monitor-question-maintenance-head"><div class="monitor-config-card-head"><div><h2>当前监测问题 <button type="button" class="info-badge" data-info="当前市场共维护 67 条监测问题，列表默认展示 10 条。可批量编辑整组问题或单独新增。新人引导中的首次监测选择是另一项独立操作。" aria-label="查看当前监测问题说明">ⓘ</button></h2></div><span class="monitor-config-status" data-question-total>67 条</span></div></div>
                 <div class="monitor-question-maintenance-toolbar"><div><button type="button" class="monitor-question-add-button" data-v17="edit-question-set">编辑全部问题</button><button type="button" class="monitor-question-add-button" data-action="add-monitor-question">添加监测问题</button></div></div>
+                <div class="market-prompt-hub-link" data-market-prompt-hub-link hidden><span data-market-prompt-hub-summary>品牌知识变更后的各市场问题处理进度</span><button type="button" class="monitor-question-add-button" data-v17="open-market-prompt-hub">查看各市场</button></div><section class="brand-prompt-candidate-shell" data-brand-prompt-candidates hidden aria-label="AI 推荐待加入问题"></section>
                 <div class="monitor-question-table-wrap">
                   <table class="monitor-question-table" aria-label="当前监测问题列表">
-                    <thead><tr><th>问题</th><th>关键词</th><th>类型</th><th>买家人设</th><th>采购阶段</th><th>意图</th><th>主要关注问题</th></tr></thead>
+                    <thead><tr><th>问题</th><th>关键词</th><th>类型</th><th>买家人设</th><th>采购阶段</th><th>意图</th><th>主要关注问题</th><th>操作</th></tr></thead>
                     <tbody id="monitor-question-maintenance-body"></tbody>
                   </table>
                 </div>
-                <div class="monitor-config-card-footer"><small>新增后，从下一次监测开始生效</small><span></span></div>
+                <div class="monitor-config-card-footer"><small>新增或移除的问题从下一次计划采集开始生效；已有历史数据保留</small><span></span></div>
               </article>
             </div>
 
@@ -9122,7 +9116,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
           const legacyIntent = seed.intent;
           const stage = ['信息','认知'].includes(legacyIntent) ? '需求发现' : ['推荐','背书'].includes(legacyIntent) ? '方案寻找' : ['比较','评估'].includes(legacyIntent) ? '供应商评估' : '采购决策';
           const focus = window.__geoSuggestedFocus(seed.persona, stage, legacyIntent);
-          return { id: `maintenance-q-${index + 1}`, text, persona: seed.persona, keyword, intent: legacyIntent, type, stage, focus, active: true };
+          return { id: `maintenance-q-${index + 1}`, text, persona: seed.persona, keyword, intent: legacyIntent, type, stage, focus, active: true, market: '德国' };
         });
 
         const questionSamplingProfiles = {
@@ -10862,22 +10856,25 @@ updateMonitorPendingUI();
         }
 
         function updateSamplingExecutionMetrics() {
-          const questionCount = monitorQuestionMaintenanceData.length;
+          const currentMarketName=(document.getElementById('v129-global-market-label')?.textContent||'德国 · 德语').split(' · ')[0];
+          const questionCount = monitorQuestionMaintenanceData.filter(question => question.active !== false && (!question.market || question.market===currentMarketName)).length;
           const platformCount = selectedSamplingPlatforms.length;
           const runsPerQuestionPlatform = 30;
           const executionCount = questionCount * runsPerQuestionPlatform * platformCount;
           document.querySelectorAll('[data-sampling-execution-total]').forEach((element) => {
             element.textContent = executionCount.toLocaleString('en-US');
           });
-          document.querySelectorAll('[data-sampling-execution-breakdown]').forEach((element) => {
-            element.textContent = `${questionCount} 个问题 × ${runsPerQuestionPlatform} 次 × ${platformCount} 个平台`;
+          document.querySelectorAll('[data-sampling-execution-help]').forEach((element) => {
+            element.dataset.info = `采样执行数按监测问题数 × 单题采集次数 × 已选 AI 平台数计算（${questionCount} 个问题 × ${runsPerQuestionPlatform} 次 × ${platformCount} 个平台 = ${executionCount.toLocaleString('en-US')} 次）`;
           });
         }
 
         function renderMonitorQuestionMaintenance() {
           const body = document.getElementById('monitor-question-maintenance-body');
           if (!body) return;
-          const displayQuestions = monitorQuestionMaintenanceData.slice(0, 10);
+          const currentMarketName=(document.getElementById('v129-global-market-label')?.textContent||'德国 · 德语').split(' · ')[0];
+          const activeQuestions = monitorQuestionMaintenanceData.filter(question => question.active !== false && (!question.market || question.market===currentMarketName));
+          const displayQuestions = activeQuestions.slice(0, 10);
           body.innerHTML = displayQuestions.map((question, index) => `
             <tr data-question-maintenance-row="${escapeHtml(question.id)}">
               <td><div class="monitor-question-cell"><span class="monitor-question-number">Q${String(index + 1).padStart(2, '0')}</span><span class="monitor-question-text">${escapeHtml(question.text)}</span></div></td>
@@ -10887,17 +10884,39 @@ updateMonitorPendingUI();
               <td>${escapeHtml(question.stage || procurementStageForIntent(question.intent))}</td>
               <td>${escapeHtml(question.intent)}</td>
               <td>${escapeHtml(question.focus || window.__geoSuggestedFocus(question.persona, question.stage || procurementStageForIntent(question.intent), question.intent))}</td>
+              <td><button type="button" class="monitor-question-row-remove" data-v17="remove-monitor-question" data-question-id="${escapeHtml(question.id)}">移出</button></td>
             </tr>
           `).join('');
           document.querySelectorAll('[data-question-total]').forEach((element) => {
-            element.textContent = `${monitorQuestionMaintenanceData.length} 条`;
+            element.textContent = `${activeQuestions.length} 条`;
           });
           updateSamplingExecutionMetrics();
         }
 
+        window.__ensureMonitorQuestionMarket = (market) => {
+          if (!market) return;
+          if (monitorQuestionMaintenanceData.some(item => item.market === market && item.id.startsWith('maintenance-q-'))) return;
+          const templates = monitorQuestionMaintenanceData.filter(item => item.market === '德国');
+          const suffix = market === '美国' ? 'us' : market === '日本' ? 'jp' : 'm'+Date.now();
+          monitorQuestionMaintenanceData.push(...templates.map(item => ({ ...item, id: item.id+'-'+suffix, market, active: true })));
+          renderMonitorQuestionMaintenance();
+        };
         window.__getMonitorQuestionMaintenanceData = () => monitorQuestionMaintenanceData.map(item => ({ ...item }));
-        window.__setMonitorQuestionMaintenanceData = (items) => { monitorQuestionMaintenanceData = items.map(item => ({ ...item })); renderMonitorQuestionMaintenance(); };
-
+        window.__setMonitorQuestionMaintenanceData = (items) => {
+          const incoming = items.map(item => ({ ...item }));
+          const byId = new Map(incoming.map(item => [item.id, item]));
+          const oldIds = new Set(monitorQuestionMaintenanceData.map(item => item.id));
+          monitorQuestionMaintenanceData = monitorQuestionMaintenanceData.map(old => byId.has(old.id) ? { ...old, ...byId.get(old.id), active: true } : old).concat(incoming.filter(item => !oldIds.has(item.id)).map(item => ({ ...item, active: true })));
+          renderMonitorQuestionMaintenance();
+        };
+        window.__refreshMonitorQuestionMaintenance = renderMonitorQuestionMaintenance;
+        window.__setMonitorQuestionActive = (id, active) => {
+          const question = monitorQuestionMaintenanceData.find(item => item.id === id);
+          if (!question) return false;
+          question.active = !!active;
+          renderMonitorQuestionMaintenance();
+          return true;
+        };
 
         function toggleMonitorQuestion(questionId) {
           const question = monitorQuestionMaintenanceData.find((item) => item.id === questionId);
@@ -11468,7 +11487,7 @@ updateMonitorPendingUI();
             const sectionLabels = { brand: '品牌知识', persona: '买家人设', questions: '监测问题' };
             closeModal();
             const label = sectionLabels[saveConfigButton.dataset.configSection] || '监测配置';
-            showToast(`${label}${saveConfigButton.dataset.configNew === 'true' ? '已新增' : '已保存'}，将从下一次监测开始生效`);
+            showToast(window.__v17BrandPromptPendingNotice ? '品牌信息已保存，新 Prompt 已生成待确认' : `${label}${saveConfigButton.dataset.configNew === 'true' ? '已新增' : '已保存'}，将从下一次监测开始生效`);
             return;
           }
 
@@ -13785,17 +13804,127 @@ For procurement purposes, the brand should only be treated as a meaningful compe
     .main-content{grid-row:3!important;height:calc(100vh - 104px)!important}
   }
   @media(max-width:700px){.v17-modal{padding:20px}.v17-actions{flex-wrap:wrap}.v17-market-language{min-width:0!important}}
+  /* 保存确认需要显示在品牌编辑器（#modal-backdrop, z-index:12050）上方 */
+  .v17-modal-backdrop{z-index:12060}
+  .v17-market-prompt-hub{width:min(760px,calc(100vw - 36px));max-height:88vh;overflow:auto}.market-prompt-hub-link{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:10px 0;padding:10px 12px;border:1px solid #dbe7fa;border-radius:9px;background:#f8fbff;color:#50627e;font-size:12px}.market-prompt-hub-link[hidden]{display:none}.v17-market-prompt-list{display:grid;gap:9px;margin:14px 0}.v17-market-prompt-row{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 14px;border:1px solid #e1e9f4;border-radius:10px;background:#f8fbff}.v17-market-prompt-row>div{display:grid;gap:4px}.v17-market-prompt-row strong{font-size:13px;color:#263854}.v17-market-prompt-row span{font-size:11px;color:#71819a}.brand-prompt-pending-banner{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:14px 0;padding:14px 16px;border:1px solid #f3d28a;border-radius:12px;background:#fffaf0}
+  .brand-prompt-pending-banner[hidden]{display:none}
+  .brand-prompt-pending-banner>div{display:grid;gap:4px}
+  .brand-prompt-pending-banner strong{font-size:13px;color:#8a4b0f}
+  .brand-prompt-pending-banner span{font-size:12px;line-height:1.5;color:#7c6a4d}
+  .v17-brand-prompt-review{width:min(900px,calc(100vw - 36px));max-height:86vh;overflow:auto}
+  .v17-brand-prompt-review-list{display:grid;gap:10px;margin-top:14px;max-height:48vh;overflow:auto;padding-right:4px}
+  .v17-brand-prompt-row{display:grid;grid-template-columns:24px 1fr;gap:10px;align-items:start;padding:12px;border:1px solid #dce5f2;border-radius:10px;background:#fff}
+  .v17-brand-prompt-row input[type="checkbox"]{width:16px;height:16px;margin:4px 0 0;accent-color:#2563eb}
+  .v17-brand-prompt-row>div{display:grid;gap:6px}
+  .v17-brand-prompt-row strong{font-size:12px;color:#50627e}
+  .v17-brand-prompt-row textarea{width:100%;min-height:62px;resize:vertical;box-sizing:border-box;border:1px solid #d8e1ef;border-radius:8px;padding:9px 10px;color:#263854;font-family:inherit;font-size:13px;line-height:1.5}
+  .v17-brand-prompt-row textarea:focus{outline:2px solid #c7d9ff;border-color:#7da4fa}
+  .v17-brand-prompt-error{color:#b42318;font-size:12px;margin-top:8px}
+  .brand-prompt-candidate-shell{display:grid;gap:12px;padding:16px;border:1px solid #dbe7fa;border-radius:12px;background:#f8fbff}
+  .brand-prompt-candidate-shell[hidden]{display:none}
+  .brand-prompt-candidate-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+  .brand-prompt-candidate-head>div{display:grid;gap:4px}
+  .brand-prompt-candidate-head strong{font-size:14px;color:#243a5b}
+  .brand-prompt-candidate-head span,.brand-prompt-candidate-note{font-size:12px;line-height:1.55;color:#71819a}
+  .brand-prompt-candidate-note:not([hidden]){color:#b42318}
+  .brand-prompt-candidate-count{display:block;color:#4f6b99;font-size:12px;font-weight:650}.brand-prompt-candidate-footer{display:flex;justify-content:flex-end;gap:10px}
+  .brand-prompt-candidate-list{display:grid;gap:8px;max-height:360px;overflow:auto}
+  .brand-prompt-candidate{display:grid;grid-template-columns:20px 1fr;gap:10px;align-items:start;padding:13px 14px;border:1px solid #e1e9f4;border-radius:9px;background:#fff}
+  .brand-prompt-candidate-select input[type="checkbox"]{margin:3px 0 0;accent-color:#2563eb}
+  .brand-prompt-candidate-content{min-width:0}
+  .brand-prompt-candidate-question{display:block;margin:5px 0 10px;color:#263854;font-size:13px;line-height:1.6}
+  .brand-prompt-candidate-fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px 14px;margin:0}
+  .brand-prompt-candidate-fields div{min-width:0}
+  .brand-prompt-candidate-fields dt{color:#8897ad;font-size:10px;margin-bottom:2px}
+  .brand-prompt-candidate-fields dd{margin:0;color:#52627b;font-size:11px;line-height:1.45}
+  @media(max-width:760px){.brand-prompt-candidate-fields{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  .brand-prompt-candidate-meta{display:flex;align-items:center;gap:8px;margin-bottom:6px;color:#64748b;font-size:11px}
+  .brand-prompt-duplicate{padding:2px 7px;border-radius:999px;background:#f1f5f9;color:#64748b}
+  .monitor-question-row-remove{padding:4px 8px;border:1px solid #e2e8f0;border-radius:6px;background:#fff;color:#64748b;font:inherit;font-size:11px;cursor:pointer}
+  .monitor-question-row-remove:hover{border-color:#fecaca;background:#fff7f7;color:#b42318}
+  @media(max-width:680px){.brand-prompt-pending-banner{align-items:flex-start;flex-direction:column}.v17-brand-prompt-review-list{max-height:42vh}}
 .monitor-status-control{display:inline-flex;align-items:center;justify-content:center;min-height:30px;padding:0 11px;border:1px solid #d7e3f6;border-radius:8px;background:#f7f9ff;color:#2458d3;font-size:12px;font-weight:650;cursor:pointer}.monitor-status-control:hover{background:#edf3ff}.monitor-running-pill.is-paused,.monitor-card-badge.is-paused{background:#f1f3f6;color:#64748b}
 </style>
 <script id="v17-config-version-rules-script">
 (function(){
   const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>Array.from(r.querySelectorAll(s));
-  let bypass=false, editContext=null, modalStep='', marketCount=1, marketPromptReviews=[], marketPromptIndex=0, confirmedMarketPrompts=[];
+  let bypass=false, editContext=null, modalStep='', marketCount=2, marketPromptReviews=[], marketPromptIndex=0, confirmedMarketPrompts=[];
+  let brandEditQuotaRemaining=2, pendingBrandSaveButton=null, brandPromptReviewPending=false;
+  let generatedBrandPrompts=[];
+  let brandPromptMarkets=[], brandMarketReviewStatus={};
   let questionEditorOriginal=[], pendingQuestionEdits=[];
   let monitoringPaused=false, pausedScope='current';
   const mountModal=(title,body,buttons)=>{let old=$('.v17-modal-backdrop');if(old)old.remove();const wrap=document.createElement('div');wrap.className='v17-modal-backdrop';wrap.innerHTML='<section class="v17-modal" role="dialog" aria-modal="true"><h2>'+title+'</h2>'+body+'<div class="v17-actions">'+buttons+'</div></section>';wrap.addEventListener('click',e=>{if(e.target===wrap){const dialog=$('.v17-modal',wrap);if(dialog&&(dialog.classList.contains('v17-question-batch-editor')||dialog.classList.contains('v17-question-edit-confirmation'))){editContext=null;pendingQuestionEdits=[];}wrap.remove()}});document.body.appendChild(wrap);return wrap};
   const closeModal=()=>{$$('.v17-modal-backdrop').forEach(x=>x.remove())};
   const btn=(text,action,primary=false)=>'<button type="button" data-v17="'+action+'" class="'+(primary?'primary':'')+'">'+text+'</button>';
+  const initialBrandPromptSets=[
+    {market:'德国',language:'德语',prompts:[
+      'Welche 5-Achs-Wasserstrahlschneidsysteme eignen sich für CFRP-Luftfahrtbauteile und welche Anbieter bieten präzise, delaminationsfreie Schnitte?',
+      'Welche Hersteller bieten Wasserstrahlschneidanlagen für die präzise Bearbeitung von Verbundwerkstoffen in der Luftfahrt?',
+      'Worauf sollten Einkäufer bei der Auswahl eines 5-Achs-Wasserstrahlsystems für CFK-Bauteile achten?',
+      'Welche Wasserstrahltechnik eignet sich für komplexe CFRP-Bauteile ohne thermische Beeinflussung?',
+      'Wie unterscheiden sich führende Anbieter von Wasserstrahlschneidsystemen für die Luftfahrtindustrie?',
+      'Welche Wasserstrahlschneidanlage ist für kleine Serien von CFK-Luftfahrtteilen wirtschaftlich?',
+      'Wie lässt sich Delamination beim Wasserstrahlschneiden von Verbundwerkstoffen vermeiden?',
+      'Welche technischen Daten sollten Anbieter für das Schneiden von Luftfahrtverbundwerkstoffen nachweisen?',
+      'Welche Wartungs- und Betriebskosten entstehen bei 5-Achs-Wasserstrahlanlagen?',
+      'Welche Wasserstrahlhersteller verfügen über Erfahrung mit zertifizierten Luftfahrtzulieferern?'
+    ]},
+    {market:'美国',language:'英语',prompts:[
+      'Which 5-axis waterjet systems are suitable for CFRP aerospace parts and which suppliers deliver precise, delamination-free cuts?',
+      'Which manufacturers offer waterjet systems for precision composite machining in aerospace?',
+      'What should buyers consider when choosing a 5-axis waterjet system for carbon-fiber parts?',
+      'Which cold-cutting technologies work well for complex CFRP components?',
+      'How do leading waterjet suppliers compare for aerospace composite manufacturing?',
+      'Which waterjet system is cost-effective for low-volume CFRP aerospace production?',
+      'How can manufacturers prevent delamination when waterjet cutting composite materials?',
+      'What technical evidence should suppliers provide for aerospace composite cutting?',
+      'What are the operating and maintenance costs of 5-axis waterjet systems?',
+      'Which waterjet suppliers have experience with certified aerospace manufacturers?'
+    ]},
+    {market:'日本',language:'日语',prompts:[
+      '航空機用CFRP部品に適した5軸ウォータージェット切断システムと、精密で層間剥離を抑えた加工を提供するメーカーはどこですか？',
+      '航空宇宙分野の複合材を精密加工できるウォータージェット装置メーカーはどこですか？',
+      'CFRP部品向けの5軸ウォータージェットを選ぶ際、購買担当者は何を比較すべきですか？',
+      '複雑なCFRP部品を熱影響なく加工するには、どの切断技術が適していますか？',
+      '航空宇宙向け複合材加工で主要なウォータージェットメーカーにはどのような違いがありますか？',
+      '航空機用CFRP部品の少量生産に適したコスト効率の高いウォータージェット装置はどれですか？',
+      '複合材のウォータージェット切断で層間剥離を防ぐにはどうすればよいですか？',
+      '航空宇宙複合材の切断について、装置メーカーにどのような技術資料を求めるべきですか？',
+      '5軸ウォータージェット装置の運用費用とメンテナンス費用はどのくらいですか？',
+      '航空機認証サプライヤーへの納入実績があるウォータージェットメーカーはどこですか？'
+    ]}
+  ];
+  function readBrandEditorSnapshot(){
+    const form=$('#modal.config-editor-modal .config-editor-form');if(!form)return '';
+    const fields=$$('input,textarea,select',form).map(field=>[field.tagName,field.type||'',field.value,field.checked?'1':'0',field.disabled?'1':'0'].join('¦'));
+    const entities=$$('[data-entity-card]',form).map(card=>card.dataset.entityCard).join('|');
+    return JSON.stringify({fields,entities});
+  }
+  function escapePromptHtml(value){return String(value??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\"/g,'&quot;');}
+  function currentMarketName(){return ($('#v129-global-market-label')?.textContent||'德国 · 德语').split(' · ')[0];}
+  function marketKeyForName(name){return ({'德国':'de','美国':'us','日本':'jp'})[name]||'de';}
+  function marketPromptRows(){return brandPromptMarkets.map(market=>{const remaining=generatedBrandPrompts.filter(item=>item.market===market.name).length;const done=brandMarketReviewStatus[market.name]?.state==='done';const added=brandMarketReviewStatus[market.name]?.added||0;const status=done?'已处理':(added?('已加入 '+added+' 条 · 仍有 '+remaining+' 条待选'):('待处理 · '+remaining+' 条推荐问题'));return '<div class="v17-market-prompt-row"><div><strong>'+escapePromptHtml(market.name)+' · '+escapePromptHtml(market.language)+'</strong><span>'+status+'</span></div><button type="button" class="monitor-question-add-button" data-v17="go-market-prompts" data-market-name="'+escapePromptHtml(market.name)+'">'+(done?'查看问题':'处理监测问题')+'</button></div>';}).join('');}
+  function showBrandPromptGeneratedNotice(){
+    const pending=generatedBrandPrompts.length>0;
+    const body='<p>品牌知识已保存，推荐问题按市场分别生成。加入或移出问题都在对应市场的“监测问题”列表中操作。</p><div class="v17-market-prompt-list">'+marketPromptRows()+'</div><div class="v17-note">未调整的市场保留现有监测问题。所有市场当前已暂停，可通过统一入口一次开启全部市场。</div>';
+    const actions=btn('关闭','close')+(monitoringPaused?btn('开启全部市场','enable-all-markets',true):'');
+    const wrap=mountModal(pending?'各市场监测问题':'市场问题已处理',body,actions);const dialog=$('.v17-modal',wrap);if(dialog)dialog.classList.add('v17-market-prompt-hub');
+  }
+  function renderBrandPromptCandidates(){
+    const shell=$('[data-brand-prompt-candidates]');if(!shell)return;
+    const market=currentMarketName();const candidates=generatedBrandPrompts.map((item,index)=>({...item,__index:index})).filter(item=>item.market===market);
+    const pending=brandPromptReviewPending&&candidates.length>0;shell.hidden=!pending;if(!pending){shell.innerHTML='';return;}
+    const rows=candidates.map(item=>'<article class="brand-prompt-candidate" data-candidate-index="'+item.__index+'"><label class="brand-prompt-candidate-select"><input type="checkbox" data-candidate-selected '+(item.selected?'checked':'')+' aria-label="选择推荐问题 '+(item.number)+'"></label><div class="brand-prompt-candidate-content"><div class="brand-prompt-candidate-meta"><strong>'+escapePromptHtml(item.market)+' · '+escapePromptHtml(item.language)+'</strong><span>AI 推荐 '+String(item.number).padStart(2,'0')+'</span></div><strong class="brand-prompt-candidate-question">'+escapePromptHtml(item.text)+'</strong><dl class="brand-prompt-candidate-fields"><div><dt>关键词</dt><dd>五轴水刀切割</dd></div><div><dt>类型</dt><dd>业务词</dd></div><div><dt>买家人设</dt><dd>复材加工技术主管</dd></div><div><dt>采购阶段</dt><dd>供应商评估</dd></div><div><dt>意图</dt><dd>评估</dd></div><div><dt>主要关注问题</dt><dd>切割精度、分层风险与供应商能力</dd></div></dl></div></article>').join('');
+    const selected=candidates.filter(item=>item.selected).length;
+    shell.innerHTML='<div class="brand-prompt-candidate-head"><div><strong>'+escapePromptHtml(market)+' · AI 推荐问题</strong><span>AI 推荐内容只供查看；最多选 5 条加入。未勾选的推荐将不加入，原有问题保持不变。</span><span class="brand-prompt-candidate-count" data-candidate-count>已选择 '+selected+' / 5 条 · 共 '+candidates.length+' 条候选</span></div><button type="button" class="monitor-question-add-button" data-v17="open-market-prompt-hub">返回市场列表</button></div><div class="brand-prompt-candidate-list">'+rows+'</div><div class="brand-prompt-candidate-note" data-candidate-error hidden></div><div class="brand-prompt-candidate-footer"><button type="button" class="monitor-question-add-button" data-v17="add-brand-prompt-candidates">确认本市场选择</button></div>';
+  }
+  function syncBrandPromptPendingBanner(){const banner=$('[data-brand-prompt-pending-banner]');if(banner)banner.hidden=!(brandPromptReviewPending&&generatedBrandPrompts.length);const hub=$('[data-market-prompt-hub-link]');if(hub){const currentHasCandidates=generatedBrandPrompts.some(item=>item.market===currentMarketName());const pending=brandPromptMarkets.filter(market=>brandMarketReviewStatus[market.name]?.state!=='done').length;const allDone=brandPromptMarkets.length>0&&pending===0;const hide=!brandPromptMarkets.length||currentHasCandidates||allDone;hub.hidden=hide;hub.style.display=hide?'none':'';const summary=$('[data-market-prompt-hub-summary]',hub);if(summary)summary.textContent=allDone?'':'品牌知识变更 · '+pending+' 个市场的问题待处理';}renderBrandPromptCandidates();}
+  function navigateToBrandPromptCandidates(market){
+    const targetMarket=market||currentMarketName();closeModal();const option=$('.v129-market-option[data-v129-market="'+marketKeyForName(targetMarket)+'"]');if(option&&!option.hidden)option.click();else if(window.__ensureMonitorQuestionMarket)window.__ensureMonitorQuestionMarket(targetMarket);
+    setTimeout(()=>{const tab=$('[data-config-tab="questions"]');if(tab)tab.click();if(window.__refreshMonitorQuestionMaintenance)window.__refreshMonitorQuestionMaintenance();renderBrandPromptCandidates();setTimeout(()=>{const shell=$('[data-brand-prompt-candidates]');if(shell&&!shell.hidden)shell.scrollIntoView({behavior:'smooth',block:'center'});},80);},50);
+  }
+  function openBrandPromptReview(){if(brandPromptMarkets.length)showBrandPromptGeneratedNotice();else if(brandPromptReviewPending)navigateToBrandPromptCandidates();}
   function syncMonitoringStatus(){const label=monitoringPaused?'已暂停':'进行中';$$('.monitor-running-pill,.monitor-card-badge').forEach(el=>{el.textContent=label;el.classList.toggle('is-paused',monitoringPaused);});$$('[data-v17="toggle-monitoring"]').forEach(el=>{el.textContent=monitoringPaused?(pausedScope==='all'?'开启全部市场':'开启监测'):'暂停监测';});}
   function showResumePrompt(scope){const all=scope==='all';mountModal(all?'开启全部市场监测？':'开启当前市场监测？','<p>开启后按原定采集计划运行，历史数据与报告保留。</p>',btn('暂不开启',all?'keep-all-paused':'keep-paused')+btn(all?'开启全部市场':'开启当前市场',all?'enable-all-markets':'enable-current-market',true));}
   function syncMarketPair(){
@@ -13804,8 +13933,8 @@ For procurement purposes, the brand should only be treated as a meaningful compe
     if(languageWrap)languageWrap.hidden=true;
     if(market&&!market.classList.contains('v17-market-language')){market.classList.add('v17-market-language');market.innerHTML='<span class="v17-pair-label">市场 / 语言</span><span class="v17-pair-divider" aria-hidden="true"></span><strong id="v129-global-market-label" class="v17-pair-value">德国 · 德语</strong><span class="v17-pair-chevron" aria-hidden="true">⌄</span>'; }
     const menu=$('#v129-market-menu');if(menu&&!menu.dataset.v17Paired){menu.dataset.v17Paired='true';const title=$('.v129-dropdown-title',menu);if(title)title.textContent='已启用市场';
-      const opts=$$('.v129-market-option',menu);opts.forEach((o,i)=>{const map=[['🇩🇪','德国 · 德语','de'],['🇺🇸','美国 · 英语','us'],['🇯🇵','日本 · 日语','jp']][i];if(map){o.innerHTML='<span>'+map[0]+'</span><strong>'+map[1]+'</strong><span class="v129-row-spacer"></span><span class="v129-mini-state">'+(i===0?'当前':'已启用')+'</span>';o.dataset.v129Market=map[2];o.classList.remove('is-locked');o.removeAttribute('data-v129-locked');if(i>0)o.hidden=true;}});
-      const add=$('.v129-market-add',menu),quota=$('.v129-market-quota',menu),locked=$('#v129-upgrade-inline');if(add){add.textContent='＋ 新增市场';add.hidden=false;}if(quota)quota.innerHTML='成长版市场权益：<strong><span id="v17-market-count">1</span> / 3</strong>';if(locked)locked.hidden=true;
+      const opts=$$('.v129-market-option',menu);opts.forEach((o,i)=>{const map=[['🇩🇪','德国 · 德语','de'],['🇺🇸','美国 · 英语','us'],['🇯🇵','日本 · 日语','jp']][i];if(map){o.innerHTML='<span>'+map[0]+'</span><strong>'+map[1]+'</strong><span class="v129-row-spacer"></span><span class="v129-mini-state">'+(i===0?'当前':'已启用')+'</span>';o.dataset.v129Market=map[2];o.classList.remove('is-locked');o.removeAttribute('data-v129-locked');o.hidden=i>=marketCount;}});
+      const add=$('.v129-market-add',menu),quota=$('.v129-market-quota',menu),locked=$('#v129-upgrade-inline');if(add){add.textContent='＋ 新增市场';add.hidden=false;}if(quota)quota.innerHTML='成长版市场权益：<strong><span id="v17-market-count">'+marketCount+'</span> / 3</strong>';if(locked)locked.hidden=true;
     }
     const label=$('#v129-global-market-label'),language=$('#v133-global-language-label');if(label&&language){const marketOnly=label.textContent.split(' · ')[0],paired=marketOnly+' · '+language.textContent;if(label.textContent!==paired)label.textContent=paired;}
   }
@@ -13892,7 +14021,7 @@ For procurement purposes, the brand should only be treated as a meaningful compe
     const body=isBrand?'<p>修改品牌知识会影响所有已启用市场。</p><div class="v17-note"><strong>影响范围：</strong>'+markets+'<br><strong>生效规则：</strong>新版本按原计划采集，建立新的 SOA 基线，不与旧数据做环比。</div><div class="v17-usage"><span>品牌知识修改次数</span><strong>本套餐剩余 2 次</strong></div>':'<p>'+(isAddingQuestion?'添加':'修改')+configName+'会影响当前市场后续采集使用的内容。</p><div class="v17-note"><strong>影响范围：</strong>'+markets+'<br><strong>生效规则：</strong>后续采集按新配置执行，并建立新的 SOA 基线；新旧口径的数据不做环比，历史数据与报告保留。</div>';
     mountModal(title,body,btn('取消','close')+btn(isBrand?'暂停所有市场并继续':'暂停当前市场并继续','edit-confirm',true));
   }
-  function launchEditor(){const target=editContext&&editContext.target;if(!target)return;const section=editContext.section;closeModal();if(section==='persona'){openMonitorPersonaBatchEditor(target);return;}if(section==='questions'){openQuestionBatchEditor();return;}bypass=true;target.click();bypass=false;}
+  function launchEditor(){const target=editContext&&editContext.target;if(!target)return;const section=editContext.section;closeModal();if(section==='persona'){openMonitorPersonaBatchEditor(target);return;}if(section==='questions'){openQuestionBatchEditor();return;}bypass=true;target.click();bypass=false;if(section==='brand'&&editContext)editContext.brandOriginalSnapshot=readBrandEditorSnapshot();}
   function questionEditorEscape(value){return String(value==null?'':value).replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));}
   function questionEditorSelect(field,value,options){return '<select data-question-field="'+field+'">'+options.map(option=>'<option value="'+questionEditorEscape(option)+'" '+(option===value?'selected':'')+'>'+questionEditorEscape(option)+'</option>').join('')+'</select>';}
   function renderQuestionEditorRows(rows){
@@ -13901,8 +14030,9 @@ For procurement purposes, the brand should only be treated as a meaningful compe
     return rows.map((question,index)=>'<tr data-question-editor-row data-question-id="'+questionEditorEscape(question.id)+'"><td>Q'+String(index+1).padStart(2,'0')+'</td><td><textarea data-question-field="text" aria-label="问题 '+(index+1)+'">'+questionEditorEscape(question.text)+'</textarea></td><td><input data-question-field="keyword" aria-label="问题 '+(index+1)+' 关键词" value="'+questionEditorEscape(question.keyword)+'"></td><td>'+questionEditorSelect('type',question.type,types)+'</td><td>'+questionEditorSelect('persona',question.persona,personas)+'</td><td>'+questionEditorSelect('stage',question.stage,stages)+'</td><td>'+questionEditorSelect('intent',question.intent,intents)+'</td><td><input data-question-field="focus" aria-label="问题 '+(index+1)+' 关注点" value="'+questionEditorEscape(question.focus)+'"></td><td><button type="button" class="v17-question-remove" data-v17="question-row-remove">移除</button></td></tr>').join('');
   }
   function openQuestionBatchEditor(rows,resetOriginal=true){
-    const current=rows||window.__getMonitorQuestionMaintenanceData();
-    if(resetOriginal)questionEditorOriginal=window.__getMonitorQuestionMaintenanceData();
+    const activeQuestions=window.__getMonitorQuestionMaintenanceData().filter(item=>item.active!==false);
+    const current=rows||activeQuestions;
+    if(resetOriginal)questionEditorOriginal=activeQuestions;
     const body='<div class="v17-question-editor-body"><div class="v17-question-editor-toolbar"><span>当前市场 · '+current.length+' 条问题；所有修改统一保存</span><button type="button" class="v17-question-editor-add" data-v17="question-row-add">＋ 新增问题</button></div><div class="v17-question-editor-wrap"><table class="v17-question-editor-table"><colgroup><col style="width:58px"><col style="width:320px"><col style="width:150px"><col style="width:110px"><col style="width:190px"><col style="width:130px"><col style="width:100px"><col style="width:210px"><col style="width:72px"></colgroup><thead><tr><th>序号</th><th>监测问题</th><th>关键词</th><th>类型</th><th>买家人设</th><th>采购阶段</th><th>意图</th><th>主要关注问题</th><th>操作</th></tr></thead><tbody id="v17-question-editor-rows">'+renderQuestionEditorRows(current)+'</tbody></table></div></div>';
     const wrap=mountModal('批量编辑监测问题',body,btn('取消','close')+btn('保存','question-review-save',true));const dialog=$('.v17-modal',wrap);if(dialog)dialog.classList.add('v17-question-batch-editor');
   }
@@ -13912,23 +14042,47 @@ For procurement purposes, the brand should only be treated as a meaningful compe
   }
   function interceptSave(save){
     if(!editContext)return false;
+    if(editContext.isBrand){
+      const currentSnapshot=readBrandEditorSnapshot();
+      if(!currentSnapshot||currentSnapshot===editContext.brandOriginalSnapshot){const backdrop=$('#modal-backdrop'),dialog=$('#modal');if(backdrop)backdrop.hidden=true;if(dialog)dialog.classList.remove('config-editor-modal','persona-editor-modal');editContext=null;return true;}
+      pendingBrandSaveButton=save;
+      const remainingAfter=Math.max(0,brandEditQuotaRemaining-1);
+      const body='<p>确认修改品牌知识并生成各市场的 AI 推荐问题？</p><div class="v17-note"><strong>影响范围：</strong>全部已启用市场，确认后统一暂停<br><strong>本次修改：</strong>将扣除 1 次品牌信息修改次数，确认后剩余 '+remainingAfter+' 次。<br><strong>后续处理：</strong>到各市场的监测问题列表中选择加入推荐问题，或移出旧问题；未调整的市场保留现有问题。完成后可统一开启全部市场。<br><strong>数据对比：</strong>新旧口径不做环比。</div>';
+      mountModal('确认修改品牌信息',body,btn('返回编辑','cancel-brand-change')+btn('确认修改并暂停全部市场','confirm-brand-change',true));
+      return true;
+    }
     if(!editContext.isBrand){
       bypass=true;save.click();bypass=false;
       const savedContext=editContext;closeModal();editContext=null;mountModal('市场配置已保存','<p>新配置将在下一次计划采集中生效。</p><div class="v17-note">新配置建立新的 SOA 基线，不与旧数据做环比。</div>',btn('保持暂停','keep-paused')+btn('开启当前市场','enable-current-market',true));return true;
     }
-    const body='<p>将调用 AI 根据更新后的品牌知识重新生成相关内容。</p><div class="v17-note">本次确认后扣除 1 次品牌知识修改额度。生成结果不会自动覆盖，完成后还需要你确认应用到各市场。</div>';
-    mountModal('确认重新生成品牌知识',body,btn('返回修改','close')+btn('确认并生成（扣 1 次）','ai-generate',true));modalStep='ai-confirm';return true;
+    return true;
   }
+  document.addEventListener('click',function(e){const option=e.target.closest('[data-v129-market]');if(option)setTimeout(()=>{const label=$('#v129-global-market-label')?.textContent||'德国';const market=label.split(' · ')[0];if(window.__ensureMonitorQuestionMarket)window.__ensureMonitorQuestionMarket(market);if(window.__refreshMonitorQuestionMaintenance)window.__refreshMonitorQuestionMaintenance();renderBrandPromptCandidates();},0);});
+  document.addEventListener('change',function(e){const input=e.target.closest('[data-candidate-selected]');if(!input)return;const shell=input.closest('[data-brand-prompt-candidates]');const rows=$$('.brand-prompt-candidate',shell);const selected=rows.filter(row=>$('[data-candidate-selected]',row)?.checked);if(selected.length>5){input.checked=false;const error=$('[data-candidate-error]',shell);if(error){error.textContent='每次最多选择 5 条问题。';error.hidden=false;}return;}const row=input.closest('.brand-prompt-candidate');const item=generatedBrandPrompts[Number(row?.dataset.candidateIndex)];if(item)item.selected=input.checked;const count=$('[data-candidate-count]',shell);if(count)count.textContent='已选择 '+selected.length+' / 5 条';const error=$('[data-candidate-error]',shell);if(error)error.hidden=true;});
   document.addEventListener('click',function(e){
     const action=e.target.closest('[data-v17]');
     if(action){e.preventDefault();e.stopImmediatePropagation();const a=action.dataset.v17;
       if(a==='close'){const dialog=action.closest('.v17-modal');if(dialog&&(dialog.classList.contains('v17-question-batch-editor')||dialog.classList.contains('v17-question-edit-confirmation'))){editContext=null;pendingQuestionEdits=[];}closeModal();return;} if(a==='done'){closeModal();return;}
+      if(a==='cancel-brand-change'){pendingBrandSaveButton=null;closeModal();return;}
+      if(a==='confirm-brand-change'){
+        const save=pendingBrandSaveButton;pendingBrandSaveButton=null;closeModal();
+        if(save){window.__v17BrandPromptPendingNotice=true;bypass=true;save.click();bypass=false;window.__v17BrandPromptPendingNotice=false;}
+        brandEditQuotaRemaining=Math.max(0,brandEditQuotaRemaining-1);
+        brandPromptMarkets=initialBrandPromptSets.slice(0,Math.max(1,Math.min(marketCount,initialBrandPromptSets.length))).map(set=>({name:set.market,language:set.language}));brandMarketReviewStatus=Object.fromEntries(brandPromptMarkets.map(market=>[market.name,{state:'pending',added:0}]));generatedBrandPrompts=initialBrandPromptSets.slice(0,Math.max(1,Math.min(marketCount,initialBrandPromptSets.length))).flatMap(set=>set.prompts.map((text,index)=>({market:set.market,language:set.language,number:index+1,text,selected:index<5})));monitoringPaused=true;pausedScope='all';syncMonitoringStatus();
+        brandPromptReviewPending=true;syncBrandPromptPendingBanner();editContext=null;
+        showBrandPromptGeneratedNotice();return;
+      }
+      if(a==='open-brand-prompt-review'||a==='open-market-prompt-hub'){openBrandPromptReview();return;}
+      if(a==='go-market-prompts'){navigateToBrandPromptCandidates(action.dataset.marketName);return;}
+      if(a==='add-brand-prompt-candidates'){const shell=action.closest('[data-brand-prompt-candidates]');const rows=$$('.brand-prompt-candidate',shell);const chosen=rows.filter(row=>$('[data-candidate-selected]',row)?.checked).map(row=>({item:generatedBrandPrompts[Number(row.dataset.candidateIndex)]})).filter(entry=>entry.item);const error=$('[data-candidate-error]',shell);if(chosen.length>5){if(error){error.textContent='每次最多选择 5 条问题，请减少选择数量。';error.hidden=false;}return;}const market=currentMarketName();if(chosen.length){const additions=chosen.map(({item},index)=>({id:'brand-prompt-'+Date.now()+'-'+index,text:item.text,keyword:'五轴水刀切割',type:'业务词',persona:'复材加工技术主管',stage:'供应商评估',intent:'评估',focus:'切割精度、分层风险与供应商能力',active:true,market:item.market||market}));window.__setMonitorQuestionMaintenanceData(window.__getMonitorQuestionMaintenanceData().concat(additions));}const prior=brandMarketReviewStatus[market]?.added||0;brandMarketReviewStatus[market]={state:'done',added:prior+chosen.length};generatedBrandPrompts=generatedBrandPrompts.filter(item=>item.market!==market);brandPromptReviewPending=generatedBrandPrompts.length>0;syncBrandPromptPendingBanner();showToast(chosen.length?'已加入 '+chosen.length+' 条问题，其余推荐不加入；原有问题保留':'已保留现有问题，本次不加入 AI 推荐');return;}
+      if(a==='remove-monitor-question'){const id=action.dataset.questionId;const question=window.__getMonitorQuestionMaintenanceData().find(item=>item.id===id);if(!question)return;pendingQuestionEdits=[];window.__v17PendingQuestionRemovalId=id;mountModal('移出当前监测？','<p>移出后，该问题从下一次计划采集开始不再执行。</p><div class="v17-note">历史数据与报告保留，不影响其他监测问题。</div>',btn('取消','close')+btn('确认移出','confirm-remove-monitor-question',true));return;}
+      if(a==='confirm-remove-monitor-question'){const id=window.__v17PendingQuestionRemovalId;window.__v17PendingQuestionRemovalId=null;if(id)window.__setMonitorQuestionActive(id,false);closeModal();showToast('问题已移出当前监测，历史数据与报告保留');return;}
       if(a==='edit-question-set'){editContext={section:'questions',name:'',isBrand:false,target:action};openQuestionBatchEditor();return;}
       if(a==='question-row-add'){const dialog=action.closest('.v17-modal');const rows=collectQuestionEditorRows(dialog);rows.push({id:'maintenance-q-new-'+Date.now(),text:'',keyword:'',type:'业务词',persona:'复材加工技术主管',stage:'供应商评估',intent:'评估',focus:'',active:true,selected:false});closeModal();openQuestionBatchEditor(rows,false);return;}
       if(a==='question-row-remove'){const dialog=action.closest('.v17-modal');const row=action.closest('[data-question-editor-row]');const rows=collectQuestionEditorRows(dialog).filter(item=>item.id!==row?.dataset.questionId);if(!rows.length){showToast('至少保留 1 条监测问题');return;}closeModal();openQuestionBatchEditor(rows,false);return;}
       if(a==='question-review-save'){const dialog=action.closest('.v17-modal');const rows=collectQuestionEditorRows(dialog);if(!rows.length){showToast('至少保留 1 条监测问题');return;}const fields=['id','text','keyword','type','persona','stage','intent','focus'];const clean=items=>items.map(item=>fields.map(field=>item[field]||''));if(JSON.stringify(clean(rows))===JSON.stringify(clean(questionEditorOriginal))){closeModal();editContext=null;showToast('没有检测到修改');return;}if(rows.some(item=>!item.text||!item.keyword||!item.type||!item.persona||!item.stage||!item.intent||!item.focus)){showToast('请补全每条问题的所有信息');return;}pendingQuestionEdits=rows;closeModal();const confirmation=mountModal('确认保存监测问题？','<p>保存后，当前市场的后续采集将使用这套完整的问题配置。</p><div class="v17-note">当前市场会暂停。重新开启后将按新问题集采集并建立新的 SOA 基线；新旧口径的数据不做环比，历史数据与报告保留。</div>',btn('返回编辑','question-review-back')+btn('确认保存并暂停','question-save-confirm',true));const confirmDialog=$('.v17-modal',confirmation);if(confirmDialog)confirmDialog.classList.add('v17-question-edit-confirmation');return;}
       if(a==='question-review-back'){const rows=pendingQuestionEdits;closeModal();openQuestionBatchEditor(rows,false);return;}
-      if(a==='question-save-confirm'){window.__setMonitorQuestionMaintenanceData(pendingQuestionEdits);pendingQuestionEdits=[];monitoringPaused=true;pausedScope='current';syncMonitoringStatus();closeModal();editContext=null;showResumePrompt('current');return;}
+      if(a==='question-save-confirm'){const retained=new Set(pendingQuestionEdits.map(item=>item.id));const removed=questionEditorOriginal.filter(item=>!retained.has(item.id)).map(item=>item.id);window.__setMonitorQuestionMaintenanceData(pendingQuestionEdits);removed.forEach(id=>window.__setMonitorQuestionActive(id,false));pendingQuestionEdits=[];monitoringPaused=true;if(pausedScope!=='all')pausedScope='current';syncMonitoringStatus();closeModal();editContext=null;showResumePrompt(pausedScope);return;}
       if(a==='pause-current'){monitoringPaused=true;pausedScope='current';syncMonitoringStatus();closeModal();return;}
       if(a==='keep-paused'||a==='keep-all-paused'){monitoringPaused=true;pausedScope=a==='keep-all-paused'?'all':'current';syncMonitoringStatus();closeModal();return;}
       if(a==='enable-current-market'||a==='enable-all-markets'){monitoringPaused=false;pausedScope=a==='enable-all-markets'?'all':'current';syncMonitoringStatus();closeModal();return;}
@@ -13971,7 +14125,7 @@ For procurement purposes, the brand should only be treated as a meaningful compe
     const saveQuestion=e.target.closest('[data-action="save-monitor-question"]');if(saveQuestion&&!bypass&&editContext&&editContext.section==='questions'){const ids=['new-monitor-question-text','new-monitor-question-keyword','new-monitor-question-type','new-monitor-question-persona','new-monitor-question-stage','new-monitor-question-intent','new-monitor-question-focus'];if(ids.some(id=>!document.getElementById(id)?.value.trim()))return;e.preventDefault();e.stopImmediatePropagation();bypass=true;saveQuestion.click();bypass=false;setTimeout(()=>{if(!document.getElementById('new-monitor-question-text')){editContext=null;showResumePrompt('current');}},0);return;}
     const addPersona=e.target.closest('[data-action="add-monitor-persona"]');if(addPersona&&addPersona.closest('.monitor-config-view-card[data-config-section="persona"]')){e.preventDefault();e.stopImmediatePropagation();editContext={section:'persona',name:'',isBrand:false,target:addPersona};launchEditor();return;}
     const marketAdd=e.target.closest('[data-v129-action="add-market"]');if(marketAdd){e.preventDefault();e.stopImmediatePropagation();marketWizard();return;}
-    const edit=e.target.closest('[data-action="open-config-editor"]');const isMonitorConfigEdit=!!(edit&&edit.closest('.monitor-config-view-card'));if(edit&&!bypass&&isMonitorConfigEdit){e.preventDefault();e.stopImmediatePropagation();editContext={section:edit.dataset.configSection||'brand',name:edit.dataset.configItem||'',isBrand:(edit.dataset.configSection||'brand')==='brand',target:edit};if(editContext.section==='persona'){launchEditor();return;}beforeEdit(edit);return;}
+    const edit=e.target.closest('[data-action="open-config-editor"]');const editSection=edit?.dataset.configSection||'brand';const isBrandConfigEdit=!!(edit&&editSection==='brand');const isMonitorConfigEdit=!!(edit&&edit.closest('.monitor-config-view-card'));if(edit&&!bypass&&(isBrandConfigEdit||isMonitorConfigEdit)){e.preventDefault();e.stopImmediatePropagation();editContext={section:editSection,name:edit.dataset.configItem||'',isBrand:isBrandConfigEdit,target:edit};if(editContext.section==='persona'||editContext.isBrand){launchEditor();return;}beforeEdit(edit);return;}
     const save=e.target.closest('[data-action="save-config-section"]');if(save&&!bypass&&editContext){e.preventDefault();e.stopImmediatePropagation();interceptSave(save);return;}
   },true);
   function markReportNoData(){
