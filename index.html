@@ -2802,6 +2802,11 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .sampling-readiness-card.is-trend .sampling-readiness-attention {
   border-left-color: #EAD9A5;
 }
+.sampling-readiness-card.is-low { border-color:#F3C6C6; background:#FFF8F8; }
+.sampling-readiness-card.is-low .sampling-readiness-main > strong { color:#B42318; }
+.sampling-readiness-card.is-high { border-color:#B7E3C8; background:#F6FCF8; }
+.sampling-readiness-card.is-high .sampling-readiness-main > strong { color:#16804A; }
+.sampling-maturity-tag { display:inline-flex; align-items:center; margin-left:8px; padding:2px 8px; border-radius:999px; background:#E7EEFF; color:#3157D5!important; font-size:12px!important; line-height:20px!important; vertical-align:middle; }
 
 .sampling-readiness-main,
 .sampling-readiness-attention {
@@ -5545,7 +5550,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
     flex-direction: column;
   }
 }
-
+    
 /* V51 Agent / 运营工作队列 */
 .v51-queue-shell{border:1px solid var(--line);border-radius:20px;background:#fff;box-shadow:var(--shadow-xs);overflow:hidden}
 .v51-queue-header{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:26px 28px 22px;border-bottom:1px solid var(--line)}
@@ -7551,6 +7556,25 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .v17-modal.v17-modal-persona-all .ob159-set{padding:18px 20px;}
 @media(max-width:700px){.v17-modal.v17-modal-persona-readonly .ob159-required-grid{grid-template-columns:1fr}}
 </style>
+
+<style id="v60-sampling-execution-detail">
+.sampling-readiness-card{grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr);align-items:center;gap:24px}
+.sampling-readiness-main{gap:7px}
+.sampling-readiness-attention{padding-left:24px;border-left:1px solid #DCE5F1;gap:7px}
+.sampling-readiness-attention span{font-size:13px;font-weight:700;color:#475569}
+.sampling-readiness-attention small{font-size:13px;line-height:1.65;color:#64748B}
+.sampling-detail-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.sampling-detail-item{min-width:0;min-height:116px;padding:16px;border:1px solid #E1E8F2;border-radius:12px;background:#fff;display:flex;flex-direction:column;align-items:flex-start;gap:7px}
+.sampling-detail-item strong{font-size:17px;line-height:1.4;color:#1E293B}
+.sampling-detail-item small{font-size:12px;line-height:1.5;color:#7B8BA3}
+.sampling-platform-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:1px}
+.sampling-platform-tags span{padding:3px 7px;border-radius:999px;background:#F1F5FB;color:#526783;font-size:11px;line-height:1.4;white-space:nowrap}
+.sampling-detail-platforms{gap:6px}
+.sampling-detail-coverage{background:#F8FAFD}
+@media(max-width:1050px){.sampling-detail-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.sampling-readiness-card{grid-template-columns:1fr}}
+@media(max-width:640px){.sampling-detail-grid{grid-template-columns:1fr}.sampling-readiness-attention{padding:14px 0 0;border-left:0;border-top:1px solid #DCE5F1}}
+</style>
+
 </head>
   <body>
 
@@ -7567,7 +7591,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
         </nav>
       </aside>
       <main class="ob57-main">
-
+        
         <div class="ob57-panel">
           <section class="ob57-screen" data-ob57-screen="1">
             <div class="ob73-heading-row"><h1 class="ob57-title">确认品牌知识</h1><span class="ob73-help-wrap"><button class="ob73-help-btn" type="button" aria-label="查看说明">i</button><span class="ob73-help-pop">请确认并完善品牌基础信息，这些信息将用于后续买家人设生成、监测问题生成与可见性监测。</span></span><span class="ob57-source">数据来源：独立站超级智能体</span></div>
@@ -7824,7 +7848,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
           <div class="page-header">
             <div class="page-title-row">
               <h1 class="page-title">概览 <button type="button" class="info-badge" id="workbench-lede" data-info="集中查看指标变化、各平台表现，以及 Agent 正在执行和等待你确认的事项。" aria-label="查看概览说明">ⓘ</button></h1>
-
+              
             </div>
           </div>
 
@@ -7879,7 +7903,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 
               <div class="strip-item">
                 <span class="strip-label">采样可信度</span>
-                <strong id="sampling-level-monitor-strip" class="strip-val">趋势级</strong>
+                <strong id="sampling-level-monitor-strip" class="strip-val">中 · 趋势级</strong>
               </div>
             </div>
           </section>
@@ -8048,7 +8072,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
                       <strong>Google AI Overviews</strong>
                       <span class="v42-platform-group">Google 系</span>
                     </div>
-                    <small>n=240 · 本期 +5pp</small>
+                    <small>本期 +5pp</small>
                   </div>
                   <div class="v42-platform-bars">
                     <div class="v42-platform-bar"><span style="width: 46%"></span></div>
@@ -8066,7 +8090,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
                       <strong>Gemini</strong>
                       <span class="v42-platform-group">Google 系</span>
                     </div>
-                    <small>n=240 · 本期 +3pp</small>
+                    <small>本期 +3pp</small>
                   </div>
                   <div class="v42-platform-bars">
                     <div class="v42-platform-bar"><span style="width: 39%"></span></div>
@@ -8083,7 +8107,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
                     <div class="v42-platform-name-title">
                       <strong>ChatGPT (Search/GPT-4o)</strong>
                     </div>
-                    <small>n=240 · 本期 +4pp</small>
+                    <small>本期 +4pp</small>
                   </div>
                   <div class="v42-platform-bars">
                     <div class="v42-platform-bar"><span style="width: 42%"></span></div>
@@ -8100,7 +8124,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
                     <div class="v42-platform-name-title">
                       <strong>Perplexity</strong>
                     </div>
-                    <small>n=240 · 本期 +2pp</small>
+                    <small>本期 +2pp</small>
                   </div>
                   <div class="v42-platform-bars">
                     <div class="v42-platform-bar"><span style="width: 31%"></span></div>
@@ -8247,7 +8271,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
           <div class="page-header">
             <div class="page-title-row">
               <h1 class="page-title">可见性监测 <button type="button" class="info-badge" data-info="直接透视品牌在各大生成式 AI 引擎中的曝光度、真实问答证据与主域名信源引用。" aria-label="查看可见性监测说明">ⓘ</button></h1>
-
+              
             </div>
           </div>
 
@@ -8270,7 +8294,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
               <div class="monitor-card-item"><span class="monitor-card-item-label">关键词</span><span class="monitor-card-item-value">5 个</span></div>
               <div class="monitor-card-item"><span class="monitor-card-item-label">采样执行数 <button type="button" class="info-badge" data-sampling-execution-help data-info="采样执行数按监测问题数 × 单题采集次数 × 已选 AI 平台数计算（67 个问题 × 30 次 × 5 个平台 = 10,050 次）" aria-label="查看采样执行数计算方式">ⓘ</button></span><span class="monitor-card-item-value" data-sampling-execution-total>10,050</span></div>
               <div class="monitor-card-item"><span class="monitor-card-item-label">AI平台</span><span class="monitor-card-item-value" data-settings-platform-count>5 个</span></div>
-              <div class="monitor-card-item"><span class="monitor-card-item-label">采样可信度</span><span id="sampling-level-monitor-card" class="monitor-card-item-value">趋势级</span></div>
+              <div class="monitor-card-item"><span class="monitor-card-item-label">采样可信度</span><span id="sampling-level-monitor-card" class="monitor-card-item-value">中 · 趋势级</span></div>
             </div>
           </section>
 
@@ -8328,7 +8352,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
                     <div class="monitor-brand-dimension-footer"><button class="monitor-config-edit-button" type="button" data-v17="view-brand-knowledge" data-brand-item="竞争对手">查看</button></div>
                   </article>
                 </div>
-
+                
               </article>
             </div>
 
@@ -8395,85 +8419,38 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 
             <section id="monitor-sampling-shell" class="monitor-sampling-shell" hidden aria-label="采样执行">
               <div class="sampling-execution-header sampling-execution-header-unified">
-                <div>
-                  <h2>采样执行 <button type="button" class="info-badge" data-info="查看当前采样口径、累计观测规模与可信度。趋势级 / 决策级用于切换不同采样成熟度的示例状态。" aria-label="查看采样执行说明">ⓘ</button></h2>
-                </div>
+                <div><h2>采样执行 <button type="button" class="info-badge" data-info="根据有效回答覆盖、结果稳定性和采集完整度综合判断当前可信度。" aria-label="查看采样可信度说明">ⓘ</button></h2></div>
                 <div class="sampling-execution-actions">
-                  <div class="sampling-level-switch" role="group" aria-label="查看监测可信度等级">
+                  <div class="sampling-level-switch" role="group" aria-label="可信度等级示意">
                     <span class="sampling-level-switch-label">等级示意</span>
                     <div class="sampling-level-switch-group">
-                      <button type="button" class="is-active" data-action="switch-sampling-level" data-level="trend" aria-pressed="true">趋势级</button>
-                      <button type="button" data-action="switch-sampling-level" data-level="decision" aria-pressed="false">决策级</button>
+                      <button type="button" data-action="switch-sampling-level" data-level="low" aria-pressed="false">低</button>
+                      <button type="button" class="is-active" data-action="switch-sampling-level" data-level="medium" aria-pressed="true">中</button>
+                      <button type="button" data-action="switch-sampling-level" data-level="high" aria-pressed="false">高</button>
                     </div>
                   </div>
                   <button type="button" class="monitor-question-add-button" data-action="open-sampling-settings">调整采集频率与平台</button>
                 </div>
               </div>
-              <div id="sampling-readiness-card" class="sampling-readiness-card is-trend">
+              <div id="sampling-readiness-card" class="sampling-readiness-card is-medium">
                 <div class="sampling-readiness-main">
-                  <span class="sampling-readiness-kicker">当前监测可信度</span>
-                  <strong><span id="sampling-level-value">趋势级</span> <button type="button" class="info-badge sampling-level-info-badge" data-info="趋势级与决策级用于查看当前监测质量呈现。" aria-label="查看可信度等级说明">ⓘ</button></strong>
-                  <span id="sampling-level-description">当前监测数据用于观察整体变化方向</span>
-                  <span id="sampling-cumulative-range" class="sampling-cumulative-range">累计范围：2026-09-01–2026-09-18</span>
+                  <span class="sampling-readiness-kicker">当前采集可信度</span>
+                  <strong><span id="sampling-level-value">中</span><span id="sampling-stage-value" class="sampling-maturity-tag">趋势级</span></strong>
+                  <span id="sampling-level-description">当前采集结果可用于观察品牌整体趋势。</span>
                 </div>
                 <div class="sampling-readiness-attention">
-                  <span id="sampling-level-attention-label">细分数据</span>
-                  <strong id="sampling-level-attention-title">人设层区间</strong>
-                  <small id="sampling-level-attention-detail">当前人设层 95% 置信区间约 ±8.8pp</small>
+                  <span>细分结果提示</span>
+                  <small>按买家人设或单个监测问题查看时，结果还不够稳定，暂不建议单独据此判断。</small>
                 </div>
               </div>
               <div class="source-table-card sampling-cadence-card sampling-overview-card">
-                <div class="sampling-section-heading">
-                  <h3>采样概览</h3>
-                  <span>当前口径累计</span>
+                <div class="sampling-section-heading"><h3>本次采集配置</h3><span>当前市场</span></div>
+                <div class="sampling-detail-grid">
+                  <article class="sampling-detail-item sampling-detail-market"><span class="sampling-cadence-label">市场 / 语言</span><strong>德国 · 德语</strong><small>本次结果对应的监测市场</small></article>
+                  <article class="sampling-detail-item"><span class="sampling-cadence-label">计划采集</span><strong data-settings-time>每周一 05:00</strong><small>按当前监测计划执行</small></article>
+                  <article class="sampling-detail-item sampling-detail-platforms"><span class="sampling-cadence-label">采集平台</span><strong>5 个 AI 平台</strong><div class="sampling-platform-tags"><span>ChatGPT</span><span>Google AI</span><span>Perplexity</span><span>Gemini</span><span>AI Mode</span></div></article>
+                  <article class="sampling-detail-item sampling-detail-coverage"><span class="sampling-cadence-label">监测覆盖</span><strong>当前问题集与买家人设</strong><small>67 个问题 · 6 类买家人设 · 4 类意图</small></article>
                 </div>
-                <div class="sampling-cadence-grid">
-                  <div class="sampling-cadence-item">
-                    <span class="sampling-cadence-label">监测节奏</span>
-                    <strong data-settings-time>每周一 05:00</strong>
-                    <small>按当前监测配置执行</small>
-                  </div>
-                  <div class="sampling-cadence-item">
-                    <span class="sampling-cadence-label">累计观测量</span>
-                    <strong>1,200</strong>
-                    <small>1,169 条有效回答 · 当前口径累计</small>
-                  </div>
-                  <div class="sampling-cadence-item">
-                    <span class="sampling-cadence-label">95% 置信区间</span>
-                    <strong>±2.8pp</strong>
-                    <small>当前口径累计结果</small>
-                  </div>
-                </div>
-                <div class="sampling-overview-divider"></div>
-                <div class="sampling-section-heading sampling-persona-heading">
-                  <h3>人设层置信区间 <button type="button" class="info-badge" data-info="这里展示各人设下品牌提及率（SOA）的 95% 置信区间，只用于观察不同人设结果的不确定范围，不做达标判断。" aria-label="查看人设层置信区间说明">ⓘ</button></h3>
-                  <span>按当前累计范围拆分</span>
-                </div>
-                <div class="persona-confidence-grid" aria-label="人设层置信区间">
-                  <div class="persona-confidence-item"><span class="persona-confidence-label">复材加工技术主管</span><strong>±8.2pp</strong><small>95% 置信区间</small></div>
-                  <div class="persona-confidence-item"><span class="persona-confidence-label">航空部件采购经理</span><strong>±8.8pp</strong><small>95% 置信区间</small></div>
-                  <div class="persona-confidence-item"><span class="persona-confidence-label">精密加工车间主管</span><strong>±9.4pp</strong><small>95% 置信区间</small></div>
-                  <div class="persona-confidence-item"><span class="persona-confidence-label">商社设备采购担当</span><strong>±10.1pp</strong><small>95% 置信区间</small></div>
-                  <div class="persona-confidence-item"><span class="persona-confidence-label">+2 类</span><strong>—</strong><small>名称沿用当前配置</small></div>
-                </div>
-              </div>
-              <div class="source-table-card iab-benchmark-card">
-                <div class="iab-benchmark-header">
-                  <div>
-                    <h3 id="sampling-benchmark-title">IAB 测量原则</h3>
-                    <p id="sampling-benchmark-subtitle">当前监测已覆盖质量判断维度</p>
-                  </div>
-                  <span class="iab-benchmark-source">已覆盖</span>
-                </div>
-                <div class="iab-benchmark-grid" aria-label="IAB 测量原则">
-                  <div class="iab-benchmark-item"><span id="sampling-criteria-sample-check" class="iab-benchmark-check">✓</span><span class="iab-benchmark-label">单个问题的重复采集</span><span id="sampling-criteria-sample-value" class="iab-benchmark-value">累计 1,200 次观测；有效返回 1,169 次</span></div>
-                  <div class="iab-benchmark-item"><span id="sampling-criteria-intent-check" class="iab-benchmark-check">✓</span><span class="iab-benchmark-label">问题集规模与多样性</span><span id="sampling-criteria-intent-value" class="iab-benchmark-value">67 个问题；覆盖 4 类意图</span></div>
-                  <div class="iab-benchmark-item"><span id="sampling-criteria-cadence-check" class="iab-benchmark-check">✓</span><span class="iab-benchmark-label">意图类型覆盖</span><span id="sampling-criteria-cadence-value" class="iab-benchmark-value">4 类意图已纳入当前口径；结果可按意图拆分</span></div>
-                  <div class="iab-benchmark-item"><span id="sampling-criteria-stability-check" class="iab-benchmark-check">✓</span><span class="iab-benchmark-label">监测节奏</span><span id="sampling-criteria-stability-value" class="iab-benchmark-value">按周、月或季度计划执行；按当前监测配置执行</span></div>
-                  <div class="iab-benchmark-item"><span id="sampling-criteria-engines-check" class="iab-benchmark-check">✓</span><span class="iab-benchmark-label">可复现性</span><span id="sampling-criteria-engines-value" class="iab-benchmark-value">7 日复现波动 ±3.1pp；当前周期可复现</span></div>
-                  <div class="iab-benchmark-item"><span id="sampling-criteria-collection-check" class="iab-benchmark-check">✓</span><span class="iab-benchmark-label">平台与基线</span><span id="sampling-criteria-collection-value" class="iab-benchmark-value">5 个平台分别展示；按当前口径建立基线</span></div>
-                </div>
-                <div class="iab-benchmark-callout"><strong id="sampling-benchmark-callout-label">判定状态：</strong><span id="sampling-benchmark-callout-text">当前监测已按统一质量口径执行。</span></div>
               </div>
             </section>
 
@@ -8489,10 +8466,10 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
               <section class="visibility-trend-section" aria-labelledby="visibility-trend-title">
                 <div class="visibility-trend-heading">
                   <div>
-                    <h3 id="visibility-trend-title">变化趋势 <button type="button" class="info-badge" data-info="展示 12 周品牌提及率（SOA）变化。置信区间（95%）表示整体品牌提及率估计值的可能范围，用于反映有限样本带来的不确定性；区间越窄，结果越稳定。" aria-label="查看变化趋势说明">ⓘ</button></h3>
+                    <h3 id="visibility-trend-title">变化趋势 <button type="button" class="info-badge" data-info="展示 12 周品牌提及率（SOA）的变化趋势。" aria-label="查看变化趋势说明">ⓘ</button></h3>
                   </div>
                   <div class="visibility-trend-tabs" role="tablist" aria-label="变化趋势维度">
-                    <button type="button" class="visibility-trend-tab is-active" role="tab" aria-selected="true" data-action="switch-visibility-trend" data-trend-view="overall">整体 + 置信区间</button>
+                    <button type="button" class="visibility-trend-tab is-active" role="tab" aria-selected="true" data-action="switch-visibility-trend" data-trend-view="overall">整体</button>
                     <button type="button" class="visibility-trend-tab" role="tab" aria-selected="false" data-action="switch-visibility-trend" data-trend-view="engine">按引擎</button>
                     <button type="button" class="visibility-trend-tab" role="tab" aria-selected="false" data-action="switch-visibility-trend" data-trend-view="persona">按人设</button>
                     <button type="button" class="visibility-trend-tab" role="tab" aria-selected="false" data-action="switch-visibility-trend" data-trend-view="competitor">品牌 vs 竞品</button>
@@ -8559,7 +8536,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
                 <span><i class="legend-dot heat-2"></i>偏弱区 (25-49%)</span>
                 <span><i class="legend-dot heat-1"></i>盲区/缺口 (&lt;25%)</span>
               </div>
-
+              
             </div>
 
             <div id="monitor-panel-queries" class="merged-tab-panel" role="tabpanel" hidden>
@@ -8622,7 +8599,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
           <div class="page-header">
             <div class="page-title-row">
               <h1 class="page-title">报告中心 <button type="button" class="info-badge" data-info="集中查看次报、周报、月报与季报；次报由用户点击「生成最新报告」后触发生成。" aria-label="查看报告中心说明">ⓘ</button></h1>
-
+              
             </div>
           </div>
 
@@ -9198,7 +9175,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
         const visibilityTrendDates = ['07/03', '07/10', '07/17', '07/24', '07/31', '08/07', '08/14', '08/21', '08/28', '09/04', '09/11', '09/18'];
         const visibilityTrendViews = {
           overall: {
-            note: '整体品牌提及率（SOA） · 置信区间用于判断周度估计的不确定范围',
+            note: '整体品牌提及率（SOA）的周度变化',
             series: [{ name: '整体品牌提及率（SOA）', color: '#0F766E', values: [32, 33, 34, 34, 36, 37, 38, 39, 40, 41, 41, 42] }],
             confidenceInterval: [3.7, 3.7, 3.7, 3.7, 3.7, 3.7, 3.7, 3.7, 3.7, 3.7, 3.7, 3.7]
           },
@@ -9274,40 +9251,20 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
             return `<line class="visibility-trend-grid-line" x1="${pad.left}" y1="${y}" x2="${width - pad.right}" y2="${y}"></line><text class="visibility-trend-axis-label" x="${pad.left - 8}" y="${y + 4}" text-anchor="end">${value}%</text>`;
           }).join('');
           const xLabels = visibilityTrendDates.map((date, index) => `<text class="visibility-trend-x-label" x="${xAt(index)}" y="${height - 9}" text-anchor="middle">${escapeHtml(date)}</text>`).join('');
-          let band = '';
-          if (Array.isArray(view.confidenceInterval)) {
-            const upper = view.series[0].values.map((value, index) => `${xAt(index)},${yAt(Math.min(maxValue, value + view.confidenceInterval[index]))}`).join(' L ');
-            const lower = view.series[0].values.map((value, index) => `${xAt(index)},${yAt(Math.max(0, value - view.confidenceInterval[index]))}`).reverse().join(' L ');
-            band = `<path class="visibility-trend-band" d="M ${upper} L ${lower} Z"></path>`;
-          }
+          const band = '';
           const lines = view.series.map((series) => {
             const points = series.values.map((value, index) => `${xAt(index)},${yAt(value)}`).join(' ');
             const lastIndex = series.values.length - 1;
             return `<polyline class="visibility-trend-line" points="${points}" stroke="${series.color}"></polyline><circle class="visibility-trend-dot" cx="${xAt(lastIndex)}" cy="${yAt(series.values[lastIndex])}" r="3.5" fill="${series.color}"></circle>`;
           }).join('');
           const pointHits = view.series.map((series) => series.values.map((value, index) => {
-            const hasConfidenceInterval = Array.isArray(view.confidenceInterval) && series === view.series[0];
-            const lower = hasConfidenceInterval ? Math.max(0, value - view.confidenceInterval[index]) : null;
-            const upper = hasConfidenceInterval ? Math.min(maxValue, value + view.confidenceInterval[index]) : null;
-            const confidenceText = hasConfidenceInterval ? `，95% 置信区间 ${formatTrendPercent(lower)}–${formatTrendPercent(upper)}` : '';
-            const ariaLabel = `${visibilityTrendDates[index]}，${series.name} ${formatTrendPercent(value)}${confidenceText}`;
-            return `<circle class="visibility-trend-hit-area" data-trend-point="true" data-trend-date="${escapeHtml(visibilityTrendDates[index])}" data-trend-series="${escapeHtml(series.name)}" data-trend-value="${value}" data-trend-ci-lower="${lower ?? ''}" data-trend-ci-upper="${upper ?? ''}" cx="${xAt(index)}" cy="${yAt(value)}" r="10" tabindex="0" aria-label="${escapeHtml(ariaLabel)}"></circle>`;
+            const ariaLabel = `${visibilityTrendDates[index]}，${series.name} ${formatTrendPercent(value)}`;
+            return `<circle class="visibility-trend-hit-area" data-trend-point="true" data-trend-date="${escapeHtml(visibilityTrendDates[index])}" data-trend-series="${escapeHtml(series.name)}" data-trend-value="${value}" cx="${xAt(index)}" cy="${yAt(value)}" r="10" tabindex="0" aria-label="${escapeHtml(ariaLabel)}"></circle>`;
           }).join('')).join('');
-          let endpointLabel = '';
-          if (Array.isArray(view.confidenceInterval)) {
-            const lastIndex = view.series[0].values.length - 1;
-            const lastValue = view.series[0].values[lastIndex];
-            const lower = Math.max(0, lastValue - view.confidenceInterval[lastIndex]);
-            const upper = Math.min(maxValue, lastValue + view.confidenceInterval[lastIndex]);
-            const endpointText = `本周品牌提及率（SOA）${formatTrendPercent(lastValue)} · 95% 置信区间 ${formatTrendPercent(lower)}–${formatTrendPercent(upper)}`;
-            const endpointWidth = 300;
-            const endpointX = Math.max(pad.left + 4, xAt(lastIndex) - endpointWidth - 8);
-            const endpointY = Math.max(pad.top + 4, yAt(lastValue) - 28);
-            endpointLabel = `<g class="visibility-trend-endpoint"><rect x="${endpointX}" y="${endpointY}" width="${endpointWidth}" height="22" rx="5"></rect><text x="${endpointX + endpointWidth - 8}" y="${endpointY + 14}" text-anchor="end">${escapeHtml(endpointText)}</text></g>`;
-          }
+          const endpointLabel = '';
           const legend = view.series.map((series) => `<span class="visibility-trend-legend-item"><i class="visibility-trend-legend-dot" style="background:${series.color}"></i>${escapeHtml(series.name)}</span>`).join('');
-          const confidenceLegend = Array.isArray(view.confidenceInterval) ? '<span class="visibility-trend-legend-item"><i class="visibility-trend-legend-dot" style="height:9px; background:rgba(15,118,110,0.16)"></i>95% 置信区间</span>' : '';
-          chart.innerHTML = `<svg class="visibility-trend-chart" viewBox="0 0 ${width} ${height}" preserveAspectRatio="none" role="img" aria-label="${escapeHtml(view.note)}">${gridLines}${band}${lines}${endpointLabel}${pointHits}${xLabels}</svg><div class="visibility-trend-legend">${legend}${confidenceLegend}</div><div class="visibility-trend-tooltip" id="visibility-trend-tooltip" role="tooltip" hidden></div>`;
+          const confidenceLegend = ''; 
+          chart.innerHTML = `<svg class="visibility-trend-chart" viewBox="0 0 ${width} ${height}" preserveAspectRatio="none" role="img" aria-label="${escapeHtml(view.note)}">${gridLines}${lines}${pointHits}${xLabels}</svg><div class="visibility-trend-legend">${legend}</div><div class="visibility-trend-tooltip" id="visibility-trend-tooltip" role="tooltip" hidden></div>`;
           note.textContent = view.note;
           document.querySelectorAll('[data-action="switch-visibility-trend"]').forEach((button) => {
             const isActive = button.dataset.trendView === activeVisibilityTrend;
@@ -9326,10 +9283,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
           const tooltip = document.getElementById('visibility-trend-tooltip');
           if (!chart || !tooltip || !point) return;
           const value = Number(point.dataset.trendValue);
-          const lower = point.dataset.trendCiLower;
-          const upper = point.dataset.trendCiUpper;
-          const confidenceLine = lower !== '' && upper !== '' ? `<br>95% 置信区间：${Number(lower).toFixed(1)}%–${Number(upper).toFixed(1)}%` : '';
-          tooltip.innerHTML = `<strong>${escapeHtml(point.dataset.trendDate)}</strong><br>${escapeHtml(point.dataset.trendSeries)}：${Number(value).toFixed(Number.isInteger(value) ? 0 : 1)}%${confidenceLine}`;
+          tooltip.innerHTML = `<strong>${escapeHtml(point.dataset.trendDate)}</strong><br>${escapeHtml(point.dataset.trendSeries)}：${Number(value).toFixed(Number.isInteger(value) ? 0 : 1)}%`;
           tooltip.hidden = false;
           const chartRect = chart.getBoundingClientRect();
           const pointRect = point.getBoundingClientRect();
@@ -9532,15 +9486,8 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
         }
 
         function renderQuestionSamplingProfile(query) {
-          const profile = getQuestionSamplingProfile(query);
-          return `
-            <div class="question-drawer-submetrics" aria-label="问题级累计采样"><div class="question-drawer-submetric"><span>累计采集批次</span><strong>${profile.batches} 次</strong></div>
-
-              <div class="question-drawer-submetric"><span>有效回答</span><strong>${profile.valid} / ${profile.total}</strong></div>
-              <div class="question-drawer-submetric"><span>95% 置信区间</span><strong>${profile.interval}</strong></div>
-              <div class="question-drawer-submetric"><span>累计范围</span><strong style="font-size:11px;">09-01 至 09-18</strong></div>
-            </div>
-          `;
+          getQuestionSamplingProfile(query);
+          return '';
         }
 
         function renderQuestionSummary(roundData) {
@@ -9857,7 +9804,7 @@ updateMonitorPendingUI();
           },
           weekly: {
             title: '周报 · 2026-09-15 · 结构预览',
-            body: '<div style="display:grid; gap:14px; color:#334155; line-height:1.6;"><div><strong>① 本周成果摘要</strong><p style="margin:4px 0 0;">用一句话概括本周 GEO 表现和最重要变化。</p></div><div><strong>② 核心指标与趋势</strong><p style="margin:4px 0 0;">品牌提及率、推荐率、官网引用率、声量份额的周度变化。</p></div><div><strong>③ 关键变化与证据</strong><p style="margin:4px 0 0;">本周新增/消失的问题命中、引用页面及重点 AI 平台变化。</p></div><div><strong>④ 数据可信度</strong><p style="margin:4px 0 0;">累计观测量、95% 置信区间与当前采样稳定性。</p></div></div>'
+            body: '<div style="display:grid; gap:14px; color:#334155; line-height:1.6;"><div><strong>① 本周成果摘要</strong><p style="margin:4px 0 0;">用一句话概括本周 GEO 表现和最重要变化。</p></div><div><strong>② 核心指标与趋势</strong><p style="margin:4px 0 0;">品牌提及率、推荐率、官网引用率、声量份额的周度变化。</p></div><div><strong>③ 关键变化与证据</strong><p style="margin:4px 0 0;">本周新增/消失的问题命中、引用页面及重点 AI 平台变化。</p></div><div><strong>④ 数据可信度</strong><p style="margin:4px 0 0;">采集可信度等级及其原因说明。</p></div></div>'
           },
           monthly: {
             title: '月报 · 2026-09 · 结构预览',
@@ -10280,7 +10227,7 @@ updateMonitorPendingUI();
                     <div class="left"><h3>核心产品</h3><p>至少维护 1 条核心产品信息，用于后续问题生成、内容优化与监测分析。</p></div>
                     <div class="right"><span class="step1-panel-count">已维护 1 条</span><button class="secondary-button" type="button" data-action="add-brand-product-group">＋ 新增核心产品</button></div>
                   </div>
-
+                  
                   <div class="entity-editor-list" data-entity-list="product">
                     <div class="v134-empty-state" id="v140-product-empty" hidden>尚未维护核心产品，请新增核心产品或从下方 AI 推荐加入。</div>
                     <article class="entity-editor-card v142-confirm-card" data-entity-card="product">
@@ -10489,7 +10436,7 @@ updateMonitorPendingUI();
             questions: `
               <div class="monitor-config-list-row"><span>当前问题集</span><span>67 条 · 4 类意图 · 5 个关键词</span></div>
               <div class="config-editor-question-list" aria-label="监测问题示例">${queryMatrixData.slice(0, 5).map((query, index) => `<div class="config-editor-question-item"><strong>Q${index + 1}</strong><span>${escapeHtml(query.text)}<br><small style="color:var(--ink-4);">${escapeHtml(query.persona)}</small></span></div>`).join('')}</div>
-              <div class="config-editor-note">问题集由当前品牌知识、人设、意图和关键词生成。这里用于查看、确认、停用或补充问题，不开放采样算法与置信度阈值配置。</div>
+              <div class="config-editor-note">问题集由当前品牌知识、人设、意图和关键词生成。这里用于查看、确认、停用或补充问题，不开放底层采样规则设置。</div>
             `
           };
           if (!editorContent[section]) return;
@@ -10599,89 +10546,29 @@ updateMonitorPendingUI();
         };
 
         const samplingLevelConfigs = {
-          trend: {
-            label: '趋势级',
-            readinessClass: 'is-trend',
-            description: '当前监测数据用于观察整体变化方向',
-            attentionTitle: '人设层区间',
-            attentionDetail: '当前人设层 95% 置信区间约 ±8.8pp',
-            benchmarkSubtitle: '当前监测已覆盖质量判断维度',
-            calloutText: '当前监测已按统一质量口径执行。',
-            sampleStatus: '当前值',
-            sampleDefinition: '当前展示累计样本与 95% 置信区间',
-            criteria: samplingCriteria
-          },
-          decision: {
-            label: '决策级',
-            readinessClass: '',
-            description: '当前监测结果用于查看决策级指标',
-            attentionTitle: '人设层区间',
-            attentionDetail: '当前人设层 95% 置信区间约 ±8.8pp',
-            benchmarkSubtitle: '当前监测已覆盖质量判断维度',
-            calloutText: '当前监测已按统一质量口径执行。',
-            sampleStatus: '当前值',
-            sampleDefinition: '当前展示累计样本与 95% 置信区间',
-            criteria: samplingCriteria
-          }
+          low: { label:'低', description:'有效回答覆盖不足或不同轮次结果波动较大，当前结果暂不适合用于判断变化。', readinessClass:'is-low', criteria:samplingCriteria },
+          medium: { label:'中', description:'当前采集结果可用于观察品牌整体趋势。', readinessClass:'is-medium', criteria:samplingCriteria },
+          high: { label:'高', description:'有效回答覆盖充分且不同轮次结果稳定，当前数据可用于分析整体变化。', readinessClass:'is-high', criteria:samplingCriteria }
         };
 
         function applySamplingLevel(level) {
-          const activeLevel = samplingLevelConfigs[level] ? level : 'trend';
+          const activeLevel = samplingLevelConfigs[level] ? level : 'medium';
           const config = samplingLevelConfigs[activeLevel];
           const readinessCard = document.getElementById('sampling-readiness-card');
           const levelValue = document.getElementById('sampling-level-value');
           const levelDescription = document.getElementById('sampling-level-description');
-          const attentionTitle = document.getElementById('sampling-level-attention-title');
-          const attentionDetail = document.getElementById('sampling-level-attention-detail');
-          const benchmarkSubtitle = document.getElementById('sampling-benchmark-subtitle');
-          const benchmarkCallout = document.getElementById('sampling-benchmark-callout-text');
-          const sampleStatus = document.getElementById('sampling-quality-sample-status');
-          const sampleDefinition = document.getElementById('sampling-quality-sample-definition');
-
-          if (readinessCard) readinessCard.classList.toggle('is-trend', activeLevel === 'trend');
+          if (readinessCard) {
+            readinessCard.classList.remove('is-low','is-medium','is-high');
+            readinessCard.classList.add(config.readinessClass);
+          }
           if (levelValue) levelValue.textContent = config.label;
           if (levelDescription) levelDescription.textContent = config.description;
-          if (attentionTitle) attentionTitle.textContent = config.attentionTitle;
-          if (attentionDetail) attentionDetail.textContent = config.attentionDetail;
-          if (benchmarkSubtitle) benchmarkSubtitle.textContent = config.benchmarkSubtitle;
-          if (benchmarkCallout) benchmarkCallout.textContent = config.calloutText;
-          if (sampleStatus) {
-            sampleStatus.textContent = config.sampleStatus;
-            sampleStatus.classList.remove('status-hit');
-            sampleStatus.classList.add('status-reference');
-            sampleStatus.style.background = '';
-            sampleStatus.style.color = '';
-          }
-          if (sampleDefinition) sampleDefinition.textContent = config.sampleDefinition;
-
-          const summaryValues = [
-            document.getElementById('sampling-level-monitor-strip'),
-            document.getElementById('sampling-level-monitor-card')
-          ];
-          summaryValues.forEach((element) => {
-            if (element) element.textContent = config.label;
-          });
-
-          Object.entries(config.criteria).forEach(([key, criterion]) => {
-            const check = document.getElementById(`sampling-criteria-${key}-check`);
-            const value = document.getElementById(`sampling-criteria-${key}-value`);
-            const isPending = Boolean(criterion.pending);
-            if (check) {
-              check.textContent = criterion.reference ? '•' : (isPending ? '!' : '✓');
-              check.classList.toggle('is-pending', isPending);
-              check.classList.toggle('is-reference', !!criterion.reference);
-            }
-            if (value) {
-              value.textContent = criterion.value;
-              value.classList.toggle('is-pending', isPending);
-              value.classList.toggle('is-reference', !!criterion.reference);
-            }
-          });
-
-          document.querySelectorAll('[data-action="switch-sampling-level"]').forEach((button) => {
-            const isActive = button.dataset.level === activeLevel;
-            button.classList.toggle('is-active', isActive);
-            button.setAttribute('aria-pressed', String(isActive));
+          const summary = config.label + ' · 趋势级';
+          [document.getElementById('sampling-level-monitor-strip'),document.getElementById('sampling-level-monitor-card')].forEach(element=>{if(element)element.textContent=summary;});
+          document.querySelectorAll('[data-action="switch-sampling-level"]').forEach(button=>{
+            const active=button.dataset.level===activeLevel;
+            button.classList.toggle('is-active',active);
+            button.setAttribute('aria-pressed',String(active));
           });
         }
 
@@ -11118,8 +11005,8 @@ updateMonitorPendingUI();
           return {batches:p.batches,valid:p.valid,total:p.total,interval:p.interval,range:'09-01 至 09-18'};
         }
         function qv103RenderSampling(query){
-          const p=qv103Sampling(query);
-          return `<section class="qv101-sec"><div class="qv101-head"><h3>问题采样</h3><span class="qv101-note">该问题在本轮监测中的累计采样情况</span></div><div class="qv103-sampling-grid"><article class="qv103-sampling-card"><span>累计采集批次</span><strong>${p.batches} 次</strong><small>该问题累计执行次数</small></article><article class="qv103-sampling-card"><span>有效回答</span><strong>${p.valid} / ${p.total}</strong><small>有效回答 / 总回答</small></article><article class="qv103-sampling-card"><span>95% 置信区间</span><strong>${p.interval}</strong><small>用于判断问题级数据稳定性</small></article><article class="qv103-sampling-card"><span>累计采样范围</span><strong style="font-size:16px">${p.range}</strong><small>当前统计时间范围</small></article></div></section>`;
+          qv103Sampling(query);
+          return '';
         }
         function qv103Trend(query){
           if(query.id==='q1') return {labels:['11-17','11-24','12-01','12-08','12-15'],series:[{name:'ChatGPT',color:'#2563eb',values:[33,33,67,67,67]},{name:'Perplexity',color:'#7c3aed',values:[0,33,33,67,67]},{name:'Google AI',color:'#f59e0b',values:[33,33,33,67,67]}]};
@@ -11189,7 +11076,7 @@ updateMonitorPendingUI();
           const samplingLevelButton = event.target.closest('[data-action="switch-sampling-level"]');
           if (samplingLevelButton) {
             event.preventDefault();
-            applySamplingLevel(samplingLevelButton.dataset.level || 'trend');
+            applySamplingLevel(samplingLevelButton.dataset.level || 'medium');
             return;
           }
 
@@ -13109,7 +12996,7 @@ For procurement purposes, the brand should only be treated as a meaningful compe
         renderSourcePageTracking();
         renderQuestionMatrix();
         renderMonitorQuestionMaintenance();
-        applySamplingLevel('trend');
+        applySamplingLevel('medium');
         switchReportSettingsTab('reports');
         // v66: allow standalone report pages to return directly to 报告中心
         if (new URLSearchParams(window.location.search).get('view') === 'report-settings') {
@@ -13121,7 +13008,7 @@ For procurement purposes, the brand should only be treated as a meaningful compe
         switchMonitorConfigTab('brand');
         updateMonitorPendingUI();
       })();
-
+    
 
       // v57 首次进入：复用正式配置的数据结构，只改变首次确认流程
       (() => {
@@ -13181,7 +13068,7 @@ For procurement purposes, the brand should only be treated as a meaningful compe
         render();
       })();
 </script>
-
+  
 <script id="v77-onboarding-help-popover-fix">
 (function(){
   function closeAll(except){
@@ -13347,7 +13234,7 @@ For procurement purposes, the brand should only be treated as a meaningful compe
       {id:'jp-10',text:'5軸ウォータージェットでAPWとOMAXはどう違いますか？',keyword:'APW vs OMAX',type:'品牌词',persona:'采购负责人',intent:'比较'}
     ]
   };
-  const onboardingQuestionSelections={de:new Set(),us:new Set(),jp:new Set()};
+  const onboardingQuestionSelections={de:new Set(['de-1']),us:new Set(['us-1']),jp:new Set(['jp-1'])};
   const onboardingCustomQuestions={de:[],us:[],jp:[]};
 
   let onboardingMarket='de';
@@ -14086,11 +13973,11 @@ For procurement purposes, the brand should only be treated as a meaningful compe
       if(a==='enable-current-market'||a==='enable-all-markets'){if(a==='enable-all-markets'){Object.keys(marketMonitoringPaused).forEach(market=>marketMonitoringPaused[market]=false);monitoringPaused=false;pausedScope='all';}else{marketMonitoringPaused[currentMarketName()]=false;monitoringPaused=false;pausedScope='current';}syncMonitoringStatus();closeModal();return;}
       if(a==='view-all-personas'){const cards=$$('.monitor-persona-card');const field=(label,value,required)=>'<label class="ob159-field"><span>'+label+(required?' <i>*</i>':'')+'</span><div class="ob159-readonly-control">'+(value||'—')+'</div></label>';const sets=cards.map(card=>{const grid=$('.monitor-persona-expanded-grid',card);const data={};if(grid)$$('div',grid).filter(row=>row.querySelector(':scope > span')&&row.querySelector(':scope > strong')).forEach(row=>data[row.querySelector(':scope > span').textContent]=row.querySelector(':scope > strong').textContent);const name=$('.monitor-persona-card-title strong',card)?.textContent||'买家人设';return '<section class="ob159-set"><div class="ob159-set-head"><span>'+name+'</span></div><div class="ob159-required-grid">'+field('人设类型',data['人设类型'],true)+field('采购阶段',data['采购阶段'],true)+'</div><details class="ob159-optional"><summary>选填信息（实际职位、行业、企业规模等）</summary><div class="ob159-optional-grid ob159-required-grid">'+[['实际职位','实际职位'],['行业','行业'],['企业规模','企业规模'],['决策角色','决策角色'],['采购触发场景','采购触发场景'],['采购预算','采购预算'],['采购周期','采购周期'],['了解渠道','了解渠道']].map(([label,key])=>field(label,data[key],false)).join('')+'</div></details></section>';}).join('');const body='<div class="v17-persona-readonly-scroll"><p class="ob159-intro">当前市场已确认的全部买家人设，仅供查看。</p><div class="ob159-set-list">'+sets+'</div></div>';const wrap=mountModal('查看买家人设',body,btn('关闭','close',true));const dialog=$('.v17-modal',wrap);if(dialog)dialog.classList.add('v17-modal-persona-batch','v17-modal-persona-readonly','v17-modal-persona-all');return;}
       if(a==='toggle-persona-details'){return;}
-
+      
       if(a==='persona-add-set'){const dialog=action.closest('.v17-modal');const rows=$$('.ob159-set',dialog);if(rows.length>=6){const msg=$('#v17-persona-validation',dialog);if(msg){msg.textContent='最多维护 6 套人设。';msg.hidden=false;}return;}const list=$('#v17-persona-set-list',dialog);list.insertAdjacentHTML('beforeend',openPersonaSetTemplate(rows.length));return;}
       if(a==='persona-remove-set'){const dialog=action.closest('.v17-modal');const row=action.closest('.ob159-set');if(row)row.remove();$$('.ob159-set',dialog).forEach((item,index)=>{const title=$('.ob159-set-head span',item);if(title)title.textContent='人设 '+(index+1);let remove=$('[data-v17="persona-remove-set"]',item);if(index===0&&remove)remove.remove();else if(index>0&&!remove){$('.ob159-set-head',item).insertAdjacentHTML('beforeend','<button class="ob159-remove" type="button" data-v17="persona-remove-set">移除</button>');}});return;}
       if(a==='persona-save'){const dialog=action.closest('.v17-modal');const rows=collectMonitorPersonaSets(dialog);const validation=$('#v17-persona-validation',dialog);let error='';if(rows.some(row=>!row.fixedRole||!row.stage))error='请为每套人设选择人设类型和采购阶段。';const types=rows.map(row=>row.fixedRole);const original=(dialog.dataset.originalRoles||'').split('|').filter(Boolean);const count=(items,key)=>items.filter(x=>x===key).length;if(!error&&types.some(type=>count(types,type)>count(original,type)))error='同一类型只能添加一次，请检查人设类型。';if(error){validation.textContent=error;validation.hidden=false;return;}const removed=original.some(type=>count(original,type)>count(types,type));closeModal();editContext=null;const body=removed?'<p>已移除所选买家人设。关联 Prompt 未自动修改或停用，仍按当前已保存配置用于后续采集。</p><div class="v17-note">如需调整后续采集，请单独编辑或停用对应 Prompt。历史监测数据与报告保留。</div>':'<p>买家人设资料已保存，不会自动修改关联 Prompt，也不会改变历史监测数据或后续采集口径。</p><div class="v17-note">如需调整采集内容，请单独编辑监测 Prompt。</div>';mountModal(removed?'人设已移除':'买家人设已保存',body,btn('完成','done',true));return;}
-
+      
       if(a==='persona-review-tab'){const key=action.dataset.reviewTab;const dialog=action.closest('.v17-modal');$$('[data-v17="persona-review-tab"]',dialog).forEach(tab=>{const active=tab===action;tab.classList.toggle('is-active',active);tab.setAttribute('aria-selected',active?'true':'false');});$$('[data-review-panel]',dialog).forEach(panel=>panel.hidden=panel.dataset.reviewPanel!==key);return;}
       if(a==='view-brand-knowledge'){
         const tabMap={'品牌信息':'brand','核心产品':'product','市场与语言':'market','竞争对手':'competitor'};
